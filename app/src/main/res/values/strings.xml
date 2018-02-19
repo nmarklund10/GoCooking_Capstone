@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">MealMentor</string>
-    <string name="edit_message">Enter a message</string>
-    <string name="button_send">Send</string>
-    <string name="text_result">text</string>
+    <string name="searchRecipe">Search Recipe</string>
+    <string name="referenceGuide">Reference Guide</string>
+    <string name="help">\?</string>
+    <string name="text_result">help</string>
+    <string name="title_activity_reference_guide">ReferenceGuide</string>
 </resources>

@@ -1,18 +1,17 @@
-package njm.myapplication;
+package njm.MealMentor;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
 
 import org.opencv.android.OpenCVLoader;
 import org.opencv.android.BaseLoaderCallback;
 import org.opencv.android.LoaderCallbackInterface;
 
 public class MainActivity extends AppCompatActivity {
-    public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
+    public static final String EXTRA_MESSAGE = "";
     private static final String TAG = "MainActivity";
     private BaseLoaderCallback mLoaderCallback = new BaseLoaderCallback(this) {
         @Override
@@ -35,12 +34,18 @@ public class MainActivity extends AppCompatActivity {
         OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION_3_4_0, this, mLoaderCallback);
     }
 
-    // Called in response to the button being clicked
-    public void sendMessage(View view) {
-        Intent intent = new Intent(this, DisplayMessageActivity.class);
-        EditText editText = findViewById(R.id.editText);
-        String message = editText.getText().toString();
-        intent.putExtra(EXTRA_MESSAGE, message);
+    public void goToSearchRecipes(View view) {
+        Intent intent = new Intent(this, SearchRecipes.class);
+        startActivity(intent);
+    }
+
+    public void goToRefGuide(View view) {
+        Intent intent = new Intent(this, ReferenceGuide.class);
+        startActivity(intent);
+    }
+
+    public void goToTutorial(View view) {
+        Intent intent = new Intent(this, Tutorial.class);
         startActivity(intent);
     }
 }
