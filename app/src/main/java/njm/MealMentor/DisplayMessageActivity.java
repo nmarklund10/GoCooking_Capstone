@@ -1,4 +1,4 @@
-package njm.myapplication;
+package njm.MealMentor;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
