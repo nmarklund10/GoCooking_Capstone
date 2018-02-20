@@ -11,7 +11,6 @@ import org.opencv.android.BaseLoaderCallback;
 import org.opencv.android.LoaderCallbackInterface;
 
 public class MainActivity extends AppCompatActivity {
-    public static final String EXTRA_MESSAGE = "";
     private static final String TAG = "MainActivity";
     private BaseLoaderCallback mLoaderCallback = new BaseLoaderCallback(this) {
         @Override
