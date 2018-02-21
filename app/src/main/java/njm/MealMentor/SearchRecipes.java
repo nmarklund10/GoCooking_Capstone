@@ -43,7 +43,7 @@ public class SearchRecipes extends AppCompatActivity {
         recipes.add(new Recipe("Alice in Wonderland", 12, R.drawable.ic_texas_am));
 
         recipes.add(new Recipe("Batman vs Superman", 100, R.drawable.ic_texas_am));
-        recipes.add(new Recipe("X-Men: Apocalypse", 60, R.drawable.ic_texas_am));
+        recipes.add(new Recipe("X-Men: Apocalypse", 61, R.drawable.ic_texas_am));
         recipes.add(new Recipe("Captain America: Civil War", 40, R.drawable.ic_texas_am));
         recipes.add(new Recipe("Kung Fu Panda 3", 240, R.drawable.ic_texas_am));
         recipes.add(new Recipe("Warcraft", 20, R.drawable.ic_texas_am));
