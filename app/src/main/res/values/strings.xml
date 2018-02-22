@@ -4,4 +4,5 @@
     <string name="referenceGuide">Reference Guide</string>
     <string name="searchRecipeHint">Search For Recipes</string>
     <string name="backText">Back</string>
+    <string name="help">help</string>
 </resources>
