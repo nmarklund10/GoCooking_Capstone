@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="njm.MealMentor.MainActivity"
+    tools:context="njm.MealMentor.MainMenu"
     tools:layout_editor_absoluteY="81dp">
 
     <TextView
@@ -49,15 +49,16 @@
 
     <Button
         android:id="@+id/helpButton"
-        android:layout_width="54dp"
+        android:layout_width="90dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="34dp"
         android:backgroundTint="@android:color/holo_green_dark"
-        android:drawableLeft="@android:drawable/ic_menu_help"
+        android:drawableLeft="@drawable/ic_school"
         android:onClick="goToTutorial"
+        android:text="@string/help"
         android:textColor="@android:color/background_light"
-        android:textSize="18sp"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>
