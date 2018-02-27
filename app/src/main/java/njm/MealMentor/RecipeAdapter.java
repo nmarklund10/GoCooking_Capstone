@@ -1,19 +1,24 @@
 package njm.MealMentor;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.view.View;
+import android.widget.ImageView;
 
-import java.util.Collections;
-import java.util.List;
+import java.io.InputStream;
+import java.net.URL;
+import java.util.ArrayList;
 
 public class RecipeAdapter extends RecyclerView.Adapter<RecipeViewHolder>{
-    List<Recipe> recipeList = Collections.emptyList();
+    ArrayList<Recipe> recipeList = new ArrayList<>();
     Context context;
 
-    public RecipeAdapter(List<Recipe> recipeList, Context context) {
+    public RecipeAdapter(ArrayList recipeList, Context context) {
         this.recipeList = recipeList;
         this.context = context;
     }
@@ -30,11 +35,35 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeViewHolder>{
     public void onBindViewHolder(RecipeViewHolder holder, int position) {
 
         //Use the provided View Holder on the onCreateViewHolder method to populate the current row on the RecyclerView
-        holder.title.setText(recipeList.get(position).title);
+        holder.title.setText(recipeList.get(position).name);
         holder.description.setText(recipeList.get(position).cookingTime);
-        holder.imageView.setImageResource(recipeList.get(position).imageId);
-        //animate(holder);
+        holder.imageView.setImageBitmap(recipeList.get(position).image);
+        if (recipeList.get(position).image == null)
+            new DownloadImageTask(holder.imageView).execute(recipeList.get(position).imageURL);
+    }
 
+    private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
+        ImageView bmImage;
+
+        public DownloadImageTask(ImageView bmImage) {
+            this.bmImage = bmImage;
+        }
+
+        protected Bitmap doInBackground(String... urls) {
+            String urldisplay = urls[0];
+            Bitmap image;
+            try {
+                InputStream in = new URL(urldisplay).openStream();
+                image = BitmapFactory.decodeStream(in);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+            return image;
+        }
+
+        protected void onPostExecute(Bitmap result) {
+            bmImage.setImageBitmap(result);
+        }
     }
 
     @Override
