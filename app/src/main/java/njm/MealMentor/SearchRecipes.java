@@ -16,14 +16,13 @@ import android.view.MenuItem;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import static android.widget.GridLayout.HORIZONTAL;
 
 
 public class SearchRecipes extends AppCompatActivity {
     private MaterialSearchView searchView;
-    private List<Recipe> recipes;
+    private ArrayList<Recipe> recipes;
     private RecipeAdapter adapter;
     private RecyclerView recyclerView;
     private GridLayoutManager manager;
@@ -39,9 +38,7 @@ public class SearchRecipes extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         searchView = findViewById(R.id.search_view);
         searchView.setVoiceSearch(true);
-
-        recipes = getRecipes();
-
+        recipes = Recipe.getRecipes();
         recyclerView = findViewById(R.id.recyclerView);
         adapter = new RecipeAdapter(recipes, getApplication());
         recyclerView.setAdapter(adapter);
@@ -59,9 +56,9 @@ public class SearchRecipes extends AppCompatActivity {
             @Override
             public boolean onQueryTextChange(String searchText) {
                 if (searchText != null && !searchText.isEmpty()) {
-                    List<Recipe> matches = new ArrayList<>();
+                    ArrayList<Recipe> matches = new ArrayList<>();
                     for (Recipe item:recipes) {
-                        String recipeTitle = item.title.toLowerCase();
+                        String recipeTitle = item.name.toLowerCase();
                         String query = searchText.toLowerCase();
                         if (recipeTitle.contains(query)) {
                             matches.add(item);
@@ -76,28 +73,6 @@ public class SearchRecipes extends AppCompatActivity {
                 return true;
             }
         });
-    }
-
-    //Create a list of Recipe objects
-    public List<Recipe> getRecipes() {
-
-        List<Recipe> recipes = new ArrayList<>();
-
-        recipes.add(new Recipe("Batman vs Superman", 180, R.drawable.ic_texas_am));
-        recipes.add(new Recipe("X-Men: Apocalypse", 50, R.drawable.ic_texas_am));
-        recipes.add(new Recipe("Captain America: Civil War", 67, R.drawable.ic_texas_am));
-        recipes.add(new Recipe("Kung Fu Panda 3", 28, R.drawable.ic_texas_am));
-        recipes.add(new Recipe("Warcraft", 300, R.drawable.ic_texas_am));
-        recipes.add(new Recipe("Alice in Wonderland", 12, R.drawable.ic_texas_am));
-
-        recipes.add(new Recipe("Batman vs Superman", 100, R.drawable.ic_texas_am));
-        recipes.add(new Recipe("X-Men: Apocalypse", 61, R.drawable.ic_texas_am));
-        recipes.add(new Recipe("Captain America: Civil War", 40, R.drawable.ic_texas_am));
-        recipes.add(new Recipe("Kung Fu Panda", 240, R.drawable.ic_texas_am));
-        recipes.add(new Recipe("Warcraft", 20, R.drawable.ic_texas_am));
-        recipes.add(new Recipe("Alice in Wonderland", 30, R.drawable.ic_texas_am));
-
-        return recipes;
     }
 
     @Override

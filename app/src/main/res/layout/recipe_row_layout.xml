@@ -31,7 +31,7 @@
             android:layout_alignParentTop="true"
             android:layout_alignStart="@+id/recipeDescription"
             android:text="Title"
-            android:textSize="18sp" />
+            android:textSize="17sp" />
 
         <TextView
             android:id="@+id/recipeDescription"

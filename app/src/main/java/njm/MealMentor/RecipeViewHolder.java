@@ -20,5 +20,7 @@ public class RecipeViewHolder extends RecyclerView.ViewHolder {
         description = itemView.findViewById(R.id.recipeDescription);
         imageView = itemView.findViewById(R.id.recipeImage);
         cv.getLayoutParams().width = Resources.getSystem().getDisplayMetrics().widthPixels / 2;
+        imageView.getLayoutParams().width = Resources.getSystem().getDisplayMetrics().heightPixels / 3;
+        imageView.getLayoutParams().height = Resources.getSystem().getDisplayMetrics().heightPixels / 3;
     }
 }
