@@ -193,6 +193,6 @@ public class SearchRecipes extends AppCompatActivity {
         }else {
             super.onSupportNavigateUp();
         }
-        return false;
+        return true;
     }
 }
