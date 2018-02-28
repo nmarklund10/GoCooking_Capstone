@@ -7,13 +7,13 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class RecipeViewHolder extends RecyclerView.ViewHolder {
+public class RecipeSearchViewHolder extends RecyclerView.ViewHolder {
     CardView cv;
     TextView title;
     TextView description;
     ImageView imageView;
 
-    RecipeViewHolder(View itemView) {
+    RecipeSearchViewHolder(View itemView) {
         super(itemView);
         cv = itemView.findViewById(R.id.recipeCardView);
         title = itemView.findViewById(R.id.recipeTitle);
@@ -21,6 +21,6 @@ public class RecipeViewHolder extends RecyclerView.ViewHolder {
         imageView = itemView.findViewById(R.id.recipeImage);
         cv.getLayoutParams().width = Resources.getSystem().getDisplayMetrics().widthPixels / 2;
         imageView.getLayoutParams().width = Resources.getSystem().getDisplayMetrics().heightPixels / 3;
-        imageView.getLayoutParams().height = Resources.getSystem().getDisplayMetrics().heightPixels / 3;
+        imageView.getLayoutParams().height = imageView.getLayoutParams().width;
     }
 }

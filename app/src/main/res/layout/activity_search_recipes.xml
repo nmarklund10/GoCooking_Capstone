@@ -45,4 +45,18 @@
             app:searchSuggestionBackground="@color/colorPrimary" />
     </FrameLayout>
 
+    <TextView
+        android:id="@+id/noResultText"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/noResults"
+        android:textAlignment="center"
+        android:textColor="@color/hintColor"
+        android:textSize="24sp"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="@id/recyclerView"
+        app:layout_constraintLeft_toLeftOf="@id/recyclerView"
+        app:layout_constraintRight_toRightOf="@id/recyclerView"
+        app:layout_constraintTop_toTopOf="@id/recyclerView" />
+
 </android.support.constraint.ConstraintLayout>
