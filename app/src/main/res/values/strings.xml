@@ -5,4 +5,5 @@
     <string name="searchRecipeHint">Search For Recipes</string>
     <string name="backText">Back</string>
     <string name="help">help</string>
+    <string name="noResults">No Results Found</string>
 </resources>

@@ -14,25 +14,25 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
 
-public class RecipeAdapter extends RecyclerView.Adapter<RecipeViewHolder>{
+public class RecipeSearchAdapter extends RecyclerView.Adapter<RecipeSearchViewHolder>{
     ArrayList<Recipe> recipeList = new ArrayList<>();
     Context context;
 
-    public RecipeAdapter(ArrayList recipeList, Context context) {
+    public RecipeSearchAdapter(ArrayList recipeList, Context context) {
         this.recipeList = recipeList;
         this.context = context;
     }
 
     @Override
-    public RecipeViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public RecipeSearchViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         //Inflate the layout, initialize the View Holder
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.recipe_row_layout, parent, false);
-        return new RecipeViewHolder(v);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.recipe_search_span_layout, parent, false);
+        return new RecipeSearchViewHolder(v);
 
     }
 
     @Override
-    public void onBindViewHolder(RecipeViewHolder holder, int position) {
+    public void onBindViewHolder(RecipeSearchViewHolder holder, int position) {
 
         //Use the provided View Holder on the onCreateViewHolder method to populate the current row on the RecyclerView
         holder.title.setText(recipeList.get(position).name);

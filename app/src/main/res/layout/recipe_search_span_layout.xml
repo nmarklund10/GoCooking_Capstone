@@ -29,7 +29,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_alignStart="@+id/recipeDescription"
+            android:layout_marginStart="8dp"
+            android:layout_toEndOf="@+id/recipeImage"
             android:text="Title"
             android:textSize="17sp" />
 
@@ -37,8 +38,8 @@
             android:id="@+id/recipeDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/recipeTitle"
             android:layout_below="@+id/recipeTitle"
-            android:layout_toEndOf="@+id/recipeImage"
             android:text="Description"
             android:textSize="12sp" />
 
