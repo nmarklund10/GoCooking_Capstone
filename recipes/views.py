@@ -10,9 +10,6 @@ from .models import Recipe
 
 def index(request):
     recipe_list = Recipe.objects.all()
-    s = ""
-    for r in recipe_list:
-        s += r.name + "<br>"
     return render_to_response('templates/login.html')
 
 
