@@ -1,9 +1,0 @@
-<resources>
-    <string name="app_name">MealMentor</string>
-    <string name="searchRecipe">Search Recipe</string>
-    <string name="referenceGuide">Reference Guide</string>
-    <string name="searchRecipeHint">Search For Recipes</string>
-    <string name="backText">Back</string>
-    <string name="help">help</string>
-    <string name="noResults">No Results Found</string>
-</resources>
