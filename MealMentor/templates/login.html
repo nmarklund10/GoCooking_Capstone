@@ -3,30 +3,61 @@
 {% block includes %}
     {% load static %}
         <script type="text/javascript" src="{% static 'js/login.js' %}"></script>
+    <meta name="google-signin-client_id" content="1077122638274-miv1k84bp2re18qcpvvl0uoifv9ngkc2.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script>
+        window.onload = loginSetup;
+    </script>
+    <style>
+        .first {
+            height: 23vh;
+        }
+        .center {
+            justify-content: center;
+        }
+        .login {
+            border-radius: 25px;
+            color: white;
+            background-color: black;
+            text-align: center;
+            height: 23vh;
+            width: 30vw;
+        }
+        .login-title {
+            font-size: 4vh
+        }
+    </style>
 {% endblock %}
 
 {% block content %}
-    <div style="vertical-align:center;">
-        <p align="center" style="font-size:36px;">Stuff goes here</p>
-        <p align="center" style="font-size:36px;">Stuff goes here</p>
-        <p align="center" style="font-size:36px;">Stuff goes here</p>
-        <p align="center" style="font-size:36px;">Stuff goes here</p>
-        <p align="center" style="font-size:36px;">Stuff goes here</p>
-        <p align="center" style="font-size:36px;">Stuff goes here</p>
-        <p align="center" style="font-size:36px;">Stuff goes here</p>
-        <p align="center" style="font-size:36px;">Stuff goes here</p>
-        <p align="center" style="font-size:36px;">Stuff goes here</p>
-        <p align="center" style="font-size:36px;">Stuff goes here</p>
-        <p align="center" style="font-size:36px;">Stuff goes here</p>
-        <p align="center" style="font-size:36px;">Stuff goes here</p>
-        <p align="center" style="font-size:36px;">Stuff goes here</p>
-        <p align="center" style="font-size:36px;">Stuff goes here</p>
-        <p align="center" style="font-size:36px;">Stuff goes here</p>
-        <p align="center" style="font-size:36px;">Stuff goes here</p>
-        <p align="center" style="font-size:36px;">Stuff goes here</p>
-        <p align="center" style="font-size:36px;">Stuff goes here</p>
-        <p align="center" style="font-size:36px;">Stuff goes here</p>
-        <p align="center" style="font-size:36px;">Stuff goes here</p>
-        <p align="center" style="font-size:36px;">Stuff goes here</p>        
+    <div class="mdl-grid">
+        <div class="mdl-cell first"></div>
     </div>
+    <div class="mdl-grid center">
+        <div class="mdl-cell mdl-shadow--2dp login">
+            <br>
+            <span class="login-title">Log In / Create Account</span>
+            <hr>
+            <br>
+            <div id="googleButton" class="g-signin2" data-longtitle="true" data-theme="dark" data-width="240" data-height="50" data-theme="dark" align="center"></div>
+        </div>
+    </div>
+    <div class="mdl-grid">
+        <div class="mdl-cell first"></div>
+    </div>
+{% endblock %}
+
+{% block footer %}
+    <footer class="mdl-mini-footer mdl-color--blue-grey" style="padding-bottom: 0; padding-top:10px;">
+        <div class="mdl-mini-footer__left-section" style="margin-bottom: 10px">
+            <div class="mdl-layout-title" style="font-size: 16px; color:#eef1f5;">
+                GoCooking &copy;2018
+            </div>
+        </div>
+        <div class="mdl-mini-footer__right-section" style="margin-bottom: 10px">
+            <div class="mdl-layout-title" style="font-size: 16px; color:#eef1f5;">
+                Texas A&amp;M University
+            </div>
+        </div>
+    </footer>
 {% endblock %}
