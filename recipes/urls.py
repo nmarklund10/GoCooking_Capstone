@@ -1,7 +1,7 @@
 from django.urls import path
 from . import views
 
+app_name = "recipes"
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('getRecipes', views.getRecipes)
+    path('', views.index, name='recipe_index_url')
 ]

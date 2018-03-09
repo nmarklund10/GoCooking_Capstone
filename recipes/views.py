@@ -10,7 +10,7 @@ from .models import Recipe
 
 def index(request):
     recipe_list = Recipe.objects.all()
-    return render_to_response('templates/login.html')
+    return HttpResponse("nothing here")
 
 
 def getRecipes(request):
