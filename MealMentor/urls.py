@@ -18,6 +18,10 @@ from django.urls import include, path
 from django.conf.urls import url
 
 urlpatterns = [
-    path('', include('login.urls', namespace="login")),
-    path('recipes/', include('recipes.urls', namespace="recipes")),
+    path('', include('login.urls', namespace='login'), name='login'),
+    path('recipes/', include('recipes.urls', namespace='recipes'), name='recipes'),
+    path('auth/', include('social_django.urls', namespace='social')),
 ]
+
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'recipes'
