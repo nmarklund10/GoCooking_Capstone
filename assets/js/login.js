@@ -26,7 +26,7 @@ function sendLoginRequest(googleUser) {
         else if(response.success)
         {
             window.name = response.name;
-            window.location = "/dash/";
+            goToUrl("/recipes/");
         }
         else
         {
