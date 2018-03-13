@@ -3,11 +3,17 @@
     <head>
         <title>MealMentor</title>
         <meta charset="UTF-8">
+        {% load static %}        
+        <link rel="shortcut icon" type="image/png" href="{% static 'images/logo.png' %}"/>
         <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue-pink.min.css">
         <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        {% csrf_token %}
+        <script>
+            var csrf_token = document.getElementsByName("csrfmiddlewaretoken")[0].value.toString();
+        </script>
         {% load static %}
         <script type="text/javascript" src="{% static 'js/helper.js' %}"></script>
         <link rel="stylesheet" href="{% static 'css/template.css' %}">
