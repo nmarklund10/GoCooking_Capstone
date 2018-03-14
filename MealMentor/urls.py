@@ -19,5 +19,5 @@ from django.conf.urls import url
 
 urlpatterns = [
     path('', include('login.urls', namespace='login'), name='login'),
-    path('recipes/', include('recipes.urls', namespace='recipes'), name='recipes'),
+    path('', include('recipes.urls', namespace='recipes'), name='recipes'),
 ]
