@@ -25,25 +25,36 @@
             <header class="mdl-layout__header --waterfall">
                 <div class="mdl-layout__header-row">
                     {% load static %}
-                    <img style="max-width:70%; max-height:70%;" src="{% static 'images/logo.png' %}"></img>
-                    <span style="padding-left:1vw" class="mdl-layout-title">MealMentor</span>
+                    <img style="max-width:70%; max-height:70%; cursor:pointer;" onclick="goToUrl('/');" src="{% static 'images/logo.png' %}"></img>
+                    <span style="padding-left:1vw; cursor:pointer;" onclick="goToUrl(homePage);" class="mdl-layout-title">MealMentor</span>
+                    <div class="mdl-layout-spacer"></div>
+                    <nav class="mdl-navigation mdl-layout--large-screen-only">
+                        <a class="mdl-navigation__link" href="/about">About</a>
+                    </nav>
                 </div>
             </header>
             <div class="mdl-layout__drawer">
                 <span class="mdl-layout-title">MealMentor</span>
                 <nav class="mdl-navigation">
-                    <a class="mdl-navigation__link" href="">Link</a>
-                    <a class="mdl-navigation__link" href="">Link</a>
-                    <a class="mdl-navigation__link" href="">Link</a>
-                    <a class="mdl-navigation__link" href="">Link</a>
+                    <a class="mdl-navigation__link" href="/about">About</a>
                 </nav>
             </div>
             <main class="mdl-layout__content">
                 {% block content %}
                 {% endblock %}
             </main>
-            {% block footer %}
-            {% endblock %}         
+            <footer class="mdl-mini-footer mdl-color--blue-grey" style="padding-bottom: 0; padding-top:10px;">
+                <div class="mdl-mini-footer__left-section" style="margin-bottom: 10px">
+                    <div class="mdl-layout-title" style="font-size: 16px; color:#eef1f5;">
+                        GoCooking &copy;2018
+                    </div>
+                </div>
+                <div class="mdl-mini-footer__right-section" style="margin-bottom: 10px">
+                    <div class="mdl-layout-title" style="font-size: 16px; color:#eef1f5;">
+                        Texas A&amp;M University
+                    </div>
+                </div>
+            </footer>        
         </div>            
     </body>
 </html>

@@ -15,7 +15,7 @@ function sendLoginRequest(googleUser) {
                     {
                         if (r.success) {
                             window.name = response.name;
-                            goToUrl("/recipes/");
+                            goToUrl("/dashboard");
                         }
                         else {
                             alert(r.reason);
@@ -26,7 +26,7 @@ function sendLoginRequest(googleUser) {
         else if(response.success)
         {
             window.name = response.name;
-            goToUrl("/recipes/");
+            goToUrl("/dashboard");
         }
         else
         {

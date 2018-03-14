@@ -2,26 +2,28 @@ import requests
 import json
 import re
 from django.shortcuts import render, render_to_response
-from django.http import HttpResponse
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+from django.http import JsonResponse
 from .models import Recipe
 
 # Create your views here.
 
 
-def index(request):
-    recipe_list = Recipe.objects.all()
-    return HttpResponse("nothing here")
+def show_dashboard(request):
+    if 'logged_in' not in request.session:
+        return HttpResponseRedirect(reverse('login:login_url'))
+    return render(request, 'templates/dashboard.html', {})
 
 
-def getRecipes(request):
+def create_new_recipe():
     recipe = "error"
     while (recipe == "error"):
-        recipe = getRecipeFromAPI()
-        recipe = parseRecipe(recipe)
-    return index("")
+        recipe = get_recipe_from_API()
+        recipe = parse_recipe(recipe)
+    return recipe
 
-
-def getRecipeFromAPI():
+def get_recipe_from_API():
     response = requests.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/random?number=1",
                             headers={
                                 "X-Mashape-Key": "HuB8xlNOrjmshFwdHdwPXXIsaDUTp1CapSWjsnazvGBPrRvNUW",
@@ -32,7 +34,7 @@ def getRecipeFromAPI():
     return recipe
 
 
-def parseRecipe(recipe):
+def parse_recipe(recipe):
     try:
         name = recipe["title"]
         if(len(name) > 256):
