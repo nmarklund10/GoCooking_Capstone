@@ -16,11 +16,11 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=256)),
-                ('minutes', models.IntegerField()),
+                ('minutes', models.CharField(max_length=128)),
                 ('instructions', models.CharField(max_length=10000)),
                 ('ingredients', models.CharField(max_length=2048)),
                 ('equipment', models.CharField(max_length=1024)),
-                ('imageUrl', models.CharField(max_length=512)),
+                ('image_url', models.CharField(max_length=512)),
             ],
         ),
     ]

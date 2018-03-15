@@ -30,7 +30,7 @@ def verify_token(request):
         except User.DoesNotExist:
             return JsonResponse({'create': True, 'email': email, 'name': name})
     else:
-        return JsonResponse({'sucess': False, 'reason': 'Error has occured on the server.'})
+        return JsonResponse({'success': False, 'reason': 'Error has occured on the server.'})
 
 def create_user(request):
     if request.method == 'POST':

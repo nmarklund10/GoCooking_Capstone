@@ -1,7 +1,23 @@
-{% extends 'templates/base.html' %}
+{% extends 'templates/base_no_footer.html' %}
 
 {% block includes %}
-
+    {% load static %}
+        <script type="text/javascript" src="{% static 'js/dashboard.js' %}"></script>
+    <script>
+        window.onload = getRecipes;
+    </script>
+    <style>
+        .center-items {
+            justify-content: center;
+        }
+        .center-text {
+            text-align: center;
+        }
+        .mdl-card {
+            display: inline-block;
+            width: 30vw;
+        }
+    </style>
 {% endblock %}
 
 {% block content %}
@@ -9,19 +25,167 @@
         <div class = "mdl-tabs__tab-bar mdl-color--white">
            <a href = "#tab1-panel" class = "mdl-tabs__tab is-active">Eggs</a>
            <a href = "#tab2-panel" class = "mdl-tabs__tab">Chicken</a>
-           <a href = "#tab3-panel" class = "mdl-tabs__tab">Other Track</a>
+           <a href = "#tab3-panel" class = "mdl-tabs__tab">Future Tracks</a>
         </div>
      
         <div class = "mdl-tabs__panel is-active" id = "tab1-panel">
-           <p>Tab 1 Content</p>
+            <div class="center-items mdl-grid">
+                <div class="center-text mdl-cell mdl-cell--12-col">
+                    <span style="font-size: 5vh;">Level 1</span>
+                </div>
+            </div>
+            <div class="mdl-grid">
+                <div class="center-text mdl-cell mdl-cell--4-col"></div>
+                <div class="center-text mdl-cell mdl-cell--4-col">
+                    <div class="mdl-card mdl-shadow--4dp">
+                        <div id="egg1-title" class="mdl-card__title" style="font-size:3vh; justify-content:center;"></div>
+                        <div class="mdl-card__media mdl-color--white">
+                            <img id="egg1-image" style="height:18vh;">
+                        </div>
+                        <div id="egg1-time" class="mdl-card__supporting-text">
+                            
+                        </div>
+                        <div class="mdl-card__actions mdl-card--border">
+                            <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" onclick="moreInfo('egg1');">
+                                Get More Info
+                            </button>
+                        </div> 
+                    </div>
+                </div>
+                <div class="center-text mdl-cell mdl-cell--4-col"></div>
+            </div>
+            <div class="center-items mdl-grid">
+                <div class="center-text mdl-cell mdl-cell--12-col">
+                    <span style="font-size: 5vh;">Level 2</span>
+                </div>
+            </div>
+            <div class="center-items mdl-grid">
+                <div class="center-text mdl-cell mdl-cell--4-col">
+                    <div class="mdl-card mdl-shadow--4dp">
+                        <div id="egg2-title" class="mdl-card__title" style="font-size:3vh; justify-content:center;"></div>
+                        <div class="mdl-card__media mdl-color--white">
+                            <img id="egg2-image" style="height:18vh;">
+                        </div>
+                        <div id="egg2-time" class="mdl-card__supporting-text">
+                            
+                        </div>
+                        <div class="mdl-card__actions mdl-card--border">
+                            <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" onclick="moreInfo('egg2');">
+                                Get More Info
+                            </button>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+            <div class="center-items mdl-grid">
+                <div class="center-text mdl-cell mdl-cell--12-col">
+                    <span style="font-size: 5vh;">Level 3</span>
+                </div>
+            </div>
+            <div class="center-items mdl-grid">
+                <div class="center-text mdl-cell mdl-cell--4-col">
+                    <div class="mdl-card mdl-shadow--4dp">
+                        <div id="egg3-title" class="mdl-card__title" style="font-size:3vh; justify-content:center;"></div>
+                        <div class="mdl-card__media mdl-color--white">
+                            <img id="egg3-image" style="height:18vh;">
+                        </div>
+                        <div id="egg3-time" class="mdl-card__supporting-text">
+                            
+                        </div>
+                        <div class="mdl-card__actions mdl-card--border">
+                            <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" onclick="moreInfo('egg3');">
+                                Get More Info
+                            </button>
+                        </div> 
+                    </div>
+                </div>
+            </div>
         </div>
      
         <div class = "mdl-tabs__panel" id = "tab2-panel">
-           <p>Tab 2 Content</p>
+            <div class="center-items mdl-grid">
+                <div class="center-text mdl-cell mdl-cell--12-col">
+                    <span style="font-size: 5vh;">Level 1</span>
+                </div>
+            </div>
+            <div class="mdl-grid">
+                <div class="center-text mdl-cell mdl-cell--4-col"></div>
+                <div class="center-text mdl-cell mdl-cell--4-col">
+                    <div class="mdl-card mdl-shadow--4dp">
+                        <div id="chicken1-title" class="mdl-card__title" style="font-size:3vh; justify-content:center;"></div>
+                        <div class="mdl-card__media mdl-color--white">
+                            <img id="chicken1-image" style="height:18vh;">
+                        </div>
+                        <div id="chicken1-time" class="mdl-card__supporting-text">
+                            
+                        </div>
+                        <div class="mdl-card__actions mdl-card--border">
+                            <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" onclick="moreInfo('chicken1');">
+                                Get More Info
+                            </button>
+                        </div> 
+                    </div>
+                </div>
+                <div class="center-text mdl-cell mdl-cell--4-col"></div>
+            </div>
+            <div class="center-items mdl-grid">
+                <div class="center-text mdl-cell mdl-cell--12-col">
+                    <span style="font-size: 5vh;">Level 2</span>
+                </div>
+            </div>
+            <div class="center-items mdl-grid">
+                <div class="center-text mdl-cell mdl-cell--4-col">
+                    <div class="mdl-card mdl-shadow--4dp">
+                        <div id="chicken2-title" class="mdl-card__title" style="font-size:3vh; justify-content:center;"></div>
+                        <div class="mdl-card__media mdl-color--white">
+                            <img id="chicken2-image" style="height:18vh;">
+                        </div>
+                        <div id="chicken2-time" class="mdl-card__supporting-text">
+                            
+                        </div>
+                        <div class="mdl-card__actions mdl-card--border">
+                            <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" onclick="moreInfo('chicken2');">
+                                Get More Info
+                            </button>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+            <div class="center-items mdl-grid">
+                <div class="center-text mdl-cell mdl-cell--12-col">
+                    <span style="font-size: 5vh;">Level 3</span>
+                </div>
+            </div>
+            <div class="center-items mdl-grid">
+                <div class="center-text mdl-cell mdl-cell--4-col">
+                    <div class="mdl-card mdl-shadow--4dp">
+                        <div id="chicken3-title" class="mdl-card__title" style="font-size:3vh; justify-content:center;"></div>
+                        <div class="mdl-card__media mdl-color--white">
+                            <img id="chicken3-image" style="height:18vh;">
+                        </div>
+                        <div id="chicken3-time" class="mdl-card__supporting-text">
+                            
+                        </div>
+                        <div class="mdl-card__actions mdl-card--border">
+                            <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" onclick="moreInfo('chicken3');">
+                                Get More Info
+                            </button>
+                        </div> 
+                    </div>
+                </div>
+            </div>
         </div>
      
         <div class = "mdl-tabs__panel" id = "tab3-panel">
-           <p>Tab 3 Content</p>
+            <div class="center-items mdl-grid">
+                <div class="center-text mdl-cell mdl-cell--12-col" style="height:5vh;">
+                </div>
+            </div>
+            <div class="center-items mdl-grid">
+                <div class="center-text mdl-cell mdl-cell--12-col">
+                    <span style="font-size: 5vh;">Check back later for new recipes!</span>
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}

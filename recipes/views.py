@@ -1,11 +1,13 @@
 import requests
 import json
 import re
+import urllib
 from django.shortcuts import render, render_to_response
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.http import JsonResponse
 from .models import Recipe
+from allrecipes import AllRecipes
 
 # Create your views here.
 
@@ -15,6 +17,28 @@ def show_dashboard(request):
         return HttpResponseRedirect(reverse('login:login_url'))
     return render(request, 'templates/dashboard.html', {})
 
+def test_recipe(request):
+    if request.method == 'GET':
+        track = json.loads(request.GET.get('params'))['track']
+        if (track == 'eggs'):
+            recipe1 = Recipe.objects.get(name='Muffin Morning Makers')
+            recipe2 = Recipe.objects.get(name='Ham and Cheese Omelet')
+            recipe3 = Recipe.objects.get(name='Vegetable Stovetop Frittata')
+            easy_recipe = {'name': recipe1.name, 'time': recipe1.minutes, 'image': recipe1.image_url}
+            medium_recipe = {'name': recipe2.name, 'time': recipe2.minutes, 'image': recipe2.image_url}
+            hard_recipe = {'name': recipe3.name, 'time': recipe3.minutes, 'image': recipe3.image_url}
+            return JsonResponse({'success': True, 'easy': easy_recipe, 'medium': medium_recipe, 'hard': hard_recipe})
+        if (track == 'chicken'):
+            recipe1 = Recipe.objects.get(name='Chicken 1')
+            recipe2 = Recipe.objects.get(name='Chicken 2')
+            recipe3 = Recipe.objects.get(name='Chicken 3')
+            easy_recipe = {'name': recipe1.name, 'time': recipe1.minutes, 'image': recipe1.image_url}
+            medium_recipe = {'name': recipe2.name, 'time': recipe2.minutes, 'image': recipe2.image_url}
+            hard_recipe = {'name': recipe3.name, 'time': recipe3.minutes, 'image': recipe3.image_url}
+            return JsonResponse({'success': True, 'easy': easy_recipe, 'medium': medium_recipe, 'hard': hard_recipe})
+        return JsonResponse({'success': False, 'reason':'Recipes not found'})
+    else:
+        return JsonResponse({'success': False, 'reason': 'Error has occured on the server.'})
 
 def create_new_recipe():
     recipe = "error"
