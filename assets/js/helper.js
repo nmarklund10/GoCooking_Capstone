@@ -2,6 +2,10 @@ function goToUrl(url) {
     window.location = url;
 }
 
+function getStaticResource(url) {
+    return '/static/' + url
+}
+
 function catchGenericError(error) {
     console.log(error);
     window.alert("An error occured on the server.");
@@ -39,7 +43,7 @@ function sendHTTPRequest(url, params, responseHandler, sendGet, handleAsJson, er
         }
     }, false);
     if (sendGet) {
-        url = url + "?" + encodeURIComponent(JSON.stringify(params));
+        url = url + "?params=" + encodeURIComponent(JSON.stringify(params));
         xhr.open('GET', url, true);
         xhr.setRequestHeader("Content-type", "application/json");
         xhr.setRequestHeader("X-CSRFToken", csrf_token);
