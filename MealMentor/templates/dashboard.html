@@ -21,13 +21,22 @@
 {% endblock %}
 
 {% block content %}
+    <dialog id="alertDialog" class="mdl-dialog">    
+        <h4 class="mdl-dialog__title" align="center">Create Account</h4>
+        <div class="mdl-dialog__content">
+            
+        </div>
+        <div class="mdl-dialog__actions">
+            <button id="alertDialogButton" class="mdl-button mdl-js-button" style="background-color: lightgray;">Start Cooking!</button>
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect" onclick="window.alert.close();">Close</button>
+        </div>
+    </dialog>
     <div class = "mdl-tabs mdl-js-tabs">
         <div class = "mdl-tabs__tab-bar mdl-color--white">
            <a href = "#tab1-panel" class = "mdl-tabs__tab is-active">Eggs</a>
            <a href = "#tab2-panel" class = "mdl-tabs__tab">Chicken</a>
            <a href = "#tab3-panel" class = "mdl-tabs__tab">Future Tracks</a>
         </div>
-     
         <div class = "mdl-tabs__panel is-active" id = "tab1-panel">
             <div class="center-items mdl-grid">
                 <div class="center-text mdl-cell mdl-cell--12-col">
