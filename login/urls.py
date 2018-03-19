@@ -8,4 +8,5 @@ urlpatterns = [
     path('verifyToken/', views.verify_token),
     path('login/create', views.create_user),
     path('about/', views.about_page),
+    path('logout/', views.log_out),
 ]
