@@ -25,10 +25,23 @@
         .login-title {
             font-size: 4vh
         }
+        .mdl-dialog {
+            width: 20vw;
+        }
     </style>
 {% endblock %}
 
 {% block content %}
+    <dialog id="alertDialog" class="mdl-dialog">    
+        <h4 class="mdl-dialog__title" align="center">Create Account</h4>
+        <div class="mdl-dialog__content">
+            <p id="alertDialogText" align="center"></p>
+        </div>
+        <div class="mdl-dialog__actions">
+            <button id="alertDialogButton" class="mdl-button mdl-js-button" style="background-color: lightgray;">OK</button>
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect" onclick="window.alert.close();">Cancel</button>
+        </div>
+    </dialog>
     <div class="mdl-grid">
         <div class="mdl-cell first"></div>
     </div>

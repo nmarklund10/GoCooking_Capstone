@@ -7,7 +7,6 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.http import JsonResponse
 from .models import Recipe
-from allrecipes import AllRecipes
 
 # Create your views here.
 

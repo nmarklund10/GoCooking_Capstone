@@ -1,5 +1,7 @@
 function loginSetup() {
     gapi.auth2.getAuthInstance().attachClickHandler(document.getElementById("googleButton"), {}, sendLoginRequest, null);
+    window.alert = document.getElementById('alertDialog');
+    window.alertText = document.getElementById('alertDialogText');
 }
 
 function sendLoginRequest(googleUser) {
@@ -9,7 +11,9 @@ function sendLoginRequest(googleUser) {
     function(response)
     {
         if (response.create) {
-            if (confirm("No account found with the email: " + response.email + ".\nPressing OK will create a new one.")) {
+            window.alertText.innerText = "No account found with the email: " + response.email + ".\n\nPressing OK will create a new one.";
+            window.alert.showModal();
+            document.getElementById("alertDialogButton").addEventListener('click', function() {
                 sendPostRequest("create", {"name":response.name, "email":response.email},
                     function(r)
                     {
@@ -21,7 +25,7 @@ function sendLoginRequest(googleUser) {
                             alert(r.reason);
                         }
                     });
-            }
+            });
         }
         else if(response.success)
         {

@@ -44,3 +44,7 @@ def create_user(request):
 
 def about_page(request):
     return render(request, 'templates/about.html', {})
+
+def log_out(request):
+    request.session.pop('logged_in', None) 
+    return HttpResponseRedirect(reverse('login:login_url'))
