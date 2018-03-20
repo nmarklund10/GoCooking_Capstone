@@ -33,10 +33,28 @@ function getRecipes() {
             alert(response.reason);
         }
     });
+    window.dialog = document.getElementById('alertDialog');
+    window.dialogTitle = document.getElementById('alertDialogTitle')
+    window.dialogContent = document.getElementById('alertDialogContent');
+    window.dialogButton = document.getElementById('alertDialogButton');
+    window.dialogImage = document.getElementById('alertDialogImage');
 }
 
 function moreInfo(recipe) {
-    if (recipe == "egg1") {
-
-    }
+    sendGetRequestForJSON("/getARecipe/", {'recipe': document.getElementById(recipe + '-title').innerText}, 
+    function(response) {
+        if (response.success) {
+            recipe = response.recipe;
+            window.dialogTitle.innerText = recipe.name;
+            window.dialogImage.src = getStaticResource(recipe.image)
+            window.dialogButton.addEventListener('click', 
+                function() {
+                    console.log("hello")
+                });
+            window.dialog.showModal();
+        }
+        else {
+            alert(response.reason);
+        }
+    });
 }

@@ -7,17 +7,19 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.http import JsonResponse
 from .models import Recipe
-from allrecipes import AllRecipes
+from django.core import serializers
 
 # Create your views here.
 
+def recipe_to_json(recipe):
+    return {'name': recipe.name, 'minutes': recipe.minutes, 'instructions': json.dumps(recipe.instructions), 'ingredients': json.dumps(recipe.ingredients), 'equipment': json.dumps(recipe.equipment), 'image': recipe.image_url}
 
 def show_dashboard(request):
     if 'logged_in' not in request.session:
         return HttpResponseRedirect(reverse('login:login_url'))
     return render(request, 'templates/dashboard.html', {})
 
-def test_recipe(request):
+def get_recipes(request):
     if request.method == 'GET':
         track = json.loads(request.GET.get('params'))['track']
         if (track == 'eggs'):
@@ -46,6 +48,18 @@ def create_new_recipe():
         recipe = get_recipe_from_API()
         recipe = parse_recipe(recipe)
     return recipe
+
+def get_specific_recipe(request):
+    if request.method == 'GET':
+        recipe_name = json.loads(request.GET.get('params'))['recipe']
+        try:
+            recipe = Recipe.objects.get(name=recipe_name) 
+        except Recipe.DoesNotExist:
+            return JsonResponse({'success': False, 'reason': 'Recipe not found.'})
+        recipe = recipe_to_json(recipe)
+        return JsonResponse({'success': True, 'recipe': recipe})
+    else:
+        return JsonResponse({'success': False, 'reason': 'Error has occured on the server.'})
 
 def get_recipe_from_API():
     response = requests.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/random?number=1",

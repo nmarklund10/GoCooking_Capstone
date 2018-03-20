@@ -17,18 +17,27 @@
             display: inline-block;
             width: 30vw;
         }
+        .mdl-dialog {
+            width: 50vw;
+            height: 80vh;
+        }
+        .mdl-dialog__content {
+            height: 60vh;
+            overflow-y: scroll;
+        }
     </style>
 {% endblock %}
 
 {% block content %}
-    <dialog id="alertDialog" class="mdl-dialog">    
-        <h4 class="mdl-dialog__title" align="center">Create Account</h4>
-        <div class="mdl-dialog__content">
-            
+    <dialog id="alertDialog" class="mdl-dialog">
+        <h3 id="alertDialogTitle" align="center" class="mdl-dialog__title"></h3>
+        <div id="alertDialogContent" class="mdl-dialog__content">
+            <div align="center"><img id="alertDialogImage" align="middle" style="height:25vh;"></div>
+            <p align="center">sfdddddddsfdddddddsfdddddddsfdddddddsfdddddddsfdddddddsfdddddddsfdddddddsfdddddddsfdddddddsfdddddddsfdddddddsfdddddddsfdddddddsfdddddddsfdddddddsfdddddddsfdddddddsfdddddddsfdddddddsfdddddddsfdddddddsfdddddddsfdddddddsfdddddddsfdddddddsfdddddddsfdddddddsfdddddddsfdddddddsfdddddddsfddddddd</p> 
         </div>
         <div class="mdl-dialog__actions">
             <button id="alertDialogButton" class="mdl-button mdl-js-button" style="background-color: lightgray;">Start Cooking!</button>
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect" onclick="window.alert.close();">Close</button>
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect" onclick="window.dialog.close();">Close</button>
         </div>
     </dialog>
     <div class = "mdl-tabs mdl-js-tabs">
