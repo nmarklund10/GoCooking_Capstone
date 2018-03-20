@@ -7,8 +7,6 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.http import JsonResponse
 from .models import Recipe
-from django.core import serializers
-
 # Create your views here.
 
 def recipe_to_json(recipe):
