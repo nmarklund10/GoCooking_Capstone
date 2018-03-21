@@ -26,7 +26,8 @@ def verify_token(request):
         try:
             User.objects.get(email=email)
             request.session['logged_in'] = True
-            return JsonResponse({'success': True, 'name': name})
+            request.session['name'] = name
+            return JsonResponse({'success': True})
         except User.DoesNotExist:
             return JsonResponse({'create': True, 'email': email, 'name': name})
     else:
@@ -38,7 +39,8 @@ def create_user(request):
         u = User(name=user['name'], email=user['email'])
         u.save()
         request.session['logged_in'] = True
-        return JsonResponse({'success': True, 'name': u.name})
+        request.session['name'] = u.name
+        return JsonResponse({'success': True})
     else:
         return JsonResponse({'sucess': False, 'reason': 'Error has occured on the server.'})
 
@@ -46,5 +48,12 @@ def about_page(request):
     return render(request, 'templates/about.html', {})
 
 def log_out(request):
-    request.session.pop('logged_in', None) 
+    request.session.pop('logged_in', None)
+    request.session.pop('name', None) 
     return HttpResponseRedirect(reverse('login:login_url'))
+
+def get_name(request):
+    if request.method == 'GET':
+        return JsonResponse({'success': True, 'name': request.session.get('name')})
+    else:
+        return JsonResponse({'success': False, 'reason': 'Error has occured on the server.'})

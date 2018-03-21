@@ -43,7 +43,7 @@ function sendHTTPRequest(url, params, responseHandler, sendGet, handleAsJson, er
         }
     }, false);
     if (sendGet) {
-        url = url + "?params=" + encodeURIComponent(JSON.stringify(params));
+        var url = url + "?params=" + encodeURIComponent(JSON.stringify(params));
         xhr.open('GET', url, true);
         xhr.setRequestHeader("Content-type", "application/json");
         xhr.setRequestHeader("X-CSRFToken", csrf_token);

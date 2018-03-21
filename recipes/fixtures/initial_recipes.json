@@ -8,7 +8,7 @@
             "instructions": ["Split the muffins open with a fork and toast them in a toaster oven.", "In a large bowl scramble the eggs, green onions and cheddar cheese together. Heat vegetable oil in a skillet, pour the egg mixture into the skillet and let it fry in one layer as you would an omelet. When the egg is cooked on the underside, flip the egg over and cook the wet side; remove from heat when cooked through.", "At the same time that the eggs are frying, form the sausage into small patties.  Place the sausage in another skillet. Fry until browned, remove from pan and drain on paper towels.", "Make the muffin sandwiches by layering a piece of sausage and a piece of the fried egg between the two muffin pieces. If you intend to freeze the sandwiches, let each part of the sandwich cool before make the sandwiches, then wrap them in plastic wrap and freeze. Reheat in the microwave."],
             "ingredients": ["1 (12 ounce) package English muffins", "6 eggs", "1/4 cup chopped green onion", "1 cup shredded Cheddar cheese", "2 1/2 tablespoons vegetable oil", "6 ounces ground breakfast sausage"],            
             "equipment": ["fork", "toaster oven", "large bowl", "whisk", "spatula", "2 skillets", "paper towels"],
-            "image_url": "images/recipes/muffin_morning_makers.jpg"
+            "image_url": ""
         }
     },
     {
@@ -20,7 +20,7 @@
             "instructions": ["Spray or lightly grease a large skillet and heat over medium heat.", "Beat eggs, heavy cream, salt, and pepper in a bowl.  Pour eggs into the heated skillet, swirling the skillet to coat the bottom. Cover and let cook until eggs are firm, about 5 minutes.", "Top with Swiss cheese, ham, and green onions. Fold omelet in half over fillings; cook for 2 minutes more."],
             "ingredients": ["1 serving cooking spray", "5 eggs", "2 tablespoons heavy whipping cream", "1 teaspoon salt", "1/2 teaspoon ground black pepper", "1 cup shredded Swiss cheese", "4 ounces Black Forest ham, chopped", "1/4 cup finely chopped green onions"],            
             "equipment": ["large skillet", "bowl", "whisk", "spatula"],
-            "image_url": "images/recipes/omelet.jpg"
+            "image_url": ""
         }
     },
     {
@@ -32,7 +32,7 @@
             "instructions": ["Heat olive oil in a 10-inch skillet over medium heat. Cook and stir broccoli, bell pepper, and sweet onion in hot oil until hot, about 3 minutes. Place a cover on the skillet and continue cooking until the vegetables begin to soften, about 5 minutes more. Stir olives into the vegetable mixture.", "Beat eggs, egg whites, milk, salt, and pepper together with a whisk in a small bowl; pour over the vegetable mixture in the skillet. Sprinkle feta cheese over the egg mixture.", "Replace cover on the skillet, reduce heat to medium-low, and cook until the egg is lightly browned on the bottom, 3 to 5 minutes. Carefully flip the frittata and cook until the bottom is again lightly browned, 1 to 2 minutes more."],
             "ingredients": ["1 tablespoon olive oil", "2/3 cup 1-inch pieces broccoli florets", "1/2 red bell pepper, chopped", "1/2 sweet onion, chopped", "6 marinated olives, chopped", "2 eggs", "2 egg whites", "2 tablespoons whole milk", "1 pinch salt and ground black pepper to taste", "1/4 cup crumbled feta cheese"],            
             "equipment": ["10-inch skillet with cover", "small bowl"],
-            "image_url": "images/recipes/frittata.jpg"
+            "image_url": ""
         }
     },
     {
@@ -44,7 +44,7 @@
             "instructions": [],
             "ingredients": [],            
             "equipment": [],
-            "image_url": "images/recipes/chicken1.jpg"
+            "image_url": ""
         }
     },
     {
@@ -56,7 +56,7 @@
             "instructions": [],
             "ingredients": [],            
             "equipment": [],
-            "image_url": "images/recipes/chicken2.jpg"
+            "image_url": ""
         }
     },
     {
@@ -68,7 +68,7 @@
             "instructions": [],
             "ingredients": [],            
             "equipment": [],
-            "image_url": "images/recipes/chicken3.jpg"
+            "image_url": ""
         }
     }
 ]
