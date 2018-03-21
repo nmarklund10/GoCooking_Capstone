@@ -7,10 +7,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.http import JsonResponse
 from .models import Recipe
-<<<<<<< HEAD
-=======
 from django.core import serializers
->>>>>>> 1c3a6c45b49bbffebe4d684c1b269fb93cac5982
 
 # Create your views here.
 
