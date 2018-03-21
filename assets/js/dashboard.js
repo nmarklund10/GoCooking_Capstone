@@ -33,10 +33,39 @@ function getRecipes() {
             alert(response.reason);
         }
     });
+    window.dialog = document.getElementById('alertDialog');
+    window.dialogTitle = document.getElementById('alertDialogTitle')
+    window.dialogContent = document.getElementById('alertDialogContent');
+    window.dialogButton = document.getElementById('alertDialogButton');
+    window.dialogImage = document.getElementById('alertDialogImage');
 }
 
 function moreInfo(recipe) {
-    if (recipe == "egg1") {
-
-    }
+    sendGetRequestForJSON("/getARecipe/", {'recipe': document.getElementById(recipe + '-title').innerText}, 
+    function(response) {
+        if (response.success) {
+            recipe = response.recipe;
+            window.dialogTitle.innerText = recipe.name;
+            window.dialogImage.src = getStaticResource(recipe.image)
+            var list = document.getElementById("recipe-overview");
+            list.innerHTML = "";
+            console.log(recipe.instructions.replace(/'/g, '"'));
+            recipe.instructions = JSON.parse(recipe.instructions);
+            recipe.instructions = JSON.parse(recipe.instructions.replace(/'/g, '"'));
+            
+            for(var i = 0; i < recipe.instructions.length; i++ ) {
+                var item = document.createElement("li");
+                item.appendChild(document.createTextNode(recipe.instructions[i]));
+                list.appendChild(item);
+            }
+            window.dialogButton.addEventListener('click', 
+                function() {
+                    console.log("hello")
+                });
+            window.dialog.showModal();
+        }
+        else {
+            alert(response.reason);
+        }
+    });
 }

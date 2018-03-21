@@ -4,5 +4,6 @@ from . import views
 app_name = "recipes"
 urlpatterns = [
     path('dashboard/', views.show_dashboard, name='dashboard_url'),
-    path('getRecipes/', views.test_recipe),
+    path('getRecipes/', views.get_recipes),
+    path('getARecipe/', views.get_specific_recipe),
 ]
