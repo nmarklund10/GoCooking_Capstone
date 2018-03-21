@@ -142,7 +142,8 @@ function moreInfo(r) {
             }
             document.getElementById('alertDialogButton').addEventListener('click', 
                 function() {
-                    console.log("hello")
+                    goToUrl("/cooking")
+                    
                 });
             dialog.showModal();
         }
