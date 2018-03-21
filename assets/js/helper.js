@@ -60,7 +60,7 @@ function getEquipmentImage(equipment) {
         return getStaticResource(path + 'whisk.jpg');
     }
     else {
-        return "";
+        return getStaticResource('images/members/cameron.png');
     }
 }
 
