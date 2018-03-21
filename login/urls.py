@@ -9,4 +9,5 @@ urlpatterns = [
     path('login/create', views.create_user),
     path('about/', views.about_page),
     path('logout/', views.log_out),
+    path('name/', views.get_name)
 ]
