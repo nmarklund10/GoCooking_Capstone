@@ -124,7 +124,7 @@ function moreInfo(r) {
                 currentCell.appendChild(cellText);
             }
             // Create Equipment Grid
-            var equipmentGrid = document.getElementsByClassName('equipmentGrid');
+            var equipmentGrid = document.getElementById('equipmentGrid');
             // Clear Equipment Grid
             equipmentGrid.innerHTML = ""
             rowNumber = -1;
