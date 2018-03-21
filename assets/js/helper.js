@@ -12,8 +12,53 @@ function getIngredientImage(ingredient) {
     if(ingredient.includes("english muffin")) {
         return getStaticResource(path + 'english_muffin.jpg');
     }
+    else if(ingredient.includes("egg white")) {
+        return getStaticResource(path + 'egg_whites.jpg');
+    }
     else if(ingredient.includes("egg")) {
         return getStaticResource(path + 'egg.jpg');
+    }
+    else if(ingredient.includes("cooking spray")) {
+        return getStaticResource(path + 'cooking_spray.jpg');
+    }
+    else if(ingredient.includes("heavy whipping cream")) {
+        return getStaticResource(path + 'heavy_whipping_cream.jpg');
+    }
+    else if(ingredient.includes("salt") && ingredient.includes("pepper")) {
+        return getStaticResource(path + 'salt_and_pepper.jpg');
+    }
+    else if(ingredient.includes("salt")) {
+        return getStaticResource(path + 'salt.jpg');
+    }
+    else if(ingredient.includes("pepper")) {
+        return getStaticResource(path + 'pepper.jpg');
+    }
+    else if(ingredient.includes("swiss cheese")) {
+        return getStaticResource(path + 'swiss_cheese.jpg');
+    }
+    else if(ingredient.includes("ham")) {
+        return getStaticResource(path + 'ham.jpg');
+    }
+    else if(ingredient.includes("olive oil")) {
+        return getStaticResource(path + 'olive_oil.jpg');
+    }
+    else if(ingredient.includes("broccoli")) {
+        return getStaticResource(path + 'broccoli.jpg');
+    }
+    else if(ingredient.includes("red bell pepper")) {
+        return getStaticResource(path + 'red_bell_pepper.jpg');
+    }
+    else if(ingredient.includes("sweet onion")) {
+        return getStaticResource(path + 'sweet_onion.jpg');
+    }
+    else if(ingredient.includes("olive")) {
+        return getStaticResource(path + 'olive.jpg');
+    }
+    else if(ingredient.includes("whole milk")) {
+        return getStaticResource(path + 'whole_milk.jpg');
+    }
+    else if(ingredient.includes("feta cheese")) {
+        return getStaticResource(path + 'feta_cheese.jpg');
     }
     else if(ingredient.includes("green onion")) {
         return getStaticResource(path + 'green_onions.jpg');
@@ -31,7 +76,7 @@ function getIngredientImage(ingredient) {
         return getStaticResource(path + 'breakfast_sausage.jpg');
     }
     else {
-        return getStaticResource('images/members/cameron.png');
+        return "";
     }
 }
 
@@ -47,6 +92,9 @@ function getEquipmentImage(equipment) {
     else if(equipment.includes("paper towel")) {
         return getStaticResource(path + 'paper_towels.jpg');
     }
+    else if(equipment.includes("skillet with cover")) {
+        return getStaticResource(path + 'skillet_with_cover.jpg');
+    }
     else if(equipment.includes("skillet")) {
         return getStaticResource(path + 'skillet.jpg');
     }
@@ -60,7 +108,7 @@ function getEquipmentImage(equipment) {
         return getStaticResource(path + 'whisk.jpg');
     }
     else {
-        return getStaticResource('images/members/cameron.png');
+        return "";
     }
 }
 
