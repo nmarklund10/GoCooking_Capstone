@@ -33,7 +33,13 @@ function getRecipes() {
             alert(response.reason);
         }
     });
-    document.getElementById('appTitle').innerText = document.getElementById('appTitle').innerText + ": " + window.name;
+    sendGetRequestForJSON('/name', {}, 
+    function(response){
+        if (response.success)
+            document.getElementById('appTitle').innerText = document.getElementById('appTitle').innerText + ": " + response.name;
+        else
+            alert(response.reason);
+    })
 }
 
 function moreInfo(r) {
