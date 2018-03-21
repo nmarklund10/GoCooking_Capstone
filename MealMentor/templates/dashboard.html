@@ -21,9 +21,27 @@
             width: 50vw;
             height: 80vh;
         }
+        .mdl-dialog__title {
+            height: 5vh;
+            width: 45vw;
+            font-size: 4vh;
+            padding: 1vh 2vw 0;
+        }
         .mdl-dialog__content {
-            height: 60vh;
+            height: 65vh;
+            width: 46vw;
             overflow-y: scroll;
+            padding: 1vh 2vw;
+        }
+        .mdl-dialog__actions {
+            height: 5vh;
+            padding: 2vh 1vw;
+        }
+        h4 {
+            margin: 0 0 0 0;
+        }
+        .mdl-data-table {
+            white-space: normal;
         }
     </style>
 {% endblock %}
@@ -31,17 +49,21 @@
 {% block content %}
     <dialog id="alertDialog" class="mdl-dialog">
         <h3 id="alertDialogTitle" align="center" class="mdl-dialog__title"></h3>
-        <div id="alertDialogContent" class="mdl-dialog__content">
-            <div align="center"><img id="alertDialogImage" align="middle" style="height:25vh;"></div>
-            <h4> Receipe Overview </h4>
-            <ol id="recipe-overview">
-                
-            </ol>
-            <p align="center">sfdddddddsfdddddddsfdddddddsfdddddddsfdddddddsfdddddddsfdddddddsfdddddddsfdddddddsfdddddddsfdddddddsfdddddddsfdddddddsfdddddddsfdddddddsfdddddddsfdddddddsfdddddddsfdddddddsfdddddddsfdddddddsfdddddddsfdddddddsfdddddddsfdddddddsfdddddddsfdddddddsfdddddddsfdddddddsfdddddddsfdddddddsfddddddd</p> 
+        <div class="mdl-dialog__content">
+            <p align="center" style="margin: 0 0 0 0;"><img id="alertDialogImage" style="height:25vh;"></p>
+            <p align="center" id="alertDialogTime" style="margin: 0 0 0 0; font-size: 2vh;"></p>
+            <h4>Ingredients</h4>
+            <div id="ingredientGrid"></div>
+            <h4>Equipment</h4>
+            <div class="equipmentGrid"></div>
+            <h4>Instructions</h4>
+            <table class = "mdl-data-table mdl-js-data-table">
+                <tbody id="dialogInstructions"></tbody>
+            </table>
         </div>
         <div class="mdl-dialog__actions">
-            <button id="alertDialogButton" class="mdl-button mdl-js-button" style="background-color: lightgray;">Start Cooking!</button>
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect" onclick="window.dialog.close();">Close</button>
+            <button id="alertDialogButton" class="mdl-button mdl-js-button mdl-js-ripple-effect" style="height: 5vh; background-color: lightgray;">Start Cooking!</button>
+            <button id="alertCloseButton" class="mdl-button mdl-js-button mdl-js-ripple-effect" style="height: 5vh;">Close</button>
         </div>
     </dialog>
     <div class = "mdl-tabs mdl-js-tabs">

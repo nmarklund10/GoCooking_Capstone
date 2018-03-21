@@ -1,7 +1,5 @@
 function loginSetup() {
     gapi.auth2.getAuthInstance().attachClickHandler(document.getElementById("googleButton"), {}, sendLoginRequest, null);
-    window.dialog = document.getElementById('alertDialog');
-    window.dialogText = document.getElementById('alertDialogText');
 }
 
 function sendLoginRequest(googleUser) {
@@ -11,8 +9,11 @@ function sendLoginRequest(googleUser) {
     function(response)
     {
         if (response.create) {
-            window.dialogText.innerText = "No account found with the email: " + response.email + ".\n\nPressing OK will create a new one.";
-            window.dialog.showModal();
+            var dialog = document.getElementById('alertDialog');
+            var dialogContent = document.getElementById('alertDialogText');
+            document.getElementById('closeDialogButton').addEventListener('click', function() {dialog.close();})
+            dialogContent.innerHTML = "No account found with the email: " + response.email.bold() + ".<br>Pressing OK will create a new one.";
+            dialog.showModal();
             document.getElementById("alertDialogButton").addEventListener('click', function() {
                 sendPostRequest("create", {"name":response.name, "email":response.email},
                     function(r)

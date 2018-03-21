@@ -10,7 +10,7 @@ from .models import Recipe
 # Create your views here.
 
 def recipe_to_json(recipe):
-    return {'name': recipe.name, 'minutes': recipe.minutes, 'instructions': json.dumps(recipe.instructions), 'ingredients': json.dumps(recipe.ingredients), 'equipment': json.dumps(recipe.equipment), 'image': recipe.image_url}
+    return {'name': recipe.name, 'minutes': recipe.minutes, 'instructions': recipe.instructions.replace("'", '"') , 'ingredients': recipe.ingredients.replace("'", '"'), 'equipment': recipe.equipment.replace("'", '"'), 'image': recipe.image_url}
 
 def show_dashboard(request):
     if 'logged_in' not in request.session:
@@ -55,7 +55,7 @@ def get_specific_recipe(request):
         except Recipe.DoesNotExist:
             return JsonResponse({'success': False, 'reason': 'Recipe not found.'})
         recipe = recipe_to_json(recipe)
-        return JsonResponse({'success': True, 'recipe': recipe})
+        return JsonResponse({'success': True, "recipe": recipe})
     else:
         return JsonResponse({'success': False, 'reason': 'Error has occured on the server.'})
 
