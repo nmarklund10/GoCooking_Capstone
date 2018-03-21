@@ -7,19 +7,10 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.http import JsonResponse
 from .models import Recipe
-<<<<<<< HEAD
-from django.core import serializers
-
-# Create your views here.
-
-def recipe_to_json(recipe):
-    return {'name': recipe.name, 'minutes': recipe.minutes, 'instructions': json.dumps(recipe.instructions), 'ingredients': json.dumps(recipe.ingredients), 'equipment': json.dumps(recipe.equipment), 'image': recipe.image_url}
-=======
 # Create your views here.
 
 def recipe_to_json(recipe):
     return {'name': recipe.name, 'minutes': recipe.minutes, 'instructions': recipe.instructions.replace("'", '"') , 'ingredients': recipe.ingredients.replace("'", '"'), 'equipment': recipe.equipment.replace("'", '"'), 'image': recipe.image_url}
->>>>>>> 4905fda1ff3c0a1be440450d69f7bcc0a57790b3
 
 def show_dashboard(request):
     if 'logged_in' not in request.session:
@@ -64,11 +55,7 @@ def get_specific_recipe(request):
         except Recipe.DoesNotExist:
             return JsonResponse({'success': False, 'reason': 'Recipe not found.'})
         recipe = recipe_to_json(recipe)
-<<<<<<< HEAD
-        return JsonResponse({'success': True, 'recipe': recipe})
-=======
         return JsonResponse({'success': True, "recipe": recipe})
->>>>>>> 4905fda1ff3c0a1be440450d69f7bcc0a57790b3
     else:
         return JsonResponse({'success': False, 'reason': 'Error has occured on the server.'})
 
