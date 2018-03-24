@@ -49,7 +49,8 @@ def about_page(request):
 
 def log_out(request):
     request.session.pop('logged_in', None)
-    request.session.pop('name', None) 
+    request.session.pop('name', None)
+    request.session.pop('recipe', None) 
     return HttpResponseRedirect(reverse('login:login_url'))
 
 def get_name(request):
