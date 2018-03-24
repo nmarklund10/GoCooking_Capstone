@@ -6,6 +6,14 @@ function getStaticResource(url) {
     return '/static/' + url
 }
 
+function hideElementById(id) {
+    document.getElementById(id).style.visibility="hidden";
+}
+
+function showElementById(id) {
+    document.getElementById(id).style.visibility="visible";
+}
+
 function getIngredientImage(ingredient) {
     path = 'images/recipes/ingredients/';
     ingredient = ingredient.toLowerCase();
