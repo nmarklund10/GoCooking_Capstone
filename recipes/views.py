@@ -15,6 +15,7 @@ def recipe_to_json(recipe):
 def show_dashboard(request):
     if 'logged_in' not in request.session:
         return HttpResponseRedirect(reverse('login:login_url'))
+    request.session.pop('recipe', None) 
     return render(request, 'templates/dashboard.html', {})
 
 def get_recipes(request):
@@ -54,10 +55,17 @@ def get_specific_recipe(request):
             recipe = Recipe.objects.get(name=recipe_name) 
         except Recipe.DoesNotExist:
             return JsonResponse({'success': False, 'reason': 'Recipe not found.'})
+        request.session['recipe'] = recipe.name;
         recipe = recipe_to_json(recipe)
         return JsonResponse({'success': True, "recipe": recipe})
     else:
         return JsonResponse({'success': False, 'reason': 'Error has occured on the server.'})
+
+def show_cooking_page(request):
+    if 'logged_in' not in request.session:
+        return HttpResponseRedirect(reverse('login:login_url'))
+    else:
+        return render(request, 'templates/cooking.html', {"recipe": request.session.get('recipe')})
 
 def get_recipe_from_API():
     response = requests.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/random?number=1",
