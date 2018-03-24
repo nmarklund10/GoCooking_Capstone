@@ -36,6 +36,7 @@ function prevStep() {
 function updateCurrentStep() {
     document.getElementById('currentStep').innerText = window.recipe.instructions[stepNumber];
     document.getElementById('stepTitle').innerText = "Step " + (window.stepNumber + 1);
+    document.getElementById('currentGif').src = getGif(window.recipe.instructions[stepNumber]);
     if (window.stepNumber == 0) {
         hideElementById('prevButton');
     }
@@ -58,7 +59,7 @@ function getGif(instruction) {
     path = 'gifs/';
     instruction = instruction.toLowerCase();
     if(instruction.includes("")) {
-        return getStaticResource(path + '');
+        return getStaticResource(path + 'cooking.gif');
     }
     else if(instruction.includes("")) {
         return getStaticResource(path + '');
