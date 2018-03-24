@@ -49,7 +49,7 @@
             line-height: 5vh;
             text-align: center;
         }
-        .mdl-button {
+        .nav-button {
             text-align: center;
             height: 100%;
             width: 90%
@@ -68,13 +68,23 @@
 {% endblock %}
 
 {% block content %}
+    <dialog id="alertDialog" class="mdl-dialog">    
+        <h4 class="mdl-dialog__title" align="center">Complete Recipe?</h4>
+        <div class="mdl-dialog__content">
+            <p id="alertDialogText" align="center">Are you sure you want to mark this recipe as completed?</p>
+        </div>
+        <div class="mdl-dialog__actions">
+            <button id="alertDialogButton" class="mdl-button mdl-js-button mdl-js-ripple-effect" style="background-color: lightgray;" onclick="finishRecipe();">OK</button>
+            <button id="closeDialogButton" class="mdl-button mdl-js-button mdl-js-ripple-effect">Cancel</button>
+        </div>
+    </dialog>
     <div id="titlebar">
         <button id="exitButton" class="mdl-button mdl-js-button mdl-js-ripple-effect" onclick="goToUrl('/dashboard');">Exit Recipe</button>
         <p id="recipeTitle" align="center"></p>
     </div>
     <div class="mdl-grid">
         <div class="center-text mdl-cell mdl-cell--1-col">
-            <button id="prevButton" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" onclick="prevStep();">
+            <button id="prevButton" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect nav-button" onclick="prevStep();">
                 <span class="material-icons" style="font-size:10vh;">arrow_back</span>
             </button>
         </div>
@@ -90,7 +100,7 @@
             </div>
         </div>
         <div class="center-text mdl-cell mdl-cell--1-col">
-            <button id="nextButton" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="float:right;" onclick="nextStep();">
+            <button id="nextButton" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect nav-button" style="float:right;" onclick="nextStep();">
                 <span class="material-icons" style="font-size:10vh;">arrow_forward</span>
             </button>
         </div>
