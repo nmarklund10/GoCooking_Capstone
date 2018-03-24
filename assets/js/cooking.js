@@ -20,7 +20,7 @@ function setup() {
         else
             alert(response.reason);
     })
-
+    document.getElementById('closeDialogButton').onclick = function() { document.getElementById('alertDialog').close(); };
 }
 
 function nextStep() {
@@ -42,7 +42,7 @@ function updateCurrentStep() {
     }
     else if (window.stepNumber == (window.recipe.instructions.length - 1)) {
         document.getElementById('nextButton').innerHTML = '<span id="nextButtonIcon" class="material-icons" style="color: green; font-size:10vh;">check_circle</span>'
-        document.getElementById('nextButton').onclick = finishRecipe;
+        document.getElementById('nextButton').onclick = function() { document.getElementById('alertDialog').showModal(); };
     }
     else {
         document.getElementById('nextButton').innerHTML = '<span id="nextButtonIcon" class="material-icons" style="font-size:10vh;">arrow_forward</span>'
