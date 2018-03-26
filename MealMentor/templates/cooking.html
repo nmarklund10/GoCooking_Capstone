@@ -1,71 +1,97 @@
-{% extends 'templates/base_no_footer.html' %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>MealMentor</title>
+        <meta charset="UTF-8">
+        {% load static %}        
+        <link rel="shortcut icon" type="image/png" href="{% static 'images/logo.png' %}"/>
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue-pink.min.css">
+        <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        {% csrf_token %}
+        <script>
+            var csrf_token = document.getElementsByName("csrfmiddlewaretoken")[0].value.toString();
+        </script>
+        {% load static %}
+        <script type="text/javascript" src="{% static 'js/helper.js' %}"></script>
+        <link rel="stylesheet" href="{% static 'css/template.css' %}">
+        {% block includes %}
+            {% load static %}
+                <script type="text/javascript" src="{% static 'js/cooking.js' %}"></script>
+            <script>
+                window.onload = setup;
+                var recipe = "{{ recipe }}";
+                history.pushState(null, null, document.URL);
+                window.addEventListener('popstate', function () {
+                    history.pushState(null, null, document.URL);
+                });
+            </script>
+            <style>
+                #titlebar {
+                    padding-top: 3vh;
+                    background-color: #2196F3;
+                    height: 6vh;
+                    width: 100vw;
+                }
+                .mdl-grid {
+                    padding: 4vh 0 0 0;
+                    height: 76vh;
+                    width: 100vw;
+                }
+                .mdl-cell {
+                    margin: 0;
+                    height: 100%;
+                }
+                .mdl-cell--1-col {
+                    width: 10vw;
+                }
+                .mdl-cell--10-col {
+                    width: 80vw;
+                }
+                .mdl-card {
+                    height: 100%;
+                    width: 100%;
+                }
+                .mdl-card__title {
+                    justify-content: center;
+                    font-size: 5vh;
+                    padding: 3vh 3vw;
+                }
+                .mdl-card__media {
+                    justify-content: center;
+                }
+                .mdl-card__supporting-text {
+                    padding: 3vh 3vw;
+                }
+                #currentStep {
+                    font-size: 4vh;
+                    line-height: 5vh;
+                    text-align: center;
+                }
+                .nav-button {
+                    text-align: center;
+                    height: 100%;
+                    width: 90%
+                }
+                #exitButton {
+                    color: white;
+                    float: left;
+                    width: 10vw;
+                    font-size: 2vh;
+                }
+                #recipeTitle {
+                    color: white;
+                    width: 90vw;
+                    font-size:6vh;
+                    margin:0;
+                }
+            </style>
+        {% endblock %}
+    </head>
+</html>
 
-{% block includes %}
-    {% load static %}
-        <script type="text/javascript" src="{% static 'js/cooking.js' %}"></script>
-    <script>
-        window.onload = setup;
-        var recipe = "{{ recipe }}";
-    </script>
-    <style>
-        #titlebar {
-            padding-top: 3vh;
-            background-color:white;
-            height: 6vh;
-            width: 100vw;
-        }
-        .mdl-grid {
-            padding: 4vh 0 0 0;
-            height: 76vh;
-            width: 100vw;
-        }
-        .mdl-cell {
-            margin: 0;
-            height: 100%;
-        }
-        .mdl-cell--1-col {
-            width: 10vw;
-        }
-        .mdl-cell--10-col {
-            width: 80vw;
-        }
-        .mdl-card {
-            height: 100%;
-            width: 100%;
-        }
-        .mdl-card__title {
-            justify-content: center;
-            font-size: 5vh;
-            padding: 3vh 3vw;
-        }
-        .mdl-card__media {
-            justify-content: center;
-        }
-        .mdl-card__supporting-text {
-            padding: 3vh 3vw;
-        }
-        #currentStep {
-            font-size: 4vh;
-            line-height: 5vh;
-            text-align: center;
-        }
-        .nav-button {
-            text-align: center;
-            height: 100%;
-            width: 90%
-        }
-        #exitButton {
-            float: left;
-            width: 10vw;
-            font-size: 2vh;
-        }
-        #recipeTitle {
-            width: 90vw;
-            font-size:6vh;
-            margin:0;
-        }
-    </style>
-{% endblock %}
 
 {% block content %}
     <dialog id="alertDialog" class="mdl-dialog">    
