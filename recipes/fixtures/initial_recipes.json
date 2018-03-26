@@ -35,7 +35,8 @@
             "image_url": ""
         }
     },
-   "model": "recipes.Recipe",
+   {
+        "model": "recipes.Recipe",
         "pk": 4,
         "fields": {
             "name": "Bacon Chicken Sandwiches",
