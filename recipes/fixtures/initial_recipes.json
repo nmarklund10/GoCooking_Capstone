@@ -35,7 +35,7 @@
             "image_url": ""
         }
     },
-    {
+   {
         "model": "recipes.Recipe",
         "pk": 4,
         "fields": {
