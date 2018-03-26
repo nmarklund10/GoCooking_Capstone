@@ -6,6 +6,120 @@ function getStaticResource(url) {
     return '/static/' + url
 }
 
+function hideElementById(id) {
+    document.getElementById(id).style.visibility="hidden";
+}
+
+function showElementById(id) {
+    document.getElementById(id).style.visibility="visible";
+}
+
+function getIngredientImage(ingredient) {
+    path = 'images/recipes/ingredients/';
+    ingredient = ingredient.toLowerCase();
+    if(ingredient.includes("english muffin")) {
+        return getStaticResource(path + 'english_muffin.jpg');
+    }
+    else if(ingredient.includes("egg white")) {
+        return getStaticResource(path + 'egg_whites.jpg');
+    }
+    else if(ingredient.includes("egg")) {
+        return getStaticResource(path + 'egg.jpg');
+    }
+    else if(ingredient.includes("cooking spray")) {
+        return getStaticResource(path + 'cooking_spray.jpg');
+    }
+    else if(ingredient.includes("heavy whipping cream")) {
+        return getStaticResource(path + 'heavy_whipping_cream.jpg');
+    }
+    else if(ingredient.includes("salt") && ingredient.includes("pepper")) {
+        return getStaticResource(path + 'salt_and_pepper.jpg');
+    }
+    else if(ingredient.includes("salt")) {
+        return getStaticResource(path + 'salt.jpg');
+    }
+    else if(ingredient.includes("pepper")) {
+        return getStaticResource(path + 'pepper.jpg');
+    }
+    else if(ingredient.includes("swiss cheese")) {
+        return getStaticResource(path + 'swiss_cheese.jpg');
+    }
+    else if(ingredient.includes("ham")) {
+        return getStaticResource(path + 'ham.jpg');
+    }
+    else if(ingredient.includes("olive oil")) {
+        return getStaticResource(path + 'olive_oil.jpg');
+    }
+    else if(ingredient.includes("broccoli")) {
+        return getStaticResource(path + 'broccoli.jpg');
+    }
+    else if(ingredient.includes("red bell pepper")) {
+        return getStaticResource(path + 'red_bell_pepper.jpg');
+    }
+    else if(ingredient.includes("sweet onion")) {
+        return getStaticResource(path + 'sweet_onion.jpg');
+    }
+    else if(ingredient.includes("olive")) {
+        return getStaticResource(path + 'olive.jpg');
+    }
+    else if(ingredient.includes("whole milk")) {
+        return getStaticResource(path + 'whole_milk.jpg');
+    }
+    else if(ingredient.includes("feta cheese")) {
+        return getStaticResource(path + 'feta_cheese.jpg');
+    }
+    else if(ingredient.includes("green onion")) {
+        return getStaticResource(path + 'green_onions.jpg');
+    }
+    else if(ingredient.includes("cheddar cheese")) {
+        return getStaticResource(path + 'cheddar_cheese.jpg');
+    }
+    else if(ingredient.includes("green onion")) {
+        return getStaticResource(path + 'green_onions.jpg');
+    }
+    else if(ingredient.includes("vegetable oil")) {
+        return getStaticResource(path + 'vegetable_oil.jpg');
+    }
+    else if(ingredient.includes("breakfast sausage")) {
+        return getStaticResource(path + 'breakfast_sausage.jpg');
+    }
+    else {
+        return "";
+    }
+}
+
+function getEquipmentImage(equipment) {
+    path = 'images/recipes/equipment/';
+    equipment = equipment.toLowerCase();
+    if(equipment.includes("bowl")) {
+        return getStaticResource(path + 'bowl.jpg');
+    }
+    else if(equipment.includes("fork")) {
+        return getStaticResource(path + 'fork.jpg');
+    }
+    else if(equipment.includes("paper towel")) {
+        return getStaticResource(path + 'paper_towels.jpg');
+    }
+    else if(equipment.includes("skillet with cover")) {
+        return getStaticResource(path + 'skillet_with_cover.jpg');
+    }
+    else if(equipment.includes("skillet")) {
+        return getStaticResource(path + 'skillet.jpg');
+    }
+    else if(equipment.includes("spatula")) {
+        return getStaticResource(path + 'spatula.jpg');
+    }
+    else if(equipment.includes("toaster oven")) {
+        return getStaticResource(path + 'toaster_oven.jpg');
+    }
+    else if(equipment.includes("whisk")) {
+        return getStaticResource(path + 'whisk.jpg');
+    }
+    else {
+        return "";
+    }
+}
+
 function catchGenericError(error) {
     console.log(error);
     window.alert("An error occured on the server.");

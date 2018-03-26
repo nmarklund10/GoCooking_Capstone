@@ -4,13 +4,13 @@ function getRecipes() {
         if (response.success) {
             document.getElementById('egg1-title').innerText = response.easy['name']
             document.getElementById('egg1-time').innerText = response.easy['time']
-            document.getElementById('egg1-image').src = getStaticResource('images/recipes/egg1/egg1.jpg')
+            document.getElementById('egg1-image').src = getStaticResource('images/recipes/egg1.jpg')
             document.getElementById('egg2-title').innerText = response.medium['name']
             document.getElementById('egg2-time').innerText = response.medium['time']
-            document.getElementById('egg2-image').src = getStaticResource('images/recipes/egg2/egg2.jpg')
+            document.getElementById('egg2-image').src = getStaticResource('images/recipes/egg2.jpg')
             document.getElementById('egg3-title').innerText = response.hard['name']
             document.getElementById('egg3-time').innerText = response.hard['time']
-            document.getElementById('egg3-image').src = getStaticResource('images/recipes/egg3/egg3.jpg')
+            document.getElementById('egg3-image').src = getStaticResource('images/recipes/egg3.jpg')
         }
         else {
             alert(response.reason);
@@ -21,13 +21,13 @@ function getRecipes() {
         if (response.success) {
             document.getElementById('chicken1-title').innerText = response.easy['name']
             document.getElementById('chicken1-time').innerText = response.easy['time']
-            document.getElementById('chicken1-image').src = getStaticResource('images/recipes/chicken1/chicken1.jpg')
+            document.getElementById('chicken1-image').src = getStaticResource('images/recipes/chicken1.jpg')
             document.getElementById('chicken2-title').innerText = response.medium['name']
             document.getElementById('chicken2-time').innerText = response.medium['time']
-            document.getElementById('chicken2-image').src = getStaticResource('images/recipes/chicken2/chicken2.jpg')
+            document.getElementById('chicken2-image').src = getStaticResource('images/recipes/chicken2.jpg')
             document.getElementById('chicken3-title').innerText = response.hard['name']
             document.getElementById('chicken3-time').innerText = response.hard['time']
-            document.getElementById('chicken3-image').src = getStaticResource('images/recipes/chicken3/chicken3.jpg')
+            document.getElementById('chicken3-image').src = getStaticResource('images/recipes/chicken3.jpg')
         }
         else {
             alert(response.reason);
@@ -59,7 +59,7 @@ function moreInfo(r) {
             recipe.equipment = JSON.parse(recipe.equipment);
             document.getElementById('alertDialogTitle').innerText = recipe.name;
             document.getElementById('alertDialogTime').innerText = "Ready In: " + recipe.minutes;
-            document.getElementById('alertDialogImage').src = getStaticResource('images/recipes/' + r + '/' + r + '.jpg');
+            document.getElementById('alertDialogImage').src = getStaticResource('images/recipes/' + r + '.jpg');
             var ingredientGrid = document.getElementById('ingredientGrid');
             // Clear Ingredient Grid
             ingredientGrid.innerHTML = "";
@@ -82,7 +82,7 @@ function moreInfo(r) {
                 }
                 var currentCell = document.getElementsByClassName('ingredients' + rowNumber)[i%4]
                 var cellImage = document.createElement('img');
-                cellImage.src = getStaticResource('images/recipes/' + r + '/ingredients/' + i + '.jpg');
+                cellImage.src = getIngredientImage(recipe.ingredients[i]);
                 cellImage.style.height = '8vh';
                 var cellText = document.createElement('p');
                 cellText.style.wordWrap = "break-word";
@@ -114,7 +114,7 @@ function moreInfo(r) {
                 }
                 var currentCell = document.getElementsByClassName('equipment' + rowNumber)[i%4]
                 var cellImage = document.createElement('img');
-                cellImage.src = getStaticResource('images/recipes/' + r + '/equipment/' + i + '.jpg');
+                cellImage.src = getEquipmentImage(recipe.equipment[i]);
                 cellImage.style.height = '8vh';
                 var cellText = document.createElement('p');
                 cellText.style.wordWrap = "break-word";
@@ -142,8 +142,12 @@ function moreInfo(r) {
             }
             document.getElementById('alertDialogButton').addEventListener('click', 
                 function() {
+<<<<<<< HEAD
                     goToUrl("/cooking")
                     
+=======
+                    goToUrl('/cooking/');
+>>>>>>> 56f59dc285d8cc6c326d7d2a4e2b6e0f6ed6e747
                 });
             dialog.showModal();
         }
