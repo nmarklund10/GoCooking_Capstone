@@ -142,12 +142,7 @@ function moreInfo(r) {
             }
             document.getElementById('alertDialogButton').addEventListener('click', 
                 function() {
-<<<<<<< HEAD
-                    goToUrl("/cooking")
-                    
-=======
                     goToUrl('/cooking/');
->>>>>>> 56f59dc285d8cc6c326d7d2a4e2b6e0f6ed6e747
                 });
             dialog.showModal();
         }
