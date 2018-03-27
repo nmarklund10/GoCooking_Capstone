@@ -9,4 +9,4 @@ class Recipe(models.Model):
     instructions = models.CharField(max_length=10000)
     ingredients = models.CharField(max_length=2048)
     equipment = models.CharField(max_length=1024)
-    image_url = models.CharField(max_length=512)
+    skills = models.CharField(max_length=1024)
