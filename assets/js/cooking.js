@@ -13,7 +13,6 @@ function setup() {
         else
             alert(response.reason);
     });
-
     document.getElementById('closeDialogButton').onclick = function() { document.getElementById('alertDialog').close(); };
     document.getElementById('cancelDialogButton').onclick = function() { document.getElementById('exitDialog').close(); };
 }
@@ -47,19 +46,12 @@ function updateCurrentStep() {
     }
 }
 
-<<<<<<< HEAD
 
-function exitWindow(){
-    document.getElementById('exitDialog').showModal();
-}
-
-
-=======
 function exitWindow() {
     document.getElementById('exitDialog').showModal();
 }
 
->>>>>>> 05bd9963e7c9dda835296185ae3b7fafe4f84254
+
 function setTimer(step) {
     step = step.toLowerCase();
     step = step.split(' ');
@@ -99,10 +91,6 @@ function setTimer(step) {
     document.getElementById('timerButton').innerText = "Start Timer";
 }
 
-<<<<<<< HEAD
-    
-=======
->>>>>>> 05bd9963e7c9dda835296185ae3b7fafe4f84254
 function finishRecipe() {
     goToUrl('/dashboard');
 }
