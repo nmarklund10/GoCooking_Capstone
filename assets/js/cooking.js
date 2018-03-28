@@ -47,12 +47,19 @@ function updateCurrentStep() {
     }
 }
 
+<<<<<<< HEAD
 
 function exitWindow(){
     document.getElementById('exitDialog').showModal();
 }
 
 
+=======
+function exitWindow() {
+    document.getElementById('exitDialog').showModal();
+}
+
+>>>>>>> 05bd9963e7c9dda835296185ae3b7fafe4f84254
 function setTimer(step) {
     step = step.toLowerCase();
     step = step.split(' ');
@@ -63,16 +70,39 @@ function setTimer(step) {
         document.getElementById('timerButton').style.visibility = "visible";
         var length = step[index - 1] * 60;
         document.getElementById('timerButton').addEventListener('click', function(){
-            document.getElementById('timerButton').onclick = length + " sec";
-            document.getElementById('timerButton').disabled = "disabled";
+            document.getElementById('timerButton').style.color = "rgb(33,150,243)"            
+            document.getElementById('timerButton').innerText = length + " sec";
+            if (window.interval != undefined) {
+                clearInterval(window.interval);
+            }
+            window.interval = setInterval(function(){
+                sec = parseInt(document.getElementById('timerButton').innerText.split(" ")[0]) - 1;
+                if (sec <= 10) {
+                    document.getElementById('timerButton').style.color = "red";
+                }
+                document.getElementById('timerButton').innerText = sec + " sec";
+                if (sec == 0) {
+                    clearInterval(window.interval);
+                    document.getElementById('timerDialog').showModal();
+                }
+            }, 1000)
         });
     }
     else {
         document.getElementById('timerButton').style.visibility = "hidden";
     }
+    if (window.interval != undefined) {
+        clearInterval(window.interval);
+        window.interval = undefined;
+    }
+    document.getElementById('timerButton').style.color = "rgb(33,150,243)"
+    document.getElementById('timerButton').innerText = "Start Timer";
 }
 
+<<<<<<< HEAD
     
+=======
+>>>>>>> 05bd9963e7c9dda835296185ae3b7fafe4f84254
 function finishRecipe() {
     goToUrl('/dashboard');
 }
