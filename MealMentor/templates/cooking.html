@@ -37,7 +37,7 @@
                 }
                 .mdl-grid {
                     padding: 4vh 0 0 0;
-                    height: 76vh;
+                    height: 80vh;
                     width: 100vw;
                 }
                 .mdl-cell {
@@ -65,6 +65,9 @@
                 .mdl-card__supporting-text {
                     padding: 3vh 3vw;
                 }
+                .mdl-card__actions {
+                    padding: 2vh 2vw;
+                }
                 #currentStep {
                     font-size: 4vh;
                     line-height: 5vh;
@@ -88,6 +91,13 @@
                     font-size: 6vh;
                     line-height: 6vh;
                 }
+                #timerButton {
+                    display: block; 
+                    margin: 0 auto;
+                    padding: 3vh 3vw;
+                    line-height: 1vh;
+                    font-size: 3vh;
+                }
             </style>
         {% endblock %}
     </head>
@@ -103,6 +113,12 @@
         <div class="mdl-dialog__actions">
             <button id="alertDialogButton" class="mdl-button mdl-js-button mdl-js-ripple-effect" style="background-color: lightgray;" onclick="finishRecipe();">OK</button>
             <button id="closeDialogButton" class="mdl-button mdl-js-button mdl-js-ripple-effect">Cancel</button>
+        </div>
+    </dialog>
+    <dialog id="timerDialog" class="mdl-dialog">    
+        <h4 class="mdl-dialog__title" align="center">Timer Done!</h4>
+        <div class="mdl-dialog__actions">
+            <button id="alertDialogButton" class="mdl-button mdl-js-button mdl-js-ripple-effect" style="display: block; margin: 0 auto; background-color: lightgray;" onclick="document.getElementById('timerDialog').close();">OK</button>
         </div>
     </dialog>
     <div id="titlebar" class="mdl-grid">
@@ -128,6 +144,9 @@
                 </div>
                 <div class="mdl-card__supporting-text">
                     <div id="currentStep"></div>
+                </div>
+                <div class="mdl-card__actions">
+                    <button id="timerButton" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Start Timer</button>
                 </div>
             </div>
         </div>
