@@ -47,9 +47,11 @@ function updateCurrentStep() {
     }
 }
 
+
 function exitWindow() {
     document.getElementById('exitDialog').showModal();
 }
+
 
 function setTimer(step) {
     step = step.toLowerCase();
@@ -101,7 +103,7 @@ function closeTimer() {
 }
 
 function finishRecipe() {
-    goToUrl('/dashboard');
+    document.getElementById('assessmentDialog').showModal();
 }
 
 function getGif(instruction) {
