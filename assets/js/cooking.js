@@ -13,7 +13,7 @@ function setup() {
         else
             alert(response.reason);
     });
-    
+
     document.getElementById('closeDialogButton').onclick = function() { document.getElementById('alertDialog').close(); };
     document.getElementById('cancelDialogButton').onclick = function() { document.getElementById('exitDialog').close(); };
 }
@@ -32,6 +32,7 @@ function updateCurrentStep() {
     document.getElementById('currentStep').innerText = window.recipe.instructions[stepNumber];
     document.getElementById('stepTitle').innerText = "Step " + (window.stepNumber + 1) + "/" + window.recipe.instructions.length;
     document.getElementById('currentGif').src = getGif(window.recipe.instructions[stepNumber]);
+    setTimer(window.recipe.instructions[stepNumber]);    
     if (window.stepNumber == 0) {
         hideElementById('prevButton');
     }
@@ -46,10 +47,32 @@ function updateCurrentStep() {
     }
 }
 
+
 function exitWindow(){
     document.getElementById('exitDialog').showModal();
 }
 
+
+function setTimer(step) {
+    step = step.toLowerCase();
+    step = step.split(' ');
+    var index = step.indexOf('minute')
+    if (index == -1) 
+        index = step.indexOf('minutes');
+    if (index > -1) {
+        document.getElementById('timerButton').style.visibility = "visible";
+        var length = step[index - 1] * 60;
+        document.getElementById('timerButton').addEventListener('click', function(){
+            document.getElementById('timerButton').onclick = length + " sec";
+            document.getElementById('timerButton').disabled = "disabled";
+        });
+    }
+    else {
+        document.getElementById('timerButton').style.visibility = "hidden";
+    }
+}
+
+    
 function finishRecipe() {
     goToUrl('/dashboard');
 }
