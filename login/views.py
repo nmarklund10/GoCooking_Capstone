@@ -36,7 +36,7 @@ def verify_token(request):
 def create_user(request):
     if request.method == 'POST':
         user = json.loads(request.body)
-        u = User(name=user['name'], email=user['email'], recipes_completed="[]")
+        u = User(name=user['name'], email=user['email'], recipes_completed="[]", skills_learned="[]")
         u.save()
         request.session['logged_in'] = True
         request.session['name'] = u.name
@@ -59,12 +59,12 @@ def get_name(request):
     else:
         return JsonResponse({'success': False, 'reason': 'Error has occured on the server.'})
 
-def get_completed_recipes(request):
+def get_recipes_and_skills(request):
     if request.method == 'GET':
         try:
             user = User.objects.get(name=request.session.get('name'))
         except User.DoesNotExist:
             return JsonResponse({'success': False, 'reason': 'User not found'})
-        return JsonResponse({'success': True, 'recipes': user.recipes_completed})
+        return JsonResponse({'success': True, 'recipes': user.recipes_completed, 'skills': user.skills_learned})
     else:
         return JsonResponse({'success': False, 'reason': 'Error has occured on the server.'})

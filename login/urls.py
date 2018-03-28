@@ -10,5 +10,5 @@ urlpatterns = [
     path('about/', views.about_page),
     path('logout/', views.log_out),
     path('name/', views.get_name),
-    path('completedRecipes/', views.get_completed_recipes),
+    path('completedRecipes/', views.get_recipes_and_skills),
 ]
