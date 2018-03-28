@@ -35,7 +35,7 @@ function prevStep() {
 
 function updateCurrentStep() {
     document.getElementById('currentStep').innerText = window.recipe.instructions[stepNumber];
-    document.getElementById('stepTitle').innerText = "Step " + (window.stepNumber + 1);
+    document.getElementById('stepTitle').innerText = "Step " + (window.stepNumber + 1) + "/" + window.recipe.instructions.length;
     document.getElementById('currentGif').src = getGif(window.recipe.instructions[stepNumber]);
     if (window.stepNumber == 0) {
         hideElementById('prevButton');
