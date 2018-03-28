@@ -146,13 +146,16 @@ function createSkillsGrid(holderId, arr) {
             grid.appendChild(row);
         }
         var currentCell = document.getElementsByClassName(holderId + rowNumber)[i%4]
-        var skill = document.createElement('p');
-        skill.className = "skill";
-        skill.innerText = arr[i];
-        skill.style.backgroundColor = "red"
+        var skill = document.createElement('span');
+        skill.className = "mdl-chip skill";
+        skill.style.backgroundColor = "red";
+        var text = document.createElement('span');
+        text.className = "mdl-chip__text"
+        text.innerText = arr[i];
         if (window.userSkills.indexOf(arr[i]) > -1) {
             skill.style.backgroundColor = "green"
         }
+        skill.appendChild(text);
         currentCell.appendChild(skill);
     }
 }
