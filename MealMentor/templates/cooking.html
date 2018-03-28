@@ -77,15 +77,16 @@
                 }
                 #exitButton {
                     color: white;
-                    float: left;
                     width: 10vw;
                     font-size: 2vh;
+                    line-height: 2vh;                  
+                    padding: 0 1vw;
                 }
                 #recipeTitle {
+                    text-align: center;
                     color: white;
-                    width: 90vw;
-                    font-size:6vh;
-                    margin:0;
+                    font-size: 6vh;
+                    line-height: 6vh;
                 }
             </style>
         {% endblock %}
@@ -104,9 +105,14 @@
             <button id="closeDialogButton" class="mdl-button mdl-js-button mdl-js-ripple-effect">Cancel</button>
         </div>
     </dialog>
-    <div id="titlebar">
-        <button id="exitButton" class="mdl-button mdl-js-button mdl-js-ripple-effect" onclick="goToUrl('/dashboard');">Exit Recipe</button>
-        <p id="recipeTitle" align="center"></p>
+    <div id="titlebar" class="mdl-grid">
+        <div class="mdl-cell mdl-cell--1-col"></div>            
+        <div class="mdl-cell--10-col">
+            <div id="recipeTitle"></div>
+        </div>
+        <div class="mdl-cell mdl-cell--1-col">
+                <button id="exitButton" class="mdl-button mdl-js-button mdl-js-ripple-effect">Exit Recipe</button>
+        </div>
     </div>
     <div class="mdl-grid">
         <div class="center-text mdl-cell mdl-cell--1-col">
