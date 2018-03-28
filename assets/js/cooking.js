@@ -13,7 +13,9 @@ function setup() {
         else
             alert(response.reason);
     });
+
     document.getElementById('closeDialogButton').onclick = function() { document.getElementById('alertDialog').close(); };
+    document.getElementById('cancelDialogButton').onclick = function() { document.getElementById('exitDialog').close(); };
 }
 
 function nextStep() {
@@ -45,6 +47,12 @@ function updateCurrentStep() {
     }
 }
 
+
+function exitWindow(){
+    document.getElementById('exitDialog').showModal();
+}
+
+
 function setTimer(step) {
     step = step.toLowerCase();
     step = step.split(' ');
@@ -64,8 +72,7 @@ function setTimer(step) {
     }
 }
 
-      
-
+    
 function finishRecipe() {
     goToUrl('/dashboard');
 }
