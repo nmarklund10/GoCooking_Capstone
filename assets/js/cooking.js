@@ -15,6 +15,7 @@ function setup() {
     });
     document.getElementById('closeDialogButton').onclick = function() { document.getElementById('alertDialog').close(); };
     document.getElementById('cancelDialogButton').onclick = function() { document.getElementById('exitDialog').close(); };
+    window.timerSound = new Audio(getStaticResource("audio/timerEnd.mp3"));
 }
 
 function nextStep() {
@@ -59,6 +60,7 @@ function setTimer(step) {
     if (index > -1) {
         document.getElementById('timerButton').style.visibility = "visible";
         var length = step[index - 1] * 60;
+        length = 5;
         document.getElementById('timerButton').addEventListener('click', function(){
             document.getElementById('timerButton').style.color = "rgb(33,150,243)"            
             document.getElementById('timerButton').innerText = length + " sec";
@@ -74,6 +76,7 @@ function setTimer(step) {
                 if (sec == 0) {
                     clearInterval(window.interval);
                     document.getElementById('timerDialog').showModal();
+                    window.timerSound.play();
                 }
             }, 1000)
         });
@@ -87,6 +90,14 @@ function setTimer(step) {
     }
     document.getElementById('timerButton').style.color = "rgb(33,150,243)"
     document.getElementById('timerButton').innerText = "Start Timer";
+}
+
+function closeTimer() {
+    document.getElementById('timerButton').style.color = "rgb(33,150,243)"
+    document.getElementById('timerButton').innerText = "Start Timer";
+    window.timerSound.pause();
+    window.timerSound.currentTime = 0;
+    document.getElementById('timerDialog').close();
 }
 
 function finishRecipe() {
