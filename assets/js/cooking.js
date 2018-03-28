@@ -13,14 +13,9 @@ function setup() {
         else
             alert(response.reason);
     });
-    sendGetRequestForJSON('/name', {}, 
-    function(response){
-        if (response.success)
-            document.getElementById('appTitle').innerText = document.getElementById('appTitle').innerText + ": " + response.name;
-        else
-            alert(response.reason);
-    })
+    
     document.getElementById('closeDialogButton').onclick = function() { document.getElementById('alertDialog').close(); };
+    document.getElementById('cancelDialogButton').onclick = function() { document.getElementById('exitDialog').close(); };
 }
 
 function nextStep() {
@@ -49,6 +44,10 @@ function updateCurrentStep() {
         document.getElementById('nextButton').onclick = nextStep;        
         showElementById('prevButton');        
     }
+}
+
+function exitWindow(){
+    document.getElementById('exitDialog').showModal();
 }
 
 function finishRecipe() {

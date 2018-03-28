@@ -104,8 +104,18 @@
             <button id="closeDialogButton" class="mdl-button mdl-js-button mdl-js-ripple-effect">Cancel</button>
         </div>
     </dialog>
+    <dialog id="exitDialog" class="mdl-dialog">    
+        <h4 class="mdl-dialog__title" align="center">Exit Recipe?</h4>
+        <div class="mdl-dialog__content">
+            <p id="exitDialogText" align="center">Are you sure you want to exit? Your data will not be recorded.</p>
+        </div>
+        <div class="mdl-dialog__actions">
+            <button id="exitDialogButton" class="mdl-button mdl-js-button mdl-js-ripple-effect" style="background-color: lightgray;" onclick="goToUrl('/dashboard');">Exit</button>
+            <button id="cancelDialogButton" class="mdl-button mdl-js-button mdl-js-ripple-effect">Cancel</button>
+        </div>
+    </dialog>
     <div id="titlebar">
-        <button id="exitButton" class="mdl-button mdl-js-button mdl-js-ripple-effect" onclick="goToUrl('/dashboard');">Exit Recipe</button>
+        <button id="exitButton" class="mdl-button mdl-js-button mdl-js-ripple-effect" style="border: 2px solid white;" onclick="exitWindow();">Exit Recipe</button>
         <p id="recipeTitle" align="center"></p>
     </div>
     <div class="mdl-grid">
