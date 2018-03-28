@@ -92,7 +92,7 @@ function setTimer(step) {
 }
 
 function finishRecipe() {
-    goToUrl('/dashboard');
+    document.getElementById('assessmentDialog').showModal();
 }
 
 function getGif(instruction) {

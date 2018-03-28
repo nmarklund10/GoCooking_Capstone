@@ -132,7 +132,18 @@
             <button id="exitDialogButton" class="mdl-button mdl-js-button mdl-js-ripple-effect" style="background-color: lightgray;" onclick="goToUrl('/dashboard');">Exit</button>
             <button id="cancelDialogButton" class="mdl-button mdl-js-button mdl-js-ripple-effect">Cancel</button>
         </div>
-    </dialog>    
+    </dialog> 
+    
+    <dialog id="assessmentDialog" class="mdl-dialog" style="height:95%; width:95%;">    
+        <h4 class="mdl-dialog__title" align="center">Assessment Form</h4>
+        <div class="mdl-dialog__content">
+            <p id="alertDialogText" align="center">Are you sure you want to mark this recipe as completed?</p>
+        </div>
+        <div class="mdl-dialog__actions">
+            <button id="alertDialogButton" class="mdl-button mdl-js-button mdl-js-ripple-effect" style="background-color: lightgray;" onclick="evaluate();">Submit</button>
+        </div>
+    </dialog>
+
     <div id="titlebar" class="mdl-grid">
         <div class="mdl-cell mdl-cell--1-col"></div>            
         <div class="mdl-cell--10-col">
