@@ -7,4 +7,5 @@ urlpatterns = [
     path('getRecipes/', views.get_recipes),
     path('getARecipe/', views.get_specific_recipe),
     path('cooking/', views.show_cooking_page),
+    path('passed/', views.add_completed_recipe_and_skills),
 ]

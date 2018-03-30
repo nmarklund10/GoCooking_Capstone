@@ -9,7 +9,6 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue-pink.min.css">
         <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         {% csrf_token %}
         <script>
             var csrf_token = document.getElementsByName("csrfmiddlewaretoken")[0].value.toString();
@@ -35,7 +34,15 @@
                     height: 6vh;
                     width: 100vw;
                 }
-                .mdl-grid {
+                .mdl-cell.assess {
+                    padding-top: 0;
+                    width: 100%;
+                }
+                .mdl-grid.assess {
+                    padding: 3vh 0 3vh 0;
+                    width: 100%;
+                }
+                .cooking {
                     padding: 4vh 0 0 0;
                     height: 80vh;
                     width: 100vw;
@@ -98,6 +105,42 @@
                     line-height: 1vh;
                     font-size: 3vh;
                 }
+                #assessmentDialog > .mdl-dialog__title {
+                    padding-top: 3vh;
+                    padding-left: 2vw;
+                    padding-right: 2vw;  
+                    font-size: 5vh;                  
+                }
+                #assessmentDialog > .mdl-dialog__content {
+                    height: 75vh;
+                    overflow-y: scroll;
+                    padding: 1vh 0 1vw 1vw;
+                }
+                .assessmentQuestion {
+                    margin-top: 2vh;;
+                    font-size: 4vh;
+                }
+                .mdl-radio {
+                    display: inline-block;
+                    font-size: 2vh;
+                    width: 15.5vw;
+                }
+                .assessSpacer {
+                    display: inline-block; 
+                    height: 1vh; 
+                    width: 10vw;
+                }
+                .assessPics {
+                    height:20vh; 
+                    display:block; 
+                    margin:auto;
+                    cursor: pointer;
+                    border-color: white;
+                    border-style: solid;
+                }
+                .assessPics:hover {
+                    border-color: #2196F3;
+                }
             </style>
         {% endblock %}
     </head>
@@ -115,14 +158,12 @@
             <button id="closeDialogButton" class="mdl-button mdl-js-button mdl-js-ripple-effect">Cancel</button>
         </div>
     </dialog>
-
     <dialog id="timerDialog" class="mdl-dialog">    
         <h4 class="mdl-dialog__title" align="center">Timer Done!</h4>
         <div class="mdl-dialog__actions">
             <button id="alertDialogButton" class="mdl-button mdl-js-button mdl-js-ripple-effect" style="display: block; margin: 0 auto; background-color: lightgray;" onclick="closeTimer();">OK</button>
         </div>
     </dialog>
-
     <dialog id="exitDialog" class="mdl-dialog">    
         <h4 class="mdl-dialog__title" align="center">Exit Recipe?</h4>
         <div class="mdl-dialog__content">
@@ -132,17 +173,46 @@
             <button id="exitDialogButton" class="mdl-button mdl-js-button mdl-js-ripple-effect" style="background-color: lightgray;" onclick="goToUrl('/dashboard');">Exit</button>
             <button id="cancelDialogButton" class="mdl-button mdl-js-button mdl-js-ripple-effect">Cancel</button>
         </div>
-    </dialog>    
-    <dialog id="assessmentDialog" class="mdl-dialog" style="height:95%; width:95%;">    
-        <h4 class="mdl-dialog__title" align="center">Assessment Form</h4>
+    </dialog>
+    <dialog id="assessError" class="mdl-dialog">    
         <div class="mdl-dialog__content">
-            <p id="alertDialogText" align="center">Are you sure you want to mark this recipe as completed?</p>
+            <p style="font-size: 3vh; margin-bottom:0;" align="center">You did not answer all the questions!</p>
         </div>
         <div class="mdl-dialog__actions">
-            <button id="alertDialogButton" class="mdl-button mdl-js-button mdl-js-ripple-effect" style="background-color: lightgray;" onclick="evaluate();">Submit</button>
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect" style="display:block;margin:auto;background-color: lightgray;" onclick="document.getElementById('assessError').close();">Close</button>
         </div>
     </dialog>
-    <div id="titlebar" class="mdl-grid" style="padding-bottom: 1vh;">
+    <dialog id="failScreen" class="mdl-dialog">    
+        <div class="mdl-dialog__content">
+            <p style="font-size: 3vh; margin-bottom:0;" align="center">Unfortunately, you did not get a high enough score to pass this recipe.</p>
+        </div>
+        <div class="mdl-dialog__actions">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect" style="display:block;margin:auto;background-color: lightgray;" onclick="goToUrl('/dashboard');">Return To Dashboard</button>
+        </div>
+    </dialog> 
+    <dialog id="assessmentDialog" class="mdl-dialog" style="height:91vh; width:95vw;">    
+        <h4 class="mdl-dialog__title" align="center">Post-Assessment Form</h4>
+        <div id="assessContent" class="mdl-dialog__content">
+            <div style="height:1vh;"></div>
+            <div class="assessmentQuestion">Which picture looks most like your completed dish?</div>
+            <div class="mdl-grid assess">
+                <div class="mdl-cell mdl-cell--4-col">
+                    <img class="assessPics" onclick="selectImage(0);">
+                </div>
+                <div class="mdl-cell mdl-cell--4-col">
+                    <img class="assessPics" onclick="selectImage(1);">
+                </div>  
+                <div class="mdl-cell mdl-cell--4-col">
+                    <img class="assessPics" onclick="selectImage(2);">
+                </div>                  
+            </div>
+            <div class="assessmentQuestion">How satisfied are you with your completed dish?</div>
+        </div>
+        <div class="mdl-dialog__actions">
+            <button id="alertDialogButton" class="mdl-button mdl-js-button mdl-js-ripple-effect" style="font-size: 2vh; width: 15vw; background-color: lightgray;" onclick="submitAssessment();">Submit</button>
+        </div>
+    </dialog>
+    <div id="titlebar" class="mdl-grid cooking" style="padding-bottom: 1vh;">
         <div class="mdl-cell mdl-cell--1-col"></div>            
         <div class="mdl-cell--10-col">
             <div id="recipeTitle"></div>
@@ -151,7 +221,7 @@
                 <button id="exitButton" class="mdl-button mdl-js-button mdl-js-ripple-effect" style="border: 2px solid white" onclick="exitWindow();">Exit Recipe</button>
         </div>
     </div>
-    <div class="mdl-grid">
+    <div class="mdl-grid cooking">
         <div class="center-text mdl-cell mdl-cell--1-col">
             <button id="prevButton" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect nav-button" onclick="prevStep();">
                 <span class="material-icons" style="font-size:10vh;">arrow_back</span>

@@ -6,6 +6,17 @@ function getStaticResource(url) {
     return '/static/' + url
 }
 
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function remove(array, element) {
+    var index = array.indexOf(element);
+    if (index > -1) {
+        array.splice(index, 1);
+    }
+}
+
 function hideElementById(id) {
     document.getElementById(id).style.visibility="hidden";
 }

@@ -68,27 +68,28 @@ def show_cooking_page(request):
 def add_completed_recipe_and_skills(request):
     if request.method == 'POST':
         data = json.loads(request.body)
+        for k in data:
+            print(k);
         try:
             user = User.objects.get(name=request.session.get('name'))
         except User.DoesNotExist:
             return JsonResponse({'success': False, 'reason': 'User not found.'})
         recipes_completed = json.loads(user.recipes_completed)
-        if data.recipe not in recipes_completed:
-            recipes_completed.append(data.recipe)
+        if data["recipe"] not in recipes_completed:
+            recipes_completed.append(data["recipe"])
             user.recipes_completed = json.dumps(recipes_completed)
             user.save()
         skills_learned = json.loads(user.skills_learned)
         try:
-            recipe = Recipe.objects.get(name=data.recipe)
+            recipe = Recipe.objects.get(name=data["recipe"])
         except Recipe.DoesNotExist:
             return JsonResponse({'success': False, 'reason': 'Recipe not found.'})
-        for s in recipe.skills:
+        skills = json.loads(recipe.skills.replace("'", '"'))
+        for s in skills:
             if s not in skills_learned:
                 skills_learned.append(s)
         user.skills_learned = json.dumps(skills_learned)
         user.save()
-        print(user.recipes_completed)
-        print(user.skills_learned)
         return JsonResponse({'success': True})
     else:
         return JsonResponse({'success': False, 'reason': 'Error has occured on the server.'})

@@ -15,8 +15,8 @@ function getRecipes() {
                 if (response.success) {
                     var completedRecipes = JSON.parse(response.recipes);
                     window.userSkills = JSON.parse(response.skills);
-                    window.userSkills = ["skill1", "skill2", "skill3"]
-                    completedRecipes = ["Muffin Morning Makers"]
+                    // window.userSkills = ["skill1", "skill2", "skill3"]
+                    // completedRecipes = ["Muffin Morning Makers"]
                     var recipeBadges = document.getElementsByClassName('mdl-badge');
                     var recipeCards = document.getElementsByClassName('mdl-card');
                     for (var i = 0; i < recipeCards.length; i++) {
