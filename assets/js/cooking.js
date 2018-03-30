@@ -79,12 +79,18 @@ function exitWindow() {
 function setTimer(step) {
     step = step.toLowerCase();
     step = step.split(' ');
-    var index = step.indexOf('minute')
-    if (index == -1) 
-        index = step.indexOf('minutes');
+    var index = -1;
+    var minuteIndex = -1;
+    for (var i = 0; i < step.length; i++) {
+        index = step[i].indexOf("minute");
+        if (index > -1) {
+            minuteIndex = i - 1;
+            break;
+        }
+    }
     if (index > -1) {
         document.getElementById('timerButton').style.visibility = "visible";
-        var length = step[index - 1] * 60;
+        var length = step[minuteIndex] * 60;
         document.getElementById('timerButton').addEventListener('click', function(){
             document.getElementById('timerButton').style.color = "rgb(33,150,243)"            
             document.getElementById('timerButton').innerText = length + " sec";
