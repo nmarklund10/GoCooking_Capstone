@@ -27,6 +27,7 @@ def verify_token(request):
             User.objects.get(email=email)
             request.session['logged_in'] = True
             request.session['name'] = name
+            request.session['email'] = email
             return JsonResponse({'success': True})
         except User.DoesNotExist:
             return JsonResponse({'create': True, 'email': email, 'name': name})
@@ -40,6 +41,7 @@ def create_user(request):
         u.save()
         request.session['logged_in'] = True
         request.session['name'] = u.name
+        request.session['email'] = u.email
         return JsonResponse({'success': True})
     else:
         return JsonResponse({'sucess': False, 'reason': 'Error has occured on the server.'})
@@ -50,7 +52,8 @@ def about_page(request):
 def log_out(request):
     request.session.pop('logged_in', None)
     request.session.pop('name', None)
-    request.session.pop('recipe', None) 
+    request.session.pop('recipe', None)
+    request.session.pop('name', None)      
     return HttpResponseRedirect(reverse('login:login_url'))
 
 def get_name(request):
@@ -62,7 +65,7 @@ def get_name(request):
 def get_recipes_and_skills(request):
     if request.method == 'GET':
         try:
-            user = User.objects.get(name=request.session.get('name'))
+            user = User.objects.get(email=request.session.get('email'))
         except User.DoesNotExist:
             return JsonResponse({'success': False, 'reason': 'User not found'})
         return JsonResponse({'success': True, 'recipes': user.recipes_completed, 'skills': user.skills_learned})
