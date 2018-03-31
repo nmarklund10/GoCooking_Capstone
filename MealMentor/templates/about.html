@@ -10,6 +10,16 @@
             display: inline-block;
             width: 4vw;
         }
+        .picture {
+            height:26vh;
+            border-radius:50%;
+            box-sizing: border-box;
+        }
+        .picture:hover {
+            border-style: solid;
+            border-color: #2196F3;
+            border-width: 0.25vw;
+        }
     </style>
 {% endblock %}
 
@@ -21,73 +31,43 @@
     </div>
     <div class="mdl-grid">
         <div class="mdl-cell mdl-cell--4-col" style="text-align: center;">
-            <div class="spacer"></div>
-            <div class="mdl-card mdl-shadow--4dp">
-                <div class="mdl-card__title" style="font-size:4vh; justify-content:center;">Cameron Amos</div>
-                <div class="mdl-card__media mdl-color--white">
-                    {% load static %}
-                    <img style="height:18vh;" src="{% static 'images/members/cameron.png' %}">
-                </div>
-                <div class="mdl-card__supporting-text">
-                </div>
+            <div>
+                <p style="font-size:4vh;" align="center">Cameron Amos</p>
+                {% load static %}
+                <img class="picture mdl-shadow--4dp" onclick="var win=window.open('', '_blank');win.focus();" src="{% static 'images/members/cameron.png' %}">
             </div>
-            <div class="spacer"></div>
         </div>
         <div class="mdl-cell mdl-cell--4-col" style="text-align: center;">
-            <div class="spacer"></div>
-            <div class="mdl-card mdl-shadow--4dp">
-                <div class="mdl-card__title" style="font-size:4vh; justify-content:center;">Jackie Gonzalez</div>
-                <div class="mdl-card__media mdl-color--white">
-                    {% load static %}
-                    <img style="height:18vh;" src="{% static 'images/members/jackie.png' %}">
-                </div>
-                <div class="mdl-card__supporting-text">
-                </div>
+            <div>
+                <p style="font-size:4vh;" align="center">Jackie Gonzalez</p>
+                {% load static %}
+                <img class="picture mdl-shadow--4dp" onclick="var win=window.open('', '_blank');win.focus();" src="{% static 'images/members/jackie.png' %}">
             </div>
-            <div class="spacer"></div>
         </div>
         <div class="mdl-cell mdl-cell--4-col" style="text-align: center;">
-            <div class="spacer"></div>
-            <div class="mdl-card mdl-shadow--4dp">
-                <div class="mdl-card__title" style="font-size:4vh; justify-content:center;">Neil Marklund</div>
-                <div class="mdl-card__media mdl-color--white">
-                    {% load static %}
-                    <img style="height:18vh;" src="{% static 'images/members/neil.png' %}">
-                </div>
-                <div class="mdl-card__supporting-text">
-                </div>
+            <div>
+                <p style="font-size:4vh;" align="center">Neil Marklund</p>
+                {% load static %}
+                <img class="picture mdl-shadow--4dp" onclick="var win=window.open('https://github.com/nmarklund10', '_blank');win.focus();" src="{% static 'images/members/neil.png' %}">
             </div>
-            <div class="spacer"></div>
         </div>
     </div>
     <div class="mdl-grid" style="height:1vh;"></div>
     <div class="mdl-grid">
         <div class="mdl-cell mdl-cell--2-col"></div>
-        <div class="mdl-cell mdl-cell-4-col">
-            <div class="spacer"></div>
-            <div class="mdl-card mdl-shadow--4dp" style="text-align: center;">
-                <div class="mdl-card__title" style="font-size:4vh; justify-content:center;">Dominic Nguyen</div>
-                <div class="mdl-card__media mdl-color--white">
-                    {% load static %}
-                    <img style="height:18vh;" src="{% static 'images/members/dominic.png' %}">
-                </div>
-                <div class="mdl-card__supporting-text">
-                </div>
+        <div class="mdl-cell mdl-cell-4-col" style="text-align: center;">
+            <div>
+                <p style="font-size:4vh;" align="center">Dominic Nguyen</p>
+                {% load static %}
+                <img class="picture mdl-shadow--4dp" onclick="var win=window.open('', '_blank');win.focus();" src="{% static 'images/members/dominic.png' %}">
             </div>
-            <div class="spacer"></div>
         </div>
         <div class="mdl-cell mdl-cell--4-col" style="text-align: center;">
-            <div class="spacer"></div>
-            <div class="mdl-card mdl-shadow--4dp">
-                <div class="mdl-card__title" style="font-size:4vh; justify-content:center;">Haui Wu</div>
-                <div class="mdl-card__media mdl-color--white">
-                    {% load static %}
-                    <img style="height:18vh;" src="{% static 'images/members/haui.png' %}">
-                </div>
-                <div class="mdl-card__supporting-text">
-                </div>
+            <div>
+                <p style="font-size:4vh;" align="center">Haui Wu</p>
+                {% load static %}
+                <img class="picture mdl-shadow--4dp" onclick="var win=window.open('', '_blank');win.focus();" src="{% static 'images/members/haui.png' %}">
             </div>
-            <div class="spacer"></div>
         </div>
         <div class="mdl-cell mdl-cell--2-col"></div>
     </div>
