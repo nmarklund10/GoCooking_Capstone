@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -26,7 +27,7 @@ SECRET_KEY = '#glori2&q!ki7qjk%unz6tcpuiz3b2q#$3ez3i2@ekx0y(j5gb'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*", "meal-mentor.herokuapp.com"]
 
 
 # Application definition
@@ -122,6 +123,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+STATIC_ROOT = os.path.join(BASE_DIR, '')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "assets"),
 ]
+
+django_heroku.settings(locals())
