@@ -71,7 +71,7 @@ def add_completed_recipe_and_skills(request):
         for k in data:
             print(k);
         try:
-            user = User.objects.get(name=request.session.get('name'))
+            user = User.objects.get(email=request.session.get('email'))
         except User.DoesNotExist:
             return JsonResponse({'success': False, 'reason': 'User not found.'})
         recipes_completed = json.loads(user.recipes_completed)
