@@ -94,6 +94,16 @@
     </style>
 {% endblock %}
 
+{% block navbar %}
+    <a class="mdl-navigation__link" href="/about">About</a>
+    <a class="mdl-navigation__link" href="/logout">Log Out</a>
+{% endblock %}
+
+{% block drawer %}
+    <a class="mdl-navigation__link" href="/about">About</a>
+    <a class="mdl-navigation__link" href="/logout">Log Out</a>
+{% endblock %}
+
 {% block content %}
     <dialog id="alertDialog" class="mdl-dialog">
         <h3 id="alertDialogTitle" align="center" class="mdl-dialog__title"></h3>

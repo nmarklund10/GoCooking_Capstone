@@ -28,16 +28,16 @@
                     <span id="appTitle" style="padding-left:1vw; cursor:pointer;" onclick="goToUrl('/');" class="mdl-layout-title">MealMentor</span>
                     <div class="mdl-layout-spacer"></div>
                     <nav class="mdl-navigation mdl-layout--large-screen-only">
-                        <a class="mdl-navigation__link" href="/about">About</a>
-                        <a class="mdl-navigation__link" href="/logout">Log Out</a>
+                        {% block navbar %}
+                        {% endblock %}
                     </nav>
                 </div>
             </header>
             <div class="mdl-layout__drawer">
                 <span class="mdl-layout-title">MealMentor</span>
                 <nav class="mdl-navigation">
-                    <a class="mdl-navigation__link" href="/about">About</a>
-                    <a class="mdl-navigation__link" href="/logout">Log Out</a>
+                    {% block drawer %}
+                    {% endblock %}
                 </nav>
             </div>
             <main class="mdl-layout__content">
