@@ -9,6 +9,7 @@ name = "pypi"
 
 requests = "*"
 django = "*"
+whitenoise = "*"
 
 
 [dev-packages]
