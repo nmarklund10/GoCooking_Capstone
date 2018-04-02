@@ -27,7 +27,7 @@ SECRET_KEY = '#glori2&q!ki7qjk%unz6tcpuiz3b2q#$3ez3i2@ekx0y(j5gb'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["meal-mentor.herokuapp.com"]
+ALLOWED_HOSTS = ["*", "meal-mentor.herokuapp.com"]
 
 
 # Application definition
