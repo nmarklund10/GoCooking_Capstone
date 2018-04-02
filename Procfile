@@ -1,1 +1,1 @@
-web: gunicorn mealmentor.wsgi
+web: gunicorn MealMentor.wsgi
