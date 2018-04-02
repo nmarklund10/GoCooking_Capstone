@@ -8,7 +8,7 @@
             "instructions": ["Split the muffins open with a fork and toast them in a toaster oven.", "In a large bowl scramble the eggs, green onions and cheddar cheese together.", "Heat vegetable oil in a skillet, pour the egg mixture into the skillet and let it fry in one layer.  When the egg is cooked on the underside, flip the egg over and cook the wet side; remove from heat when cooked through.", "Form the sausage into small patties.  Place the sausage in another skillet.", "Fry sausage until browned, remove from pan and drain on paper towels.", "Make the muffin sandwiches by layering a piece of sausage and a piece of the fried egg between the two muffin pieces."],
             "ingredients": ["1 (12 ounce) package English muffins", "6 eggs", "1/4 cup chopped green onion", "1 cup shredded Cheddar cheese", "2 1/2 tablespoons vegetable oil", "6 ounces ground breakfast sausage"],            
             "equipment": ["fork", "toaster oven", "large bowl", "whisk", "spatula", "2 skillets", "paper towels"],
-            "skills": ["skill1", "skill2", "skill3"]
+            "skills": ["Toast", "Scramble", "Fry and flip"]
         }
     },
     {
@@ -20,7 +20,7 @@
             "instructions": ["Spray or lightly grease a large skillet and heat over medium heat.", "Beat eggs, heavy cream, salt, and pepper in a bowl.", "Pour eggs into the heated skillet, swirling the skillet to coat the bottom.  Cover and let cook until eggs are firm, about 5 minutes", "Top with Swiss cheese, ham, and green onions. Fold omelet in half over fillings; cook for 2 minutes more."],
             "ingredients": ["1 serving cooking spray", "5 eggs", "2 tablespoons heavy whipping cream", "1 teaspoon salt", "1/2 teaspoon ground black pepper", "1 cup shredded Swiss cheese", "4 ounces Black Forest ham, chopped", "1/4 cup finely chopped green onions"],            
             "equipment": ["large skillet", "bowl", "whisk", "spatula"],
-            "skills": ["skill1", "skill2", "skill3", "skill4"]
+            "skills": ["Toast", "Scramble", "Fry and flip", "Beat", "Swirl", "Fold"]
         }
     },
     {
