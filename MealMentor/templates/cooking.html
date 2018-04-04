@@ -43,8 +43,8 @@
                     width: 100%;
                 }
                 .cooking {
-                    padding: 4vh 0 0 0;
-                    height: 80vh;
+                    padding: 2vh 0 0 0;
+                    height: 85vh;
                     width: 100vw;
                 }
                 .mdl-cell {
@@ -52,10 +52,10 @@
                     height: 100%;
                 }
                 .mdl-cell--1-col {
-                    width: 10vw;
+                    width: 20vw;
                 }
                 .mdl-cell--10-col {
-                    width: 80vw;
+                    width: 60vw;
                 }
                 .mdl-card {
                     height: 100%;
@@ -70,10 +70,10 @@
                     justify-content: center;
                 }
                 .mdl-card__supporting-text {
-                    padding: 3vh 3vw;
+                    padding: 2vh 2vw;
                 }
                 .mdl-card__actions {
-                    padding: 2vh 2vw;
+                    padding: 1vh 1vw;
                 }
                 #currentStep {
                     font-size: 4vh;
@@ -87,7 +87,8 @@
                 }
                 #exitButton {
                     color: white;
-                    width: 10vw;
+                    width: 90%;
+                    height: 100%;
                     font-size: 2vh;
                     line-height: 2vh;                  
                     padding: 0 1vw;
@@ -101,7 +102,7 @@
                 #timerButton {
                     display: block; 
                     margin: 0 auto;
-                    padding: 3vh 3vw;
+                    padding: 5vh 10vw;
                     line-height: 1vh;
                     font-size: 3vh;
                 }
@@ -112,7 +113,7 @@
                     font-size: 5vh;                  
                 }
                 #assessmentDialog > .mdl-dialog__content {
-                    height: 75vh;
+                    height: 70vh;
                     overflow-y: scroll;
                     padding: 1vh 0 1vw 1vw;
                 }
@@ -141,6 +142,10 @@
                 .assessPics:hover {
                     border-color: #2196F3;
                 }
+                .dialog-button {
+                    width: 46%;
+                    height: 100%;
+                }
             </style>
         {% endblock %}
     </head>
@@ -154,40 +159,40 @@
             <p id="alertDialogText" align="center">Are you sure you want to mark this recipe as completed?</p>
         </div>
         <div class="mdl-dialog__actions">
-            <button id="alertDialogButton" class="mdl-button mdl-js-button mdl-js-ripple-effect" style="background-color: lightgray;" onclick="finishRecipe();">OK</button>
-            <button id="closeDialogButton" class="mdl-button mdl-js-button mdl-js-ripple-effect">Cancel</button>
+            <button id="alertDialogButton" class="mdl-button mdl-js-button mdl-js-ripple-effect dialog-button" style="background-color: lightgray;" onclick="finishRecipe();">OK</button>
+            <button id="closeDialogButton" class="mdl-button mdl-js-button mdl-js-ripple-effect dialog-button">Cancel</button>
         </div>
     </dialog>
-    <dialog id="timerDialog" class="mdl-dialog">    
+    <dialog id="timerDialog" class="mdl-dialog" style="width: 30vw;">    
         <h4 class="mdl-dialog__title" align="center">Timer Done!</h4>
         <div class="mdl-dialog__actions">
-            <button id="alertDialogButton" class="mdl-button mdl-js-button mdl-js-ripple-effect" style="display: block; margin: 0 auto; background-color: lightgray;" onclick="closeTimer();">OK</button>
+            <button id="alertDialogButton" class="mdl-button mdl-js-button mdl-js-ripple-effect dialog-button" style="display: block; margin: 0 auto; background-color: lightgray;" onclick="closeTimer();">OK</button>
         </div>
     </dialog>
-    <dialog id="exitDialog" class="mdl-dialog">    
+    <dialog id="exitDialog" class="mdl-dialog" style="width: 30vw;">    
         <h4 class="mdl-dialog__title" align="center">Exit Recipe?</h4>
         <div class="mdl-dialog__content">
             <p id="exitDialogText" align="center">Are you sure you want to exit? Your data will not be recorded.</p>
         </div>
         <div class="mdl-dialog__actions">
-            <button id="exitDialogButton" class="mdl-button mdl-js-button mdl-js-ripple-effect" style="background-color: lightgray;" onclick="goToUrl('/dashboard');">Exit</button>
-            <button id="cancelDialogButton" class="mdl-button mdl-js-button mdl-js-ripple-effect">Cancel</button>
+            <button id="exitDialogButton" class="mdl-button mdl-js-button mdl-js-ripple-effect dialog-button" style="background-color: lightgray;" onclick="goToUrl('/dashboard');">Exit</button>
+            <button id="cancelDialogButton" class="mdl-button mdl-js-button mdl-js-ripple-effect dialog-button">Cancel</button>
         </div>
     </dialog>
-    <dialog id="assessError" class="mdl-dialog">    
+    <dialog id="assessError" class="mdl-dialog" style="width: 30vw;">    
         <div class="mdl-dialog__content">
             <p style="font-size: 3vh; margin-bottom:0;" align="center">You did not answer all the questions!</p>
         </div>
         <div class="mdl-dialog__actions">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect" style="display:block;margin:auto;background-color: lightgray;" onclick="document.getElementById('assessError').close();">Close</button>
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect dialog-button" style="display:block;margin:auto;background-color: lightgray;" onclick="document.getElementById('assessError').close();">Close</button>
         </div>
     </dialog>
-    <dialog id="failScreen" class="mdl-dialog">    
+    <dialog id="failScreen" class="mdl-dialog" style="width: 30vw;">    
         <div class="mdl-dialog__content">
             <p style="font-size: 3vh; margin-bottom:0;" align="center">Unfortunately, you did not get a high enough score to pass this recipe.</p>
         </div>
         <div class="mdl-dialog__actions">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect" style="display:block;margin:auto;background-color: lightgray;" onclick="goToUrl('/dashboard');">Return To Dashboard</button>
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect dialog-button" style="display:block;margin:auto;background-color: lightgray;" onclick="goToUrl('/dashboard');">Return To Dashboard</button>
         </div>
     </dialog> 
     <dialog id="assessmentDialog" class="mdl-dialog" style="height:91vh; width:95vw;">    
@@ -208,8 +213,8 @@
             </div>
             <div class="assessmentQuestion">How satisfied are you with your completed dish?</div>
         </div>
-        <div class="mdl-dialog__actions">
-            <button id="alertDialogButton" class="mdl-button mdl-js-button mdl-js-ripple-effect" style="font-size: 2vh; width: 15vw; background-color: lightgray;" onclick="submitAssessment();">Submit</button>
+        <div class="mdl-dialog__actions" style="height: 8vh;">
+            <button id="alertDialogButton" class="mdl-button mdl-js-button mdl-js-ripple-effect dialog-button" style="font-size: 2vh; width: 100%; background-color: lightgray;" onclick="submitAssessment();">Submit</button>
         </div>
     </dialog>
     <div id="titlebar" class="mdl-grid cooking" style="padding-bottom: 1vh;">
@@ -231,7 +236,7 @@
             <div class="mdl-card mdl-shadow--4dp">
                 <div id="stepTitle" class="mdl-card__title"></div>
                 <div class="mdl-card__media mdl-color--white">
-                    <img id="currentGif" style="height:40vh; display: block; margin: auto;">
+                    <img id="currentGif" style="height:35vh; display: block; margin: auto;">
                 </div>
                 <div class="mdl-card__supporting-text">
                     <div id="currentStep"></div>
