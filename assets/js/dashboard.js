@@ -34,6 +34,24 @@ function getRecipes() {
         }
     });
 
+sendGetRequestForJSON('/getRecipes', {'track': 'bread'},
+    function(response) {
+        if (response.success) {
+            document.getElementById('bread1-title').innerText = response.easy['name']
+            document.getElementById('bread1-time').innerText = response.easy['time']
+            document.getElementById('bread1-image').src = getStaticResource('images/recipes/bread1.jpg')
+            document.getElementById('bread2-title').innerText = response.medium['name']
+            document.getElementById('bread2-time').innerText = response.medium['time']
+            document.getElementById('bread2-image').src = getStaticResource('images/recipes/bread2.jpg')
+            document.getElementById('bread3-title').innerText = response.hard['name']
+            document.getElementById('bread3-time').innerText = response.hard['time']
+            document.getElementById('bread3-image').src = getStaticResource('images/recipes/bread3.jpg')
+        }
+        else {
+            alert(response.reason);
+        }
+    });
+
     sendGetRequestForJSON('/getRecipes', {'track': 'vegetables'},
     function(response) {
         if (response.success) {
