@@ -37,7 +37,14 @@ def get_recipes(request):
             medium_recipe = {'name': recipe2.name, 'time': recipe2.minutes, 'image': recipe2.image_url}
             hard_recipe = {'name': recipe3.name, 'time': recipe3.minutes, 'image': recipe3.image_url}
             return JsonResponse({'success': True, 'easy': easy_recipe, 'medium': medium_recipe, 'hard': hard_recipe})
-
+        if (track == 'bread'):
+            recipe1 = Recipe.objects.get(name='Bread 1')
+            recipe2 = Recipe.objects.get(name='Bread 2')
+            recipe3 = Recipe.objects.get(name='Bread 3')
+            easy_recipe = {'name': recipe1.name, 'time': recipe1.minutes, 'image': recipe1.image_url}
+            medium_recipe = {'name': recipe2.name, 'time': recipe2.minutes, 'image': recipe2.image_url}
+            hard_recipe = {'name': recipe3.name, 'time': recipe3.minutes, 'image': recipe3.image_url}
+            return JsonResponse({'success': True, 'easy': easy_recipe, 'medium': medium_recipe, 'hard': hard_recipe})
         if (track == 'vegetable'):
             recipe1 = Recipe.objects.get(name='Vegetable 1')
             recipe2 = Recipe.objects.get(name='Vegetable 2')
