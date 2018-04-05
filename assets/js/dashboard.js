@@ -1,4 +1,5 @@
 function getRecipes() {
+    //setupTabs();
     sendGetRequestForJSON('/getRecipes', {},
     function(response) {
         if (response.success) {
@@ -7,7 +8,7 @@ function getRecipes() {
             for (var i = 0; i < recipeCards.length; i++) {
                 var currentCard = recipeCards[i];
                 currentCard.children[0].innerText = recipes[i].name;
-                currentCard.children[1].firstElementChild.src = getStaticResource('images/recipes/' + currentCard.id + '.jpg');
+                currentCard.children[1].firstElementChild.src = getStaticResource('images/recipes/' + recipes[i].filename + '.jpg');
                 currentCard.children[2].innerText = recipes[i].time;
             }
             sendGetRequestForJSON('/completedRecipes', {}, 
@@ -60,6 +61,20 @@ function getRecipes() {
         else
             alert(response.reason);
     });
+}
+
+function setupTabs() {
+    //TODO: Finish programatically setting up tabs
+    var tabs = document.getElementById("tabBar").children;
+    var numTabs = tabs.length;
+    var dashboard = document.getElementById("dashboard");
+    for (var i = 0; i < numTabs; i++) {
+        var tabPanel = document.createElement("div");
+        tabPanel.className = "mdl-tabs__panel is-active";
+        tabPanel.id = "tab" + (i+1) + "-panel";
+    }
+    // This will make tabs work
+    // componentHandler.upgradeElements(content);
 }
 
 function isUnlocked(element) {

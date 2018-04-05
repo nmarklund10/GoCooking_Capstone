@@ -13,7 +13,7 @@ from .models import Recipe
 User = apps.get_model('login', 'User')
 
 def recipe_to_json(recipe):
-    return {'name': recipe.name, 'minutes': recipe.minutes, 'instructions': recipe.instructions.replace("'", '"') , 'ingredients': recipe.ingredients.replace("'", '"'), 'equipment': recipe.equipment.replace("'", '"'), 'skills': recipe.skills.replace("'", '"')}
+    return {'filename': recipe.filename, 'name': recipe.name, 'minutes': recipe.minutes, 'instructions': recipe.instructions.replace("'", '"') , 'ingredients': recipe.ingredients.replace("'", '"'), 'equipment': recipe.equipment.replace("'", '"'), 'skills': recipe.skills.replace("'", '"')}
 
 def show_dashboard(request):
     if 'logged_in' not in request.session:
@@ -24,24 +24,10 @@ def show_dashboard(request):
 def get_recipes(request):
     if request.method == 'GET':
         result = []
-        egg1 = Recipe.objects.get(name='Muffin Morning Makers')
-        egg2 = Recipe.objects.get(name='Ham and Cheese Omelet')
-        egg3 = Recipe.objects.get(name='Vegetable Stovetop Frittata')
-        egg1 = {'name': egg1.name, 'time': egg1.minutes}
-        result.append(egg1)
-        egg2 = {'name': egg2.name, 'time': egg2.minutes}
-        result.append(egg2)        
-        egg3 = {'name': egg3.name, 'time': egg3.minutes}
-        result.append(egg3)        
-        chicken1 = Recipe.objects.get(name='Bacon Chicken Sandwiches')
-        chicken2 = Recipe.objects.get(name='Chicken Parmesan')
-        chicken3 = Recipe.objects.get(name='Crispy Fried Chicken')
-        chicken1 = {'name': chicken1.name, 'time': chicken1.minutes}
-        result.append(chicken1)        
-        chicken2 = {'name': chicken2.name, 'time': chicken2.minutes}
-        result.append(chicken2)        
-        chicken3 = {'name': chicken3.name, 'time': chicken3.minutes}
-        result.append(chicken3)        
+        all_recipes = Recipe.objects.all()
+        for r in all_recipes:
+            r = {'filename': r.filename, 'name': r.name, 'time': r.minutes}
+            result.append(r)   
         return JsonResponse({'success': True, 'recipes': json.dumps(result)})
     else:
         return JsonResponse({'success': False, 'reason': 'Error has occured on the server.'})
