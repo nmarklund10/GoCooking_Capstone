@@ -3,6 +3,7 @@ function getRecipes() {
     function(response) {
         if (response.success) {
             var recipes = JSON.parse(response.recipes);
+            console.log(recipes)
             var recipeCards = document.getElementsByClassName('mdl-card');
             for (var i = 0; i < recipeCards.length; i++) {
                 var currentCard = recipeCards[i];
