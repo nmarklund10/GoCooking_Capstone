@@ -3,6 +3,7 @@ function getRecipes() {
     function(response) {
         if (response.success) {
             var recipes = JSON.parse(response.recipes);
+            console.log(recipes)
             var recipeCards = document.getElementsByClassName('mdl-card');
             for (var i = 0; i < recipeCards.length; i++) {
                 var currentCard = recipeCards[i];
@@ -47,78 +48,6 @@ function getRecipes() {
                 else
                     alert(response.reason);
             });
-        }
-        else {
-            alert(response.reason);
-        }
-    });
-
-sendGetRequestForJSON('/getRecipes', {'track': 'bread'},
-    function(response) {
-        if (response.success) {
-            document.getElementById('bread1-title').innerText = response.easy['name']
-            document.getElementById('bread1-time').innerText = response.easy['time']
-            document.getElementById('bread1-image').src = getStaticResource('images/recipes/bread1.jpg')
-            document.getElementById('bread2-title').innerText = response.medium['name']
-            document.getElementById('bread2-time').innerText = response.medium['time']
-            document.getElementById('bread2-image').src = getStaticResource('images/recipes/bread2.jpg')
-            document.getElementById('bread3-title').innerText = response.hard['name']
-            document.getElementById('bread3-time').innerText = response.hard['time']
-            document.getElementById('bread3-image').src = getStaticResource('images/recipes/bread3.jpg')
-        }
-        else {
-            alert(response.reason);
-        }
-    });
-
-    sendGetRequestForJSON('/getRecipes', {'track': 'vegetables'},
-    function(response) {
-        if (response.success) {
-            document.getElementById('vegetable1-title').innerText = response.easy['name']
-            document.getElementById('vegetable1-time').innerText = response.easy['time']
-            document.getElementById('vegetable1-image').src = getStaticResource('images/recipes/vegetable1.jpg')
-            document.getElementById('vegetable2-title').innerText = response.medium['name']
-            document.getElementById('vegetable2-time').innerText = response.medium['time']
-            document.getElementById('vegetable2-image').src = getStaticResource('images/recipes/vegetable2.jpg')
-            document.getElementById('vegetable3-title').innerText = response.hard['name']
-            document.getElementById('vegetable3-time').innerText = response.hard['time']
-            document.getElementById('vegetable3-image').src = getStaticResource('images/recipes/vegetable3.jpg')
-        }
-        else {
-            alert(response.reason);
-        }
-    });
-
-    sendGetRequestForJSON('/getRecipes', {'track': 'pasta'},
-    function(response) {
-        if (response.success) {
-            document.getElementById('pasta1-title').innerText = response.easy['name']
-            document.getElementById('pasta1-time').innerText = response.easy['time']
-            document.getElementById('pasta1-image').src = getStaticResource('images/recipes/pasta1.jpg')
-            document.getElementById('pasta2-title').innerText = response.medium['name']
-            document.getElementById('pasta2-time').innerText = response.medium['time']
-            document.getElementById('pasta2-image').src = getStaticResource('images/recipes/pasta2.jpg')
-            document.getElementById('pasta3-title').innerText = response.hard['name']
-            document.getElementById('pasta3-time').innerText = response.hard['time']
-            document.getElementById('pasta3-image').src = getStaticResource('images/recipes/pasta3.jpg')
-        }
-        else {
-            alert(response.reason);
-        }
-    });
-
-    sendGetRequestForJSON('/getRecipes', {'track': 'desserts'},
-    function(response) {
-        if (response.success) {
-            document.getElementById('desserts1-title').innerText = response.easy['name']
-            document.getElementById('desserts1-time').innerText = response.easy['time']
-            document.getElementById('desserts1-image').src = getStaticResource('images/recipes/desserts1.jpg')
-            document.getElementById('desserts2-title').innerText = response.medium['name']
-            document.getElementById('desserts2-time').innerText = response.medium['time']
-            document.getElementById('desserts2-image').src = getStaticResource('images/recipes/desserts2.jpg')
-            document.getElementById('desserts3-title').innerText = response.hard['name']
-            document.getElementById('desserts3-time').innerText = response.hard['time']
-            document.getElementById('desserts3-image').src = getStaticResource('images/recipes/desserts3.jpg')
         }
         else {
             alert(response.reason);

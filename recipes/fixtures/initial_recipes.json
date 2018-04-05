@@ -32,7 +32,7 @@
             "instructions": ["Beat eggs, egg whites, milk, salt, and pepper together with a whisk in a small bowl.", "Heat olive oil in a 10-inch skillet over medium heat. Cook and stir broccoli, bell pepper, and sweet onion in hot oil for 3 minutes.", "Place a cover on the skillet and continue cooking until the vegetables begin to soften, about 5 minutes more.  Stir olives into the vegetable mixture.", "Pour egg mixture over the vegetable mixture in the skillet.", "Sprinkle feta cheese over the egg mixture.", "Replace cover on the skillet, reduce heat to medium-low, and cook until the egg is lightly browned on the bottom, 3 to 5 minutes.", "Carefully flip the frittata and cook until the bottom is again lightly browned, 1 to 2 minutes more."],
             "ingredients": ["1 tablespoon olive oil", "2/3 cup 1-inch pieces broccoli florets", "1/2 red bell pepper, chopped", "1/2 sweet onion, chopped", "6 marinated olives, chopped", "2 eggs", "2 egg whites", "2 tablespoons whole milk", "1 pinch salt and ground black pepper to taste", "1/4 cup crumbled feta cheese"],            
             "equipment": ["10-inch skillet with cover", "small bowl"],
-            "skills": ["skill1", "skill2", "skill3", "skill4", "skill5"]
+            "skills": ["skill01", "skill02", "skill03", "skill04", "skill05"]
         }
     },
    {
@@ -41,10 +41,10 @@
         "fields": {
             "name": "Bacon Chicken Sandwiches",
             "minutes": "25 minutes",
-            "instructions": ["Flatten chicken to 1/2-inch thickness; sprinkle with salt and pepper.", "In a large skillet over medium heat, cook chicken in oil for 4-5 minutes on each side or until chicken juices run clear.", "Top each chicken breast half with a tomato and cheese slice.", "Cover and cook for 2-3 minutes or until cheese is melted.","Combine chutney and mayonnaise; spread over roll bottoms.", " Layer with spinach, chicken and bacon; replace tops."],
+            "instructions": ["Flatten chicken to 1/2-inch thickness; sprinkle with salt and pepper.", "In a large skillet over medium heat, cook chicken in oil for 4 - 5 minutes on each side or until chicken juices run clear.", "Top each chicken breast half with a tomato and cheese slice.", "Cover and cook for 2 - 3 minutes or until cheese is melted.","Combine chutney and mayonnaise; spread over roll bottoms.", " Layer with spinach, chicken and bacon; replace tops."],
             "ingredients": ["4 boneless skinless chicken breast halves (5 ounces each)", "1/2 teaspoon salt", "1/2 teaspoon pepper", "2 teaspoons canola oil", "4 tomato slices", "4 slices process Swiss cheese", "1/4 cup mango chutney", "3 tablespoons mayonnaise", "4 kaiser rolls, split and toasted", "1 cup fresh baby spinach", "8 slices ready-to-serve fully cooked bacon, warmed"],            
             "equipment": ["large skillet"],
-            "skills": ["skill1", "skill2", "skill3"]
+            "skills": ["skill11", "skill12", "skill13"]
         }
     },
     {
@@ -56,7 +56,7 @@
             "instructions": ["Pound chicken to flatten.", "Salt and pepper to taste.", "Dip chicken in egg; then in bread crumbs.", "Fry in butter in hot skillet, turning and browning for 10 minutes or until chicken is done.", "Remove from skillet.", "Add spaghetti sauce to skillet.", "Heat thoroughly. Add chicken", "Place slices of mozzarella on top of chicken. Sprinkle with parmesan.", "Cover and cook until cheese is melted.", "Serve with a side of spaghetti."],
             "ingredients": ["4 boneless skinless chicken breast halves", "salt", "pepper", "1⁄2 cup Italian breadcrumbs", "1 egg beaten", "4 tablespoons butter", "2 cups spaghetti sauce", "4 slices mozzarella cheese", "1 tablespoon grated parmesan cheese"],            
             "equipment": ["large skillet"],
-            "skills": ["skill1", "skill2", "skill3", "skill4"]
+            "skills": ["skill11", "skill12", "skill13", "skill14"]
         }
     },
     {
@@ -65,24 +65,24 @@
         "fields": {
             "name": "Crispy Fried Chicken",
             "minutes": "20 minutes",
-            "instructions": ["In a large resealable plastic bag, combine 2-2/3 cups flour, garlic salt, paprika, 2-1/2 teaspoons pepper and poultry seasoning", "In a shallow bowl, beat eggs and water; add salt and the remaining flour and pepper", "Dip chicken in egg mixture, then place in the bag, a few pieces at a time.", "Seal bag and shake to coat.", "In a deep-fat fryer, heat oil to 375°.", "Fry chicken, several pieces at a time, for 5-6 minutes on each side or until golden brown and juices run clear.", "Drain on paper towels."],
+            "instructions": ["In a large resealable plastic bag, combine 2-2/3 cups flour, garlic salt, paprika, 2-1/2 teaspoons pepper and poultry seasoning", "In a shallow bowl, beat eggs and water; add salt and the remaining flour and pepper", "Dip chicken in egg mixture, then place in the bag, a few pieces at a time.", "Seal bag and shake to coat.", "In a deep-fat fryer, heat oil to 375°.", "Fry chicken, several pieces at a time, for 5 - 6 minutes on each side or until golden brown and juices run clear.", "Drain on paper towels."],
             "ingredients": ["4 cups all-purpose flour, divided", "2 tablespoons garlic salt", "1 tablespoon paprika", "3 teaspoons pepper, divided", "2 1/2 teaspoons poultry seasoning", "2 large eggs", "1 1/2 cups water", "1 teaspoon salt", "2 broiler/fryer chickens (3-1/2 to 4 pounds each), cut up", "Oil for deep-fat frying"],            
             "equipment": ["large plastic bag", "bowl", "fryer"],
-            "skills": ["skill1", "skill2", "skill3", "skill4", "skill5"]
+            "skills": ["skill11", "skill12", "skill13", "skill14", "skill15"]
         }
-    }
+    },
     {
         "model": "recipes.Recipe",
         "pk": 7,
         "fields": {
             "name": "Basic Homemade Bread",
             "minutes": "60 minutes",
-            "instructions": ["In a large bowl, dissolve yeast in warm water. Add the sugar, salt, oil and 3 cups flour. Beat until smooth.", "Stir in enough remaining flour, 1/2 cup at a time, to form a soft dough.", "Turn onto a floured surface; knead until smooth and elastic, 8-10 minutes.", "Place in a greased bowl, turning once to grease the top. Cover and let rise in a warm place until doubled, about 1-1/2 hours.", "Punch dough down. Turn onto a lightly floured surface", "Divide dough in half. Shape each into a loaf.", "Place in two greased 9x5-in. loaf pans. Cover and let rise until doubled, 30-45 minutes.", "Bake at 375° for 30-35 minutes or until golden brown and bread sounds hollow when tapped.", "Remove from pans to wire racks to cool. Yield: 2 loaves (16 slices each)."],
+            "instructions": ["In a large bowl, dissolve yeast in warm water. Add the sugar, salt, oil and 3 cups flour. Beat until smooth.", "Stir in enough remaining flour, 1/2 cup at a time, to form a soft dough.", "Turn onto a floured surface; knead until smooth and elastic, 8 - 10 minutes.", "Place in a greased bowl, turning once to grease the top. Cover and let rise in a warm place until doubled, about 1-1/2 hours.", "Punch dough down. Turn onto a lightly floured surface", "Divide dough in half. Shape each into a loaf.", "Place in two greased 9x5-in. loaf pans. Cover and let rise until doubled, 30 - 45 minutes.", "Bake at 375° for 30 - 35 minutes or until golden brown and bread sounds hollow when tapped.", "Remove from pans to wire racks to cool. Yield: 2 loaves (16 slices each)."],
             "ingredients": ["1 package (1/4 ounce) active dry yeast", "2-1/4 cups warm water (110°F to 115°F)", "3 tablespoons sugar", "1 tablespoon salt", "2 tablespoons canola oil", "6-1/4 to 6-3/4 cups all-purpose flour"],            
             "equipment": ["bowl", "measuring cup", " 2 9 x 5 loaf pans", "wire racks"],
-            "image_url": ""
+            "skills": ["skill21", "skill22", "skill23"]
         }
-    }
+    },
     {
         "model": "recipes.Recipe",
         "pk": 8,
@@ -92,11 +92,10 @@
             "instructions": ["Preheat oven to 350 degrees F (175 degrees C). Grease a muffin tin.", "Sift flour, baking powder, baking soda, cinnamon, salt, and nutmeg together in a small bowl.", "Mash bananas in a large bowl", "Mix in white sugar, melted butter, brown sugar, egg, and vanilla extract.", " Fold in flour mixture until just combined.", "Fold walnuts into the batter.", "Divide batter evenly among the muffin cups.", "Bake in the preheated oven until a toothpick inserted into the center comes out clean, about 20 minutes."],
             "ingredients": ["1 1/2 cups all-purpose flour", "1 teaspoon baking powder", "1 teaspoon baking soda", "1 teaspoon ground cinnamon", "1/2 teaspoon salt", "1 dash ground nutmeg", "3 very ripe bananas", "1/2 cup white sugar", "1/3 cup butter, melted", "1/4 cup lightly packed brown sugar", "1 egg", "1 teaspoon vanilla extract", "1/4 cup chopped walnuts (optional)"],            
             "equipment": ["toothpick", "muffin tin", "muffin cups", "whisk", "sifter", "small bowl", "large bowl", "measuring cup", " 2 9 x 5 loaf pans", "wire racks"],
-            "image_url": ""
+            "skills": ["skill21", "skill22", "skill23", "skill24"]
         }
-    }
-
-     {
+    },
+    {
         "model": "recipes.Recipe",
         "pk": 9,
         "fields": {
@@ -105,11 +104,7 @@
             "instructions": ["Combine the bread flour, sugar, yeast and kosher salt in the bowl of a stand mixer and combine.", "While the mixer is running, add the water and 2 tablespoons of the oil and beat until the dough forms into a ball.", "If the dough is sticky, add additional flour, 1 tablespoon at a time, until the dough comes together in a solid ball.", " If the dough is too dry, add additional water, 1 tablespoon at a time.", "Scrape the dough onto a lightly floured surface and gently knead into a smooth, firm ball.", "Grease a large bowl with the remaining 2 teaspoons olive oil, add the dough, cover the bowl with plastic wrap and put it in a warm area to let it double in size, about 1 hour.", "Turn the dough out onto a lightly floured surface and divide it into 2 equal pieces.", "Cover each with a clean kitchen towel or plastic wrap and let them rest for 10 minutes."],
             "ingredients": ["3 1/2 to 4 cups bread flour, plus more for rolling", "1 teaspoon sugar", "1 envelope instant dry yeast", "2 teaspoons kosher salt", "1 1/2 cups water, 110 degrees F", "2 tablespoons olive oil, plus 2 teaspoons"],            
             "equipment": ["roller", "mixer", "cooking board", "large bowl", "measuring cup", "plastic wrap"],
-            "image_url": ""
+            "skills": ["skill21", "skill22", "skill23", "skill24", "skill25"]
         }
     }
-
-
-
-
 ]
