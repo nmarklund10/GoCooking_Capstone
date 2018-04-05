@@ -17,6 +17,15 @@ function getPicName(name) {
     else if (name == "Crispy Fried Chicken") {
         return "chicken3";
     }
+    else if (name == "Basic Homemade Bread") {
+        return "bread1";
+    }
+    else if (name == "Ultimate Banana Muffins") {
+        return "bread2";
+    }
+    else if (name == "Homemade Pizza Dough") {
+        return "bread3";
+    }
 }
 
 function setup() {
