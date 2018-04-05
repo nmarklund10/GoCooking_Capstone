@@ -5,10 +5,10 @@
         "fields": {
             "name": "Muffin Morning Makers",
             "minutes": "20 minutes",
-            "instructions": ["Split the muffins open with a fork and toast them in a toaster oven.", "In a large bowl scramble the eggs, green onions and cheddar cheese together. Heat vegetable oil in a skillet, pour the egg mixture into the skillet and let it fry in one layer as you would an omelet. When the egg is cooked on the underside, flip the egg over and cook the wet side; remove from heat when cooked through.", "At the same time that the eggs are frying, form the sausage into small patties.  Place the sausage in another skillet. Fry until browned, remove from pan and drain on paper towels.", "Make the muffin sandwiches by layering a piece of sausage and a piece of the fried egg between the two muffin pieces. If you intend to freeze the sandwiches, let each part of the sandwich cool before make the sandwiches, then wrap them in plastic wrap and freeze. Reheat in the microwave."],
+            "instructions": ["Split the muffins open with a fork and toast them in a toaster oven.", "In a large bowl scramble the eggs, green onions and cheddar cheese together.", "Heat vegetable oil in a skillet, pour the egg mixture into the skillet and let it fry in one layer.  When the egg is cooked on the underside, flip the egg over and cook the wet side; remove from heat when cooked through.", "Form the sausage into small patties.  Place the sausage in another skillet.", "Fry sausage until browned, remove from pan and drain on paper towels.", "Make the muffin sandwiches by layering a piece of sausage and a piece of the fried egg between the two muffin pieces."],
             "ingredients": ["1 (12 ounce) package English muffins", "6 eggs", "1/4 cup chopped green onion", "1 cup shredded Cheddar cheese", "2 1/2 tablespoons vegetable oil", "6 ounces ground breakfast sausage"],            
             "equipment": ["fork", "toaster oven", "large bowl", "whisk", "spatula", "2 skillets", "paper towels"],
-            "image_url": ""
+            "skills": ["Toast", "Scramble", "Fry and flip"]
         }
     },
     {
@@ -17,10 +17,10 @@
         "fields": {
             "name": "Ham and Cheese Omelet",
             "minutes": "17 minutes",
-            "instructions": ["Spray or lightly grease a large skillet and heat over medium heat.", "Beat eggs, heavy cream, salt, and pepper in a bowl.  Pour eggs into the heated skillet, swirling the skillet to coat the bottom. Cover and let cook until eggs are firm, about 5 minutes.", "Top with Swiss cheese, ham, and green onions. Fold omelet in half over fillings; cook for 2 minutes more."],
+            "instructions": ["Spray or lightly grease a large skillet and heat over medium heat.", "Beat eggs, heavy cream, salt, and pepper in a bowl.", "Pour eggs into the heated skillet, swirling the skillet to coat the bottom.  Cover and let cook until eggs are firm, about 5 minutes", "Top with Swiss cheese, ham, and green onions. Fold omelet in half over fillings; cook for 2 minutes more."],
             "ingredients": ["1 serving cooking spray", "5 eggs", "2 tablespoons heavy whipping cream", "1 teaspoon salt", "1/2 teaspoon ground black pepper", "1 cup shredded Swiss cheese", "4 ounces Black Forest ham, chopped", "1/4 cup finely chopped green onions"],            
             "equipment": ["large skillet", "bowl", "whisk", "spatula"],
-            "image_url": ""
+            "skills": ["Toast", "Scramble", "Fry and flip", "Beat", "Swirl", "Fold"]
         }
     },
     {
@@ -29,10 +29,10 @@
         "fields": {
             "name": "Vegetable Stovetop Frittata",
             "minutes": "30 minutes",
-            "instructions": ["Heat olive oil in a 10-inch skillet over medium heat. Cook and stir broccoli, bell pepper, and sweet onion in hot oil until hot, about 3 minutes. Place a cover on the skillet and continue cooking until the vegetables begin to soften, about 5 minutes more. Stir olives into the vegetable mixture.", "Beat eggs, egg whites, milk, salt, and pepper together with a whisk in a small bowl; pour over the vegetable mixture in the skillet. Sprinkle feta cheese over the egg mixture.", "Replace cover on the skillet, reduce heat to medium-low, and cook until the egg is lightly browned on the bottom, 3 to 5 minutes. Carefully flip the frittata and cook until the bottom is again lightly browned, 1 to 2 minutes more."],
+            "instructions": ["Beat eggs, egg whites, milk, salt, and pepper together with a whisk in a small bowl.", "Heat olive oil in a 10-inch skillet over medium heat. Cook and stir broccoli, bell pepper, and sweet onion in hot oil for 3 minutes.", "Place a cover on the skillet and continue cooking until the vegetables begin to soften, about 5 minutes more.  Stir olives into the vegetable mixture.", "Pour egg mixture over the vegetable mixture in the skillet.", "Sprinkle feta cheese over the egg mixture.", "Replace cover on the skillet, reduce heat to medium-low, and cook until the egg is lightly browned on the bottom, 3 to 5 minutes.", "Carefully flip the frittata and cook until the bottom is again lightly browned, 1 to 2 minutes more."],
             "ingredients": ["1 tablespoon olive oil", "2/3 cup 1-inch pieces broccoli florets", "1/2 red bell pepper, chopped", "1/2 sweet onion, chopped", "6 marinated olives, chopped", "2 eggs", "2 egg whites", "2 tablespoons whole milk", "1 pinch salt and ground black pepper to taste", "1/4 cup crumbled feta cheese"],            
             "equipment": ["10-inch skillet with cover", "small bowl"],
-            "image_url": ""
+            "skills": ["skill1", "skill2", "skill3", "skill4", "skill5"]
         }
     },
    {
@@ -44,7 +44,7 @@
             "instructions": ["Flatten chicken to 1/2-inch thickness; sprinkle with salt and pepper.", "In a large skillet over medium heat, cook chicken in oil for 4-5 minutes on each side or until chicken juices run clear.", "Top each chicken breast half with a tomato and cheese slice.", "Cover and cook for 2-3 minutes or until cheese is melted.","Combine chutney and mayonnaise; spread over roll bottoms.", " Layer with spinach, chicken and bacon; replace tops."],
             "ingredients": ["4 boneless skinless chicken breast halves (5 ounces each)", "1/2 teaspoon salt", "1/2 teaspoon pepper", "2 teaspoons canola oil", "4 tomato slices", "4 slices process Swiss cheese", "1/4 cup mango chutney", "3 tablespoons mayonnaise", "4 kaiser rolls, split and toasted", "1 cup fresh baby spinach", "8 slices ready-to-serve fully cooked bacon, warmed"],            
             "equipment": ["large skillet"],
-            "image_url": ""
+            "skills": ["skill1", "skill2", "skill3"]
         }
     },
     {
@@ -56,7 +56,7 @@
             "instructions": ["Pound chicken to flatten.", "Salt and pepper to taste.", "Dip chicken in egg; then in bread crumbs.", "Fry in butter in hot skillet, turning and browning for 10 minutes or until chicken is done.", "Remove from skillet.", "Add spaghetti sauce to skillet.", "Heat thoroughly. Add chicken", "Place slices of mozzarella on top of chicken. Sprinkle with parmesan.", "Cover and cook until cheese is melted.", "Serve with a side of spaghetti."],
             "ingredients": ["4 boneless skinless chicken breast halves", "salt", "pepper", "1⁄2 cup Italian breadcrumbs", "1 egg beaten", "4 tablespoons butter", "2 cups spaghetti sauce", "4 slices mozzarella cheese", "1 tablespoon grated parmesan cheese"],            
             "equipment": ["large skillet"],
-            "image_url": ""
+            "skills": ["skill1", "skill2", "skill3", "skill4"]
         }
     },
     {
@@ -68,7 +68,7 @@
             "instructions": ["In a large resealable plastic bag, combine 2-2/3 cups flour, garlic salt, paprika, 2-1/2 teaspoons pepper and poultry seasoning", "In a shallow bowl, beat eggs and water; add salt and the remaining flour and pepper", "Dip chicken in egg mixture, then place in the bag, a few pieces at a time.", "Seal bag and shake to coat.", "In a deep-fat fryer, heat oil to 375°.", "Fry chicken, several pieces at a time, for 5-6 minutes on each side or until golden brown and juices run clear.", "Drain on paper towels."],
             "ingredients": ["4 cups all-purpose flour, divided", "2 tablespoons garlic salt", "1 tablespoon paprika", "3 teaspoons pepper, divided", "2 1/2 teaspoons poultry seasoning", "2 large eggs", "1 1/2 cups water", "1 teaspoon salt", "2 broiler/fryer chickens (3-1/2 to 4 pounds each), cut up", "Oil for deep-fat frying"],            
             "equipment": ["large plastic bag", "bowl", "fryer"],
-            "image_url": ""
+            "skills": ["skill1", "skill2", "skill3", "skill4", "skill5"]
         }
     }
 ]

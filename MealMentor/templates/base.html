@@ -5,11 +5,10 @@
         <meta charset="UTF-8">
         {% load static %}        
         <link rel="shortcut icon" type="image/png" href="{% static 'images/logo.png' %}"/>
-        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue-pink.min.css">
         <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         {% csrf_token %}
         <script>
             var csrf_token = document.getElementsByName("csrfmiddlewaretoken")[0].value.toString();
@@ -29,16 +28,16 @@
                     <span style="padding-left:1vw; cursor:pointer;" onclick="goToUrl('/');" class="mdl-layout-title">MealMentor</span>
                     <div class="mdl-layout-spacer"></div>
                     <nav class="mdl-navigation mdl-layout--large-screen-only">
-                        <a class="mdl-navigation__link" href="/about">About</a>
-                        <a class="mdl-navigation__link" href="/logout">Log Out</a>
+                        {% block navbar %}                        
+                        {% endblock %}
                     </nav>
                 </div>
             </header>
             <div class="mdl-layout__drawer">
                 <span class="mdl-layout-title">MealMentor</span>
                 <nav class="mdl-navigation">
-                    <a class="mdl-navigation__link" href="/about">About</a>
-                    <a class="mdl-navigation__link" href="/logout">Log Out</a>
+                    {% block drawer %}
+                    {% endblock %}
                 </nav>
             </div>
             <main class="mdl-layout__content">
