@@ -1,33 +1,3 @@
-function getPicName(name) {
-    if (name == "Muffin Morning Makers") {
-        return "egg1";
-    }
-    else if (name == "Ham and Cheese Omelet") {
-        return "egg2";
-    }
-    else if (name == "Vegetable Stovetop Frittata") {
-        return "egg3";
-    }
-    else if (name == "Bacon Chicken Sandwiches") {
-        return "chicken1";
-    }
-    else if (name == "Chicken Parmesan") {
-        return "chicken2";
-    }
-    else if (name == "Crispy Fried Chicken") {
-        return "chicken3";
-    }
-    else if (name == "Basic Homemade Bread") {
-        return "bread1";
-    }
-    else if (name == "Ultimate Banana Muffins") {
-        return "bread2";
-    }
-    else if (name == "Homemade Pizza Dough") {
-        return "bread3";
-    }
-}
-
 function setup() {
     sendGetRequestForJSON("/getARecipe/", {'recipe': recipe}, 
     function(response) {
@@ -153,11 +123,11 @@ function selectImage(i) {
 
 function getImageValue(src) {
     src = src.substr(src.length - 5);
-    if (src == "0.jpg")
-        return 1;
     if (src == "1.jpg")
+        return 1;
+    if (src == "3.jpg")
         return 3;
-    if (src == "2.jpg")
+    if (src == "5.jpg")
         return 5;
 }
 
@@ -245,8 +215,8 @@ function nextAssessment() {
 
 function finishRecipe() {
     var images = document.getElementsByClassName('assessPics');
-    var name = getPicName(window.recipe.name);
-    var sources = [name + 0, name + 1, name + 2];
+    var name = window.recipe.filename;
+    var sources = [name + "_" + 1, name + "_" + 3, name + "_" + 5];
     var selectedSource = sources[getRandomInt(0, 2)];
     images[0].src = getStaticResource("images/recipes/evaluation/" + selectedSource + ".jpg");
     remove(sources, selectedSource);

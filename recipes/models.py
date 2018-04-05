@@ -4,6 +4,7 @@ from django.db import models
 
 
 class Recipe(models.Model):
+    filename = models.CharField(max_length=128)
     name = models.CharField(max_length=256)
     minutes = models.CharField(max_length=128)
     instructions = models.CharField(max_length=10000)
