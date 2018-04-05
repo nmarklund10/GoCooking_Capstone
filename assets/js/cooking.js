@@ -39,6 +39,8 @@ function setup() {
     document.getElementById('cancelDialogButton').onclick = function() { document.getElementById('exitDialog').close(); };
     window.timerSound = new Audio(getStaticResource("audio/timerEnd.mp3"));
     window.selectedImage = null;
+    window.currentQuestion = 0;
+    window.score = 0;
 }
 
 function nextStep() {
@@ -137,18 +139,7 @@ function selectImage(i) {
     }
     allImages[i].style.borderColor = "#2196F3";
     window.selectedImage = allImages[i];
-}
-
-function getRadioButtonValue(className) {
-    radioButtons = document.getElementsByClassName(className);
-    checkedValue = -1;
-    for (var i = 0; i < radioButtons.length; i++) {
-        if (radioButtons[i].checked) {
-            checkedValue = parseInt(radioButtons[i].value);
-            break;
-        }
-    }
-    return checkedValue;
+    document.getElementById('nextAssessmentButton').disabled = false;
 }
 
 function getImageValue(src) {
@@ -161,42 +152,86 @@ function getImageValue(src) {
         return 5;
 }
 
-function submitAssessment() {
-    var score = 0;
-    if (window.selectedImage == null) {
-        document.getElementById('assessError').showModal();
-        return;
+function nextAssessment() {
+    var div = document.getElementById("assessment");
+    window.currentQuestion++;    
+    if (window.currentQuestion == 1) {
+        window.score += getImageValue(window.selectedImage.src);
+        window.selectedImage = null;
+        document.getElementById("assessmentQuestion").innerText = "How satisfied are you with the dish you made?";
     }
-    score += getImageValue(window.selectedImage.src);
-    var curValue = getRadioButtonValue('satisfy');
-    if (curValue == -1) {
-        document.getElementById('assessError').showModal();
-        return;
-    }
-    score += curValue;
-    for (var i = 0; i < window.recipe.skills.length; i++) {
-        curValue = getRadioButtonValue('skill' + i);        
-        if (curValue == -1) {
-            document.getElementById('assessError').showModal();   
-            return;
+    else if (window.currentQuestion == recipe.skills.length + 2) {
+        window.score /= (window.recipe.skills.length + 2).toFixed(2);
+        console.log(window.score);
+        if (window.score >= 3.5) {
+            sendPostRequest("/passed/", {"recipe": window.recipe.name}, 
+            function(response) {
+                if (response.success) {
+                    goToUrl("/dashboard");
+                }
+                else {
+                    alert(response.reason);
+                }
+            });
         }
-        score += curValue;
-    }
-    score /= (window.recipe.skills.length + 2).toFixed(2);
-    if (score >= 3.5) {
-        sendPostRequest("/passed/", {"recipe": window.recipe.name}, 
-        function(response) {
-            if (response.success) {
-                goToUrl("/dashboard");
-            }
-            else {
-                alert(response.reason);
-            }
-        });
+        else {
+            document.getElementById('failScreen').showModal();
+        }
     }
     else {
-        document.getElementById('failScreen').showModal();
+        document.getElementById("assessmentQuestion").innerText = "How confident are you now in " + recipe.skills[window.currentQuestion - 2] + "?";
+        window.score += window.selectedValue;
+        if (window.currentQuestion == recipe.skills.length + 1) {
+            document.getElementById("nextAssessmentButton").innerText = "Submit";
+        }
     }
+    document.getElementById("questionCounter").innerText = "Question " + (window.currentQuestion + 1) + "/" + (recipe.skills.length + 2) + ":";
+    document.getElementById("nextAssessmentButton").disabled = true;
+    div.innerHTML = "";
+    var grid = document.createElement("div");
+    grid.className = "mdl-grid assess";
+    div.appendChild(grid);
+    var cell = document.createElement("div");
+    cell.className = "mdl-cell mdl-cell--1-col choicePad";
+    grid.appendChild(cell);
+    for (var i = 0; i < 5; i++) {
+        cell = document.createElement("div");
+        cell.className = "mdl-cell mdl-cell--2-col choice";
+        cell.setAttribute("value", i+1);
+        cell.addEventListener("click", function() {
+            document.getElementById("")
+            window.selectedValue = parseInt(this.getAttribute("value"));
+            var choices = document.getElementsByClassName("choice");
+            for (var j = 0; j < 5; j++) {
+                choices[j].className = "mdl-cell mdl-cell--2-col choice";
+            }
+            this.className = "mdl-cell mdl-cell--2-col choice selectedChoice";
+            document.getElementById('nextAssessmentButton').disabled = false;
+        });
+        grid.appendChild(cell);
+        if (i == 0) {
+            if (window.currentQuestion == 1) {
+                cell.innerText = "1\nHated it";
+            }
+            else {
+                cell.innerText = "1\nNot at All";
+            }
+        }
+        else if (i == 4) {
+            if (window.currentQuestion == 1) {
+                cell.innerText = "5\nLoved it";
+            }
+            else {
+                cell.innerText = "5\nVery Confident";
+            }
+        }
+        else {
+            cell.innerText = i+1;
+        }
+    }
+    cell = document.createElement("div");
+    cell.className = "mdl-cell mdl-cell--1-col choicePad";
+    grid.appendChild(cell);
 }
 
 function finishRecipe() {
@@ -210,74 +245,6 @@ function finishRecipe() {
     images[1].src = getStaticResource("images/recipes/evaluation/" + selectedSource + ".jpg");
     remove(sources, selectedSource);
     images[2].src = getStaticResource("images/recipes/evaluation/" + sources[0] + ".jpg");
-    var content = document.getElementById('assessContent');
-    var dishGrid = document.createElement('div');
-    dishGrid.className = "mdl-grid assess";
-    content.appendChild(dishGrid);
-    var dishCell = document.createElement('div');
-    dishCell.className = "mdl-cell assess";
-    dishGrid.appendChild(dishCell);
-    var spacer = document.createElement('div');
-    spacer.className = "assessSpacer";
-    dishCell.appendChild(spacer);
-    for (var i = 0; i < 5; i++) {
-        var label = document.createElement('label');
-        label.className = "mdl-radio mdl-js-radio";
-        label.htmlFor = "option" + parseInt(i);
-        var input = document.createElement('input');
-        input.type = "radio";
-        input.id = label.htmlFor;
-        input.name = "satisfy";
-        input.value = i+1;
-        input.className = "mdl-radio__button " + input.name;
-        var span = document.createElement('span');
-        span.className = "mdl-radio__label";
-        span.innerHTML = i+1;
-        if (i == 0)
-            span.innerHTML += "<br>Not at All";
-        else if (i == 4)
-            span.innerHTML += "<br>Loved It";            
-        dishCell.appendChild(label);
-        label.appendChild(input);
-        label.appendChild(span);
-    }
-    for (var i = 0; i < window.recipe.skills.length; i++) {
-        var header = document.createElement('div');
-        header.innerText = "How confident do you now feel with " + window.recipe.skills[i] + "?";
-        header.className = "assessmentQuestion";
-        content.appendChild(header);
-        var grid = document.createElement('div');
-        grid.className = "mdl-grid assess";
-        content.appendChild(grid);
-        var cell = document.createElement('div');
-        cell.className = "mdl-cell assess";
-        grid.appendChild(cell);
-        var spacer = document.createElement('div');
-        spacer.className = "assessSpacer";
-        cell.appendChild(spacer);
-        for (var j = 0; j < 5; j++) {
-            var label = document.createElement('label');
-            label.className = "mdl-radio mdl-js-radio";
-            label.htmlFor = "option" + parseInt(i) + parseInt(j);
-            var input = document.createElement('input');
-            input.type = "radio";
-            input.id = label.htmlFor;
-            input.name = "skill" + i;
-            input.value = j+1;
-            input.className = "mdl-radio__button " + input.name;
-            var span = document.createElement('span');
-            span.className = "mdl-radio__label";
-            span.innerHTML = j+1;
-            if (j == 0)
-                span.innerHTML += "<br>Not at All";
-            else if (j == 4)
-                span.innerHTML += "<br>Very Confident";            
-            cell.appendChild(label);
-            label.appendChild(input);
-            label.appendChild(span);
-        }
-    }
-    componentHandler.upgradeElements(content);
     document.getElementById('assessmentDialog').showModal();
 }
 
