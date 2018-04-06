@@ -230,3 +230,5 @@ function createImageGridFromArray(holderId, arr, imageFunc) {
         currentCell.appendChild(cellText);
     }
 }
+
+

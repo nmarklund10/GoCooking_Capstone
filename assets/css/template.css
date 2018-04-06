@@ -1,6 +1,6 @@
-body {
-    height: 100vh;
-    width: 100vw;
+html, body {
+    height: 100%;
+    width: 100%;
     background-color: #e7eff5;
     font-family: 'Roboto', sans-serif;
 }
