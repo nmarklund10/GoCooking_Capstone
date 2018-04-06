@@ -231,4 +231,11 @@ function createImageGridFromArray(holderId, arr, imageFunc) {
     }
 }
 
+//TODO: scroll dowm and up
+function scrollDown(){
+    window.scrollTo(0, 100);
+}
 
+function scrollUp(){
+    window.scrollTo(0, 0);
+}
