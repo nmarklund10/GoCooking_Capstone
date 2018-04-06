@@ -16,13 +16,33 @@
         {% load static %}
         <script type="text/javascript" src="{% static 'js/helper.js' %}"></script>
         <link rel="stylesheet" href="{% static 'css/template.css' %}">
+        <style>
+                .mdl-layout__drawer {
+                width: 500px;
+                left: -250px;
+                }
+    
+                .mdl-layout__drawer.is-visible {
+                    left: 0;
+                }
+                .mdl-layout__drawer-button {
+                width: 6vw;
+                height: 6vh;
+                }
+                .material-icons {
+                    font-size: 8vh;
+                    display: block;
+                    margin: auto;
+                }
+            </style>
         {% block includes %}
         {% endblock %}
     </head>
     <body>
         <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-            <header class="mdl-layout__header --waterfall">
-                <div class="mdl-layout__header-row">
+            <header class="mdl-layout__header --waterfall" style="height: 10vh;">
+                <div class="mdl-layout__header-row" style="height: 10vh;">
+                    <div style="width:4%;"></div>
                     {% load static %}
                     <img style="max-width:70%; max-height:70%; cursor:pointer;" onclick="goToUrl('/');" src="{% static 'images/logo.png' %}"></img>
                     <span style="padding-left:1vw; cursor:pointer;" onclick="goToUrl('/');" class="mdl-layout-title">MealMentor</span>
