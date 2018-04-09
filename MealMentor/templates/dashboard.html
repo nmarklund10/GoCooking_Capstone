@@ -3,6 +3,7 @@
 {% block includes %}
     {% load static %}
         <script type="text/javascript" src="{% static 'js/dashboard.js' %}"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
         window.onload = getRecipes;
     </script>
@@ -27,19 +28,19 @@
         .mdl-card {
             display: inline-block;
             width: 65vw;
-            height: 70vh;
+            height: 65vh;
             margin:0;
         }
         .mdl-grid {
             margin: 0;
         }
         .mdl-dialog {
-            width: 50vw;
-            height: 80vh;
+            width: 80vw;
+            height: 90vh;
         }
         .mdl-dialog__title {
             height: 5vh;
-            width: 45vw;
+            width: 80vw;
             font-size: 5vh;
             padding: 1vh 2vw 0;
         }
@@ -47,13 +48,13 @@
             background-color: white;
         }
         .mdl-dialog__content {
-            height: 65vh;
-            width: 46vw;
+            height: 70vh;
+            width: 75vw;
             overflow-y: scroll;
             padding: 1vh 2vw;
         }
         .mdl-dialog__actions {
-            height: 5vh;
+            height: 10vh;
             padding: 2vh 1vw;
         }
         h4 {
@@ -146,7 +147,7 @@
 {% block content %}
     <dialog id="alertDialog" class="mdl-dialog">
         <h3 id="alertDialogTitle" align="center" class="mdl-dialog__title"></h3>
-        <div class="mdl-dialog__content">
+        <div id="the_dialog_div" class="mdl-dialog__content">
             <p align="center" style="margin: 0 0 0 0;"><img id="alertDialogImage" style="height:25vh;"></p>
             <p align="center" id="alertDialogTime" style="margin: 0 0 0 0; font-size: 2vh;"></p>
             <h4>Skills</h4>
@@ -165,17 +166,19 @@
             </table>
         </div>
         <div class="mdl-dialog__actions">
-            <button id="alertDialogButton" class="mdl-button mdl-js-button mdl-js-ripple-effect" style="height: 5vh; background-color: lightgray;">Start Cooking!</button>
-            <button id="alertCloseButton" class="mdl-button mdl-js-button mdl-js-ripple-effect" style="height: 5vh;">Close</button>
+            <button id="alertDialogButton" class="mdl-button mdl-js-button mdl-js-ripple-effect" style="height: 8vh; width: 19vw; background-color: lightgray; font-size: 3vh;">Start Cooking!</button>
+            <button id="alertCloseButton" class="mdl-button mdl-js-button mdl-js-ripple-effect" style="height: 8vh;width: 19vw; font-size: 3vh;">Close</button>
+            <button id="scrollDownButton" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="height: 8vh; width: 19vw; font-size: 3vh;">Scroll Down</button>
+            <button id="scrollUpButton" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="height: 8vh;width: 19vw; font-size: 3vh;">Scroll Up</button>
         </div>
     </dialog>
 
     
     <div class="center-text mdl-cell mdl-cell--2-col">
-        <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect next-navigation" onclick="scrollDown()">Next</button>
+        <button id="nextButton"class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect next-navigation" onclick="scrollDown()">Next</button>
     </div>
     <div class="center-text mdl-cell mdl-cell--2-col">
-            <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect previous-navigation" onclick="scrollUp()">Previous</button>
+            <button id="previousButton" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect previous-navigation" onclick="scrollUp()">Previous</button>
     </div>
 
 
@@ -201,11 +204,11 @@
                         <div class="mdl-card__media">
                             <img style="height:40vh;">
                         </div>
-                        <div class="mdl-card__supporting-text" style="font-size:2vh;">
+                        <div class="mdl-card__supporting-text" style="font-size:4vh;">
                             
                         </div>
                         <div class="mdl-card__actions mdl-card--border">
-                            <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="width: 40vw; height: 10vh; min-width: initial;" onclick="moreInfo('egg1');">
+                            <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="width: 40vw; height: 10vh; min-width: initial; margin:1vh;" onclick="moreInfo('egg1');">
                                 <span style="font-size:5vh;">Get More Info</span>
                             </button>
                         </div> 
@@ -227,11 +230,11 @@
                         <div class="mdl-card__media">
                             <img style="height:40vh;">
                         </div>
-                        <div class="mdl-card__supporting-text" style="font-size:2vh;">
+                        <div class="mdl-card__supporting-text" style="font-size:4vh;">
                             
                         </div>
                         <div class="mdl-card__actions mdl-card--border">
-                            <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="width: 40vw; height: 10vh; min-width: initial;" onclick="moreInfo('egg2');">
+                            <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="width: 40vw; height: 10vh; min-width: initial; margin:1vh;" onclick="moreInfo('egg2');">
                                 <span style="font-size:5vh;">Get More Info</span>
                             </button>
                         </div> 
@@ -253,11 +256,11 @@
                         <div class="mdl-card__media">
                             <img style="height:40vh;">
                         </div>
-                        <div class="mdl-card__supporting-text" style="font-size:2vh;">
+                        <div class="mdl-card__supporting-text" style="font-size:4vh;">
                             
                         </div>
                         <div class="mdl-card__actions mdl-card--border">
-                            <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="width: 40vw; height: 10vh; min-width: initial;" onclick="moreInfo('egg3');">
+                            <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="width: 40vw; height: 10vh; min-width: initial; margin:1vh;" onclick="moreInfo('egg3');">
                                 <span style="font-size:5vh;">Get More Info</span>
                             </button>
                         </div> 
@@ -281,11 +284,11 @@
                         <div class="mdl-card__media">
                             <img style="height:40vh;">
                         </div>
-                        <div class="mdl-card__supporting-text" style="font-size:2vh;">
+                        <div class="mdl-card__supporting-text" style="font-size:4vh;">
                             
                         </div>
                         <div class="mdl-card__actions mdl-card--border">
-                            <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="width: 40vw; height: 10vh; min-width: initial;" onclick="moreInfo('chicken1');">
+                            <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="width: 40vw; height: 10vh; min-width: initial; margin:1vh;" onclick="moreInfo('chicken1');">
                                 <span style="font-size:5vh;">Get More Info</span>
                             </button>
                         </div> 
@@ -307,11 +310,11 @@
                         <div class="mdl-card__media">
                             <img style="height:40vh;">
                         </div>
-                        <div class="mdl-card__supporting-text" style="font-size:2vh;">
+                        <div class="mdl-card__supporting-text" style="font-size:4vh;">
                             
                         </div>
                         <div class="mdl-card__actions mdl-card--border">
-                            <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="width: 40vw; height: 10vh; min-width: initial;" onclick="moreInfo('chicken2');">
+                            <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="width: 40vw; height: 10vh; min-width: initial; margin:1vh;" onclick="moreInfo('chicken2');">
                                 <span style="font-size:5vh;">Get More Info</span>
                             </button>
                         </div> 
@@ -333,11 +336,11 @@
                         <div class="mdl-card__media">
                             <img style="height:40vh;">
                         </div>
-                        <div class="mdl-card__supporting-text" style="font-size:2vh;">
+                        <div class="mdl-card__supporting-text" style="font-size:4vh;">
                             
                         </div>
                         <div class="mdl-card__actions mdl-card--border">
-                            <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="width: 40vw; height: 10vh; min-width: initial;" onclick="moreInfo('chicken3');">
+                            <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="width: 40vw; height: 10vh; min-width: initial; margin:1vh;" onclick="moreInfo('chicken3');">
                                 <span style="font-size:5vh;">Get More Info</span>
                             </button>
                         </div> 
@@ -361,11 +364,11 @@
                         <div class="mdl-card__media">
                             <img style="height:40vh;">
                         </div>
-                        <div class="mdl-card__supporting-text" style="font-size:2vh;">
+                        <div class="mdl-card__supporting-text" style="font-size:4vh;">
                             
                         </div>
                         <div class="mdl-card__actions mdl-card--border">
-                            <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="width: 40vw; height: 10vh; min-width: initial;" onclick="moreInfo('bread1');">
+                            <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="width: 40vw; height: 10vh; min-width: initial; margin:1vh;" onclick="moreInfo('bread1');">
                                 <span style="font-size:5vh;">Get More Info</span>
                             </button>
                         </div> 
@@ -387,11 +390,11 @@
                         <div class="mdl-card__media">
                             <img style="height:40vh;">
                         </div>
-                        <div class="mdl-card__supporting-text" style="font-size:2vh;">
+                        <div class="mdl-card__supporting-text" style="font-size:4vh;">
                             
                         </div>
                         <div class="mdl-card__actions mdl-card--border">
-                            <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="width: 40vw; height: 10vh; min-width: initial;" onclick="moreInfo('bread2');">
+                            <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="width: 40vw; height: 10vh; min-width: initial; margin:1vh;" onclick="moreInfo('bread2');">
                                 <span style="font-size:5vh;">Get More Info</span>
                             </button>
                         </div> 
@@ -413,11 +416,11 @@
                         <div class="mdl-card__media">
                             <img style="height:40vh;">
                         </div>
-                        <div class="mdl-card__supporting-text" style="font-size:2vh;">
+                        <div class="mdl-card__supporting-text" style="font-size:4vh;">
                             
                         </div>
                         <div class="mdl-card__actions mdl-card--border">
-                            <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="width: 40vw; height: 10vh; min-width: initial;" onclick="moreInfo('bread3');">
+                            <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="width: 40vw; height: 10vh; min-width: initial; margin:1vh;" onclick="moreInfo('bread3');">
                                 <span style="font-size:5vh;">Get More Info</span>
                             </button>
                         </div> 

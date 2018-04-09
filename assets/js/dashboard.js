@@ -129,6 +129,15 @@ function moreInfo(r) {
                     goToUrl('/cooking/');
                 });
             dialog.showModal();
+
+            document.getElementById('scrollUpButton').addEventListener('click', 
+                function() {
+                    $("#the_dialog_div").animate({scrollTop: '-=1000vh'}, 400);
+                });
+            document.getElementById('scrollDownButton').addEventListener('click', 
+                function() {
+                    $("#the_dialog_div").animate({scrollTop: '+=1000vh'}, 400);
+                });
         }
         else {
             alert(response.reason);
@@ -233,9 +242,10 @@ function createImageGridFromArray(holderId, arr, imageFunc) {
 
 //TODO: scroll dowm and up
 function scrollDown(){
-    window.scrollTo(0, 100);
+    $("#dashboard").animate({scrollTop: '-=1000vh'}, 400);
+ 
 }
 
 function scrollUp(){
-    window.scrollTo(0, 0);
+    $("#dashboard").animate({scrollTop: '-=1000vh'}, 400);
 }
