@@ -118,7 +118,6 @@ function selectImage(i) {
     }
     allImages[i].style.borderColor = "#2196F3";
     window.selectedImage = allImages[i];
-    document.getElementById('nextAssessmentButton').disabled = false;
 }
 
 function getImageValue(src) {
@@ -156,16 +155,13 @@ function nextAssessment() {
         else {
             document.getElementById('failScreen').showModal();
         }
+        return;
     }
     else {
         document.getElementById("assessmentQuestion").innerText = "How confident are you now in " + recipe.skills[window.currentQuestion - 2] + "?";
         window.score += window.selectedValue;
-        if (window.currentQuestion == recipe.skills.length + 1) {
-            document.getElementById("nextAssessmentButton").innerText = "Submit";
-        }
     }
     document.getElementById("questionCounter").innerText = "Question " + (window.currentQuestion + 1) + "/" + (recipe.skills.length + 2) + ":";
-    document.getElementById("nextAssessmentButton").disabled = true;
     div.innerHTML = "";
     var grid = document.createElement("div");
     grid.className = "mdl-grid assess";
@@ -185,7 +181,7 @@ function nextAssessment() {
                 choices[j].className = "mdl-cell mdl-cell--2-col choice";
             }
             this.className = "mdl-cell mdl-cell--2-col choice selectedChoice";
-            document.getElementById('nextAssessmentButton').disabled = false;
+            nextAssessment();
         });
         grid.appendChild(cell);
         if (i == 0) {
@@ -224,6 +220,9 @@ function finishRecipe() {
     images[1].src = getStaticResource("images/recipes/evaluation/" + selectedSource + ".jpg");
     remove(sources, selectedSource);
     images[2].src = getStaticResource("images/recipes/evaluation/" + sources[0] + ".jpg");
+    for (var i = 0; i < 3; i++) {
+        images[i].addEventListener("click", nextAssessment);
+    }
     document.getElementById('assessmentDialog').showModal();
 }
 
