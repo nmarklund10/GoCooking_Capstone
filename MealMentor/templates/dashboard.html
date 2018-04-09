@@ -3,9 +3,11 @@
 {% block includes %}
     {% load static %}
         <script type="text/javascript" src="{% static 'js/dashboard.js' %}"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
         window.onload = getRecipes;
     </script>
+ 
     <style>
         @font-face {
             font-family: "Icons";
@@ -29,9 +31,11 @@
         }
         .center-items {
             justify-content: center;
+            margin:0;
         }
         .center-text {
             text-align: center;
+            margin:0;
         }
         .mdl-card {
             display: inline-block;
@@ -39,26 +43,26 @@
             height: 60vh;
         }
         .mdl-dialog {
-            width: 50vw;
-            height: 80vh;
+            width: 80vw;
+            height: 90vh;
         }
         .mdl-dialog__title {
             height: 5vh;
-            width: 45vw;
-            font-size: 4.5vh;
+            width: 80vw;
+            font-size: 5vh;
             padding: 1vh 2vw 0;
         }
         .mdl-card__media {
             background-color: white;
         }
         .mdl-dialog__content {
-            height: 65vh;
-            width: 46vw;
+            height: 70vh;
+            width: 75vw;
             overflow-y: scroll;
             padding: 1vh 2vw;
         }
         .mdl-dialog__actions {
-            height: 5vh;
+            height: 10vh;
             padding: 2vh 1vw;
         }
         h4 {
@@ -96,6 +100,9 @@
         }
         .check > .mdl-card > .mdl-card__media {
             background-color: #faeded;
+        }
+        .level {
+            margin:1.5vh;
         }
         .skill {
             color: white;
@@ -155,19 +162,20 @@
 {% endblock %}
 
 {% block navbar %}
-    <a class="mdl-navigation__link" href="/about">About</a>
-    <a class="mdl-navigation__link" href="/logout">Log Out</a>
+    <a class="mdl-navigation__link" href="/about" style="font-size: 3vh;">About</a>
+    <a class="mdl-navigation__link" href="/logout" style="font-size: 3vh;">Log Out</a>
 {% endblock %}
 
 {% block drawer %}
-    <a class="mdl-navigation__link" href="/about">About</a>
-    <a class="mdl-navigation__link" href="/logout">Log Out</a>
+    <a class="mdl-navigation__link" href="/about" style="font-size: 3vh;">About</a>
+    <a class="mdl-navigation__link" href="/logout" style="font-size: 3vh;">Log Out</a>
 {% endblock %}
 
 {% block content %}
     <dialog id="alertDialog" class="mdl-dialog">
         <h3 id="alertDialogTitle" align="center" class="mdl-dialog__title"></h3>
-        <div class="mdl-dialog__content">
+        <div id="the_dialog_div" class="mdl-dialog__content">
+            <a href="#alertDialogImage" id="topLink" style="visibility: hidden"></a> 
             <p align="center" style="margin: 0 0 0 0;"><img id="alertDialogImage" style="height:25vh;"></p>
             <p align="center" id="alertDialogTime" style="margin: 0 0 0 0; font-size: 2vh;"></p>
             <h4>Skills</h4>
@@ -186,8 +194,10 @@
             </table>
         </div>
         <div class="mdl-dialog__actions">
-            <button id="alertDialogButton" class="mdl-button mdl-js-button mdl-js-ripple-effect" style="height: 5vh; background-color: lightgray;">Start Cooking!</button>
-            <button id="alertCloseButton" class="mdl-button mdl-js-button mdl-js-ripple-effect" style="height: 5vh;">Close</button>
+            <button id="alertDialogButton" class="mdl-button mdl-js-button mdl-js-ripple-effect" style="height: 8vh; width: 19vw; background-color: lightgray; font-size: 3vh;">Start Cooking!</button>
+            <button id="alertCloseButton" class="mdl-button mdl-js-button mdl-js-ripple-effect" style="height: 8vh;width: 19vw; font-size: 3vh;">Close</button>
+            <button id="scrollDownButton" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="height: 8vh; width: 19vw; font-size: 3vh;">Scroll Down</button>
+            <button id="scrollUpButton" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="height: 8vh;width: 19vw; font-size: 3vh;">Scroll Up</button>
         </div>
     </dialog>
     <div id="dashboard" class="mdl-tabs mdl-js-tabs">
