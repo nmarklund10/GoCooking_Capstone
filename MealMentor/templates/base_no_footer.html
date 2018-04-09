@@ -45,7 +45,7 @@
                     <div style="width:4%;"></div>
                     {% load static %}
                     <img style="max-width:70%; max-height:70%; cursor:pointer;" onclick="goToUrl('/');" src="{% static 'images/logo.png' %}"></img>
-                    <span id="appTitle" style="padding-left:1vw; cursor:pointer;" onclick="goToUrl('/');" class="mdl-layout-title">MealMentor</span>
+                    <span id="appTitle" style="padding-left:1vw; font-size: 3vh; cursor:pointer;" onclick="goToUrl('/');" class="mdl-layout-title">MealMentor</span>
                     <div class="mdl-layout-spacer"></div>
                     <nav class="mdl-navigation mdl-layout--large-screen-only">
                         {% block navbar %}
@@ -55,7 +55,7 @@
                 
             </header>
             <div class="mdl-layout__drawer">
-                <span class="mdl-layout-title">MealMentor</span>
+                <span class="mdl-layout-title" style="font-size: 3vh;">MealMentor</span>
                 <nav class="mdl-navigation">
                     {% block drawer %}
                     {% endblock %}
