@@ -113,10 +113,6 @@ function closeTimer() {
 
 function selectImage(i) {
     var allImages = document.getElementsByClassName('assessPics');
-    for (var j = 0; j < allImages.length; j++) {
-        allImages[j].style.borderColor = "white";
-    }
-    allImages[i].style.borderColor = "#2196F3";
     window.selectedImage = allImages[i];
 }
 
