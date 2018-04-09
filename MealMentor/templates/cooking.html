@@ -143,9 +143,12 @@
                 .assessPics:hover {
                     border-color: #2196F3;
                 }
-                .dialog-button {
-                    width: 46%;
-                    height: 100%;
+                .mdl-button.dialog-button {
+                    display:block; 
+                    margin:auto;
+                    font-size: 3vh;
+                    height: 8vh;
+                    width: 20vw;
                 }
                 #nextAssessmentButton:disabled {
                     background-color: white;
@@ -183,23 +186,23 @@
 
 
 {% block content %}
-    <dialog id="alertDialog" class="mdl-dialog" style="width: 30vw;">    
+    <dialog id="alertDialog" class="mdl-dialog" style="width: 50vw;">    
         <h4 class="mdl-dialog__title" align="center">Complete Recipe?</h4>
         <div class="mdl-dialog__content">
             <p id="alertDialogText" align="center">Are you sure you want to mark this recipe as completed?</p>
         </div>
         <div class="mdl-dialog__actions">
-            <button id="alertDialogButton" class="mdl-button mdl-js-button mdl-js-ripple-effect dialog-button" style="background-color: lightgray;" onclick="finishRecipe();">OK</button>
-            <button id="closeDialogButton" class="mdl-button mdl-js-button mdl-js-ripple-effect dialog-button">Cancel</button>
+            <button id="alertDialogButton" class="mdl-button mdl-js-button mdl-js-ripple-effect dialog-button" style="  background-color: lightgray;" onclick="finishRecipe();">OK</button>
+            <button id="closeDialogButton" class="mdl-button mdl-js-button mdl-js-ripple-effect dialog-button" >Cancel</button>
         </div>
     </dialog>
     <dialog id="timerDialog" class="mdl-dialog" style="width: 30vw;">    
         <h4 class="mdl-dialog__title" align="center">Timer Done!</h4>
         <div class="mdl-dialog__actions">
-            <button id="alertDialogButton" class="mdl-button mdl-js-button mdl-js-ripple-effect dialog-button" style="display: block; margin: 0 auto; background-color: lightgray;" onclick="closeTimer();">OK</button>
+            <button id="alertDialogButton" class="mdl-button mdl-js-button mdl-js-ripple-effect dialog-button" style="background-color: lightgray;" onclick="closeTimer();">OK</button>
         </div>
     </dialog>
-    <dialog id="exitDialog" class="mdl-dialog" style="width: 30vw;">    
+    <dialog id="exitDialog" class="mdl-dialog" style="width: 50vw;">    
         <h4 class="mdl-dialog__title" align="center">Exit Recipe?</h4>
         <div class="mdl-dialog__content">
             <p id="exitDialogText" align="center">Are you sure you want to exit? Your data will not be recorded.</p>
@@ -209,7 +212,7 @@
             <button id="cancelDialogButton" class="mdl-button mdl-js-button mdl-js-ripple-effect dialog-button">Cancel</button>
         </div>
     </dialog>
-    <dialog id="failScreen" class="mdl-dialog" style="width: 30vw;">    
+    <dialog id="failScreen" class="mdl-dialog" style="width: 50vw;">    
         <div class="mdl-dialog__content">
             <p style="font-size: 3vh; margin-bottom:0;" align="center">Unfortunately, you did not get a high enough score to pass this recipe.</p>
         </div>
