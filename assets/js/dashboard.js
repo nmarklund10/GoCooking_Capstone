@@ -180,7 +180,7 @@ function createCards(levelGrid) {
             function(response) {
                 if (response.success) {
                     var dialog = document.getElementById('alertDialog');
-                    document.getElementById("alertCloseButton").addEventListener('click', function(){dialog.close();});
+                    document.getElementById("alertCloseButton").addEventListener('click', function(){document.getElementById("topLink").click();dialog.close();});
                     var recipe = response.recipe;
                     recipe.instructions = JSON.parse(recipe.instructions);
                     recipe.ingredients = JSON.parse(recipe.ingredients);
@@ -198,6 +198,14 @@ function createCards(levelGrid) {
                             goToUrl('/cooking/');
                         });
                     dialog.showModal();
+                    document.getElementById('scrollUpButton').addEventListener('click', 
+                        function() {
+                            $("#the_dialog_div").animate({scrollTop: '-=1000vh'}, 400);
+                        });
+                    document.getElementById('scrollDownButton').addEventListener('click', 
+                        function() {
+                            $("#the_dialog_div").animate({scrollTop: '+=1000vh'}, 400);
+                        });
                 }
                 else {
                     alert(response.reason);
