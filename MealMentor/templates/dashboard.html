@@ -17,6 +17,18 @@
             url("/static/css/fonts/icons.otf") format("opentype"),
             url("/static/css/fonts/icons.svg#filename") format("svg");
         }
+        .card-grid {
+            padding: 1vh 0;
+            width: 100vw;
+        }
+        .button-cell {
+            width: 20vw;
+            margin: 0;
+        }
+        .card-cell {
+            width: 60vw;
+            margin: 0;
+        }
         .center-items {
             justify-content: center;
             margin:0;
@@ -27,12 +39,8 @@
         }
         .mdl-card {
             display: inline-block;
-            width: 65vw;
-            height: 65vh;
-            margin:0;
-        }
-        .mdl-grid {
-            margin: 0;
+            width: 100%;
+            height: 60vh;
         }
         .mdl-dialog {
             width: 80vw;
@@ -103,33 +111,52 @@
             word-wrap: break-word;
             margin: 0;
         }
-
-        .sticky {
-            position: fixed;
-            top: 10vh;
-            width: 100vw;
-            z-index: 9;
-            height: 7vh;
-        }
-        .next-navigation {
-            position:fixed;
-            top:20vh;
-            right:3vw;
-            line-height: 60vh;
+        .card-title {
             text-align:center;
-            width: 12vw; 
-            height: 76vh;
-            font-size:4vh;
+            font-size:5vh;
+            justify-content:center;
+            padding-right: 0;
+            padding-left: 0;
         }
-        .previous-navigation {
-            position:fixed;
-            top:20vh;
-            left:2vw;
-            line-height:60vh;
-            text-align:center; 
-            width: 12vw; 
-            height: 76vh; 
-            font-size:4vh;
+        .card-image {
+            display: block;
+            margin: auto;
+            height: 30vh;
+        }
+        .card-minutes {
+            text-align: center;
+            width: 100%;
+            font-size: 2.5vh;
+            padding-left: 0;
+            padding-right: 0;
+        }
+        .mdl-button.card-button {
+            display: block;
+            margin: auto;
+            font-size: 3vh;
+            width: 80%;
+            height: 10vh;
+        }
+        .level-text {
+            font-size: 7vh;
+            text-align: center;
+            line-height: 7vh;
+        }
+        .nav-icon {
+            font-size: 10vh;            
+        }
+        .mdl-button.nav-button{
+            height: 100%;
+            width: 95%;
+        }
+        .mdl-button.next-button {
+            float: right;
+        }
+        .mdl-button.prev-button {
+            float: left;
+        }
+        .mdl-tabs__tab {
+            font-size: 3vh;
         }
     </style>
 {% endblock %}
@@ -172,276 +199,11 @@
             <button id="scrollUpButton" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="height: 8vh;width: 19vw; font-size: 3vh;">Scroll Up</button>
         </div>
     </dialog>
-
-    
-    <div class="center-text mdl-cell mdl-cell--2-col">
-        <button id="nextButton"class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect next-navigation" onclick="scrollDown()">Next</button>
-    </div>
-    <div class="center-text mdl-cell mdl-cell--2-col">
-            <button id="previousButton" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect previous-navigation" onclick="scrollUp()">Previous</button>
-    </div>
-
-
-    <div id="dashboard" class = "mdl-tabs mdl-js-tabs">
-        <div id="tabBar" class = "mdl-tabs__tab-bar mdl-color--white sticky">
-           <a href = "#tab1-panel" class = "mdl-tabs__tab mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect is-active " style="font-size: 4vh;">Eggs</a>
-           <a href = "#tab2-panel" class = "mdl-tabs__tab mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="font-size: 4vh;">Chicken</a>
-           <a href = "#tab3-panel" class = "mdl-tabs__tab mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="font-size: 4vh;">Bread</a>           
-           <a href = "#tab4-panel" class = "mdl-tabs__tab mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="font-size: 4vh;">Future Tracks</a>
-        </div>
-        <div style="height:7vh; position:float;"></div>
-        <div class = "mdl-tabs__panel is-active" id = "tab1-panel">
-            <div class="center-items mdl-grid level">
-                <div class="center-text mdl-cell mdl-cell--12-col">
-                    <span style="font-size: 5vh;">Level 1</span>
-                </div>
-            </div>
-            <div class="mdl-grid">
-                <div class="center-text mdl-cell mdl-cell--2-col"></div>
-                <div class="center-text mdl-cell mdl-cell--8-col mdl-badge">
-                    <div id="egg1" class="mdl-card">
-                        <div class="mdl-card__title" style="font-size:4vh; justify-content:center;"></div>
-                        <div class="mdl-card__media">
-                            <img style="height:40vh;">
-                        </div>
-                        <div class="mdl-card__supporting-text" style="font-size:4vh;">
-                            
-                        </div>
-                        <div class="mdl-card__actions mdl-card--border">
-                            <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="width: 40vw; height: 10vh; min-width: initial; margin:1vh;" onclick="moreInfo('egg1');">
-                                <span style="font-size:5vh;">Get More Info</span>
-                            </button>
-                        </div> 
-                    </div>
-                </div>
-                <div class="center-text mdl-cell mdl-cell--2-col"></div>
-            </div>
-
-            <div class="center-items mdl-grid level">
-                <div class="center-text mdl-cell mdl-cell--12-col ">
-                    <span style="font-size: 5vh;">Level 2</span>
-                </div>
-            </div>
-            <div class="mdl-grid">
-                <div class="center-text mdl-cell mdl-cell--2-col"></div>
-                <div class="center-text mdl-cell mdl-cell--8-col mdl-badge">
-                    <div id="egg2" class="mdl-card">
-                        <div class="mdl-card__title" style="font-size:4vh; justify-content:center;"></div>
-                        <div class="mdl-card__media">
-                            <img style="height:40vh;">
-                        </div>
-                        <div class="mdl-card__supporting-text" style="font-size:4vh;">
-                            
-                        </div>
-                        <div class="mdl-card__actions mdl-card--border">
-                            <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="width: 40vw; height: 10vh; min-width: initial; margin:1vh;" onclick="moreInfo('egg2');">
-                                <span style="font-size:5vh;">Get More Info</span>
-                            </button>
-                        </div> 
-                    </div>
-                </div>
-                <div class="center-text mdl-cell mdl-cell--2-col"></div>
-            </div>
-        
-            <div class="center-items mdl-grid level">
-                <div class="center-text mdl-cell mdl-cell--12-col">
-                    <span style="font-size: 5vh;">Level 3</span>
-                </div>
-            </div>
-            <div class="mdl-grid">
-                <div class="center-text mdl-cell mdl-cell--2-col"></div>
-                <div class="center-text mdl-cell mdl-cell--8-col mdl-badge">
-                    <div id="egg3" class="mdl-card">
-                        <div class="mdl-card__title" style="font-size:4vh; justify-content:center;"></div>
-                        <div class="mdl-card__media">
-                            <img style="height:40vh;">
-                        </div>
-                        <div class="mdl-card__supporting-text" style="font-size:4vh;">
-                            
-                        </div>
-                        <div class="mdl-card__actions mdl-card--border">
-                            <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="width: 40vw; height: 10vh; min-width: initial; margin:1vh;" onclick="moreInfo('egg3');">
-                                <span style="font-size:5vh;">Get More Info</span>
-                            </button>
-                        </div> 
-                    </div>
-                </div>
-                <div class="center-text mdl-cell mdl-cell--2-col"></div>
-            </div>
-        </div>
-
-        <div class = "mdl-tabs__panel" id = "tab2-panel">
-            <div class="center-items mdl-grid level">
-                <div class="center-text mdl-cell mdl-cell--12-col">
-                    <span style="font-size: 5vh;">Level 1</span>
-                </div>
-            </div>
-            <div class="mdl-grid">
-                <div class="center-text mdl-cell mdl-cell--2-col"></div>
-                <div class="center-text mdl-cell mdl-cell--8-col mdl-badge">
-                    <div id="chicken1" class="mdl-card">
-                        <div class="mdl-card__title" style="font-size:4vh; justify-content:center;"></div>
-                        <div class="mdl-card__media">
-                            <img style="height:40vh;">
-                        </div>
-                        <div class="mdl-card__supporting-text" style="font-size:4vh;">
-                            
-                        </div>
-                        <div class="mdl-card__actions mdl-card--border">
-                            <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="width: 40vw; height: 10vh; min-width: initial; margin:1vh;" onclick="moreInfo('chicken1');">
-                                <span style="font-size:5vh;">Get More Info</span>
-                            </button>
-                        </div> 
-                    </div>
-                </div>
-                <div class="center-text mdl-cell mdl-cell--2-col"></div>
-            </div>
-
-            <div class="center-items mdl-grid level">
-                <div class="center-text mdl-cell mdl-cell--12-col ">
-                    <span style="font-size: 5vh;">Level 2</span>
-                </div>
-            </div>
-            <div class="mdl-grid">
-                <div class="center-text mdl-cell mdl-cell--2-col"></div>
-                <div class="center-text mdl-cell mdl-cell--8-col mdl-badge">
-                    <div id="chicken2" class="mdl-card">
-                        <div class="mdl-card__title" style="font-size:4vh; justify-content:center;"></div>
-                        <div class="mdl-card__media">
-                            <img style="height:40vh;">
-                        </div>
-                        <div class="mdl-card__supporting-text" style="font-size:4vh;">
-                            
-                        </div>
-                        <div class="mdl-card__actions mdl-card--border">
-                            <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="width: 40vw; height: 10vh; min-width: initial; margin:1vh;" onclick="moreInfo('chicken2');">
-                                <span style="font-size:5vh;">Get More Info</span>
-                            </button>
-                        </div> 
-                    </div>
-                </div>
-                <div class="center-text mdl-cell mdl-cell--2-col"></div>
-            </div>
-        
-            <div class="center-items mdl-grid level">
-                <div class="center-text mdl-cell mdl-cell--12-col">
-                    <span style="font-size: 5vh;">Level 3</span>
-                </div>
-            </div>
-            <div class="mdl-grid">
-                <div class="center-text mdl-cell mdl-cell--2-col"></div>
-                <div class="center-text mdl-cell mdl-cell--8-col mdl-badge">
-                    <div id="chicken3" class="mdl-card">
-                        <div class="mdl-card__title" style="font-size:4vh; justify-content:center;"></div>
-                        <div class="mdl-card__media">
-                            <img style="height:40vh;">
-                        </div>
-                        <div class="mdl-card__supporting-text" style="font-size:4vh;">
-                            
-                        </div>
-                        <div class="mdl-card__actions mdl-card--border">
-                            <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="width: 40vw; height: 10vh; min-width: initial; margin:1vh;" onclick="moreInfo('chicken3');">
-                                <span style="font-size:5vh;">Get More Info</span>
-                            </button>
-                        </div> 
-                    </div>
-                </div>
-                <div class="center-text mdl-cell mdl-cell--2-col"></div>
-            </div>
-        </div>
-
-        <div class = "mdl-tabs__panel" id = "tab3-panel">
-            <div class="center-items mdl-grid level">
-                <div class="center-text mdl-cell mdl-cell--12-col">
-                    <span style="font-size: 5vh;">Level 1</span>
-                </div>
-            </div>
-            <div class="mdl-grid">
-                <div class="center-text mdl-cell mdl-cell--2-col"></div>
-                <div class="center-text mdl-cell mdl-cell--8-col mdl-badge">
-                    <div id="bread1" class="mdl-card">
-                        <div class="mdl-card__title" style="font-size:4vh; justify-content:center;"></div>
-                        <div class="mdl-card__media">
-                            <img style="height:40vh;">
-                        </div>
-                        <div class="mdl-card__supporting-text" style="font-size:4vh;">
-                            
-                        </div>
-                        <div class="mdl-card__actions mdl-card--border">
-                            <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="width: 40vw; height: 10vh; min-width: initial; margin:1vh;" onclick="moreInfo('bread1');">
-                                <span style="font-size:5vh;">Get More Info</span>
-                            </button>
-                        </div> 
-                    </div>
-                </div>
-                <div class="center-text mdl-cell mdl-cell--2-col"></div>
-            </div>
-
-            <div class="center-items mdl-grid level">
-                <div class="center-text mdl-cell mdl-cell--12-col ">
-                    <span style="font-size: 5vh;">Level 2</span>
-                </div>
-            </div>
-            <div class="mdl-grid">
-                <div class="center-text mdl-cell mdl-cell--2-col"></div>
-                <div class="center-text mdl-cell mdl-cell--8-col mdl-badge">
-                    <div id="bread2" class="mdl-card">
-                        <div class="mdl-card__title" style="font-size:4vh; justify-content:center;"></div>
-                        <div class="mdl-card__media">
-                            <img style="height:40vh;">
-                        </div>
-                        <div class="mdl-card__supporting-text" style="font-size:4vh;">
-                            
-                        </div>
-                        <div class="mdl-card__actions mdl-card--border">
-                            <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="width: 40vw; height: 10vh; min-width: initial; margin:1vh;" onclick="moreInfo('bread2');">
-                                <span style="font-size:5vh;">Get More Info</span>
-                            </button>
-                        </div> 
-                    </div>
-                </div>
-                <div class="center-text mdl-cell mdl-cell--2-col"></div>
-            </div>
-        
-            <div class="center-items mdl-grid level">
-                <div class="center-text mdl-cell mdl-cell--12-col">
-                    <span style="font-size: 5vh;">Level 3</span>
-                </div>
-            </div>
-            <div class="mdl-grid">
-                <div class="center-text mdl-cell mdl-cell--2-col"></div>
-                <div class="center-text mdl-cell mdl-cell--8-col mdl-badge">
-                    <div id="bread3" class="mdl-card">
-                        <div class="mdl-card__title" style="font-size:4vh; justify-content:center;"></div>
-                        <div class="mdl-card__media">
-                            <img style="height:40vh;">
-                        </div>
-                        <div class="mdl-card__supporting-text" style="font-size:4vh;">
-                            
-                        </div>
-                        <div class="mdl-card__actions mdl-card--border">
-                            <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="width: 40vw; height: 10vh; min-width: initial; margin:1vh;" onclick="moreInfo('bread3');">
-                                <span style="font-size:5vh;">Get More Info</span>
-                            </button>
-                        </div> 
-                    </div>
-                </div>
-                <div class="center-text mdl-cell mdl-cell--2-col"></div>
-            </div>
-        </div>
-
-
-        <div class = "mdl-tabs__panel" id = "tab4-panel">
-            <div class="center-items mdl-grid">
-                <div class="center-text mdl-cell mdl-cell--12-col" style="height:5vh;">
-                </div>
-            </div>
-            <div class="center-items mdl-grid">
-                <div class="center-text mdl-cell mdl-cell--12-col">
-                    <span style="font-size: 5vh;">Check back later for new recipes!</span>
-                </div>
-            </div>
+    <div id="dashboard" class="mdl-tabs mdl-js-tabs">
+        <div id="tabBar" class="mdl-tabs__tab-bar mdl-color--white">
+           <a href="#tab1-panel" class="mdl-tabs__tab is-active">Eggs</a>
+           <a href="#tab2-panel" class="mdl-tabs__tab">Chicken</a>
+           <a href="#tab3-panel" class="mdl-tabs__tab">Bread</a>           
         </div>
     </div>
-
 {% endblock %}
