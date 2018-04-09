@@ -118,7 +118,6 @@ function selectImage(i) {
     }
     allImages[i].style.borderColor = "#2196F3";
     window.selectedImage = allImages[i];
-    //document.getElementById('nextAssessmentButton').disabled = false;
 }
 
 function getImageValue(src) {
