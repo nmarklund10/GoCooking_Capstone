@@ -180,7 +180,7 @@ function createCards(levelGrid) {
             function(response) {
                 if (response.success) {
                     var dialog = document.getElementById('alertDialog');
-                    document.getElementById("alertCloseButton").addEventListener('click', function(){dialog.close();});
+                    document.getElementById("alertCloseButton").addEventListener('click', function(){document.getElementById("topLink").click(); dialog.close();});
                     var recipe = response.recipe;
                     recipe.instructions = JSON.parse(recipe.instructions);
                     recipe.ingredients = JSON.parse(recipe.ingredients);
@@ -198,6 +198,14 @@ function createCards(levelGrid) {
                             goToUrl('/cooking/');
                         });
                     dialog.showModal();
+                    document.getElementById('scrollUpButton').addEventListener('click', 
+                        function() {
+                            $("#the_dialog_div").animate({scrollTop: '-=1000vh'}, 400);
+                        });
+                    document.getElementById('scrollDownButton').addEventListener('click', 
+                        function() {
+                            $("#the_dialog_div").animate({scrollTop: '+=1000vh'}, 400);
+                        });
                 }
                 else {
                     alert(response.reason);
@@ -243,8 +251,6 @@ function isUnlocked(element) {
 }
 
 function setBadge(card, icon) {
-    console.log(card);
-    console.log(icon);
     if (icon == "check") {
         card.setAttribute("value", "\ue803")
         card.classList.add("mdl-shadow--2dp");
@@ -260,42 +266,6 @@ function setBadge(card, icon) {
     else {
         return;
     }
-}
-
-function moreInfo(r) {
-    var recipeName = document.getElementById(r).children[0].innerText;
-    // Check if dialog box already contains correct recipe
-    if (document.getElementById('alertDialogTitle').innerText == recipeName) {
-        document.getElementById('alertDialog').showModal();
-        return;
-    }
-    sendGetRequestForJSON("/getARecipe/", {'recipe': recipeName}, 
-    function(response) {
-        if (response.success) {
-            var dialog = document.getElementById('alertDialog');
-            document.getElementById("alertCloseButton").addEventListener('click', function(){dialog.close();});
-            var recipe = response.recipe;
-            recipe.instructions = JSON.parse(recipe.instructions);
-            recipe.ingredients = JSON.parse(recipe.ingredients);
-            recipe.equipment = JSON.parse(recipe.equipment);
-            recipe.skills = JSON.parse(recipe.skills);
-            document.getElementById('alertDialogTitle').innerText = recipe.name;
-            document.getElementById('alertDialogTime').innerText = "Ready In: " + recipe.minutes;
-            document.getElementById('alertDialogImage').src = getStaticResource('images/recipes/' + r + '.jpg');
-            createSkillsGrid('skillsGrid', recipe.skills);
-            createImageGridFromArray('ingredientGrid', recipe.ingredients, getIngredientImage);
-            createImageGridFromArray('equipmentGrid', recipe.equipment, getEquipmentImage);
-            createInstructionTable('instructionsTable', recipe.instructions);
-            document.getElementById('alertDialogButton').addEventListener('click', 
-                function() {
-                    goToUrl('/cooking/');
-                });
-            dialog.showModal();
-        }
-        else {
-            alert(response.reason);
-        }
-    });
 }
 
 function createSkillsGrid(holderId, arr) {
