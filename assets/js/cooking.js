@@ -23,11 +23,17 @@ function setup() {
 }
 
 function nextStep() {
+    if (window.speechSynthesis.speaking) {
+        window.speechSynthesis.cancel();
+    }
     window.stepNumber++;
     updateCurrentStep();
 }
 
 function prevStep() {
+    if (window.speechSynthesis.speaking) {
+        window.speechSynthesis.cancel();
+    }
     window.stepNumber--;
     updateCurrentStep();
 }
@@ -42,7 +48,7 @@ function updateCurrentStep() {
     }
     else if (window.stepNumber == (window.recipe.instructions.length - 1)) {
         document.getElementById('nextButton').innerHTML = '<span id="nextButtonIcon" class="material-icons" style="color: green; font-size:10vh;">check_circle</span>'
-        document.getElementById('nextButton').onclick = function() { document.getElementById('alertDialog').showModal(); };
+        document.getElementById('nextButton').onclick = function() { if (window.speechSynthesis.speaking) window.speechSynthesis.cancel();document.getElementById('alertDialog').showModal(); };
     }
     else {
         document.getElementById('nextButton').innerHTML = '<span id="nextButtonIcon" class="material-icons" style="font-size:10vh;">arrow_forward</span>'
@@ -53,6 +59,9 @@ function updateCurrentStep() {
 
 
 function exitWindow() {
+    if (window.speechSynthesis.speaking) {
+        window.speechSynthesis.cancel();
+    }
     document.getElementById('exitDialog').showModal();
 }
 
@@ -114,6 +123,20 @@ function closeTimer() {
 function selectImage(i) {
     var allImages = document.getElementsByClassName('assessPics');
     window.selectedImage = allImages[i];
+}
+
+function sayStep() {
+    if (speechSynthesis.speaking) {
+        window.speechSynthesis.cancel();
+        if (window.startSpeaking !== null) {
+            clearTimeout(window.startSpeaking)
+        }
+        window.startSpeaking = setTimeout(function() { sayStep(); }, 250);
+    }
+    else {
+        var msg = new SpeechSynthesisUtterance(document.getElementById("currentStep").innerText);
+        window.speechSynthesis.speak(msg);
+    }
 }
 
 function getImageValue(src) {
