@@ -63,7 +63,7 @@
                 .mdl-card__title {
                     justify-content: center;
                     font-size: 5vh;
-                    padding: 3vh 3vw;
+                    padding: 0.75vh 3vw;
                 }
                 .mdl-card__media {
                     justify-content: center;
@@ -98,10 +98,11 @@
                     font-size: 6vh;
                     line-height: 6vh;
                 }
-                #timerButton {
+                .mdl-button.card-button {
                     display: block; 
                     margin: 0 auto;
-                    padding: 5vh 10vw;
+                    height: 8vh;
+                    width: 55vw;
                     line-height: 1vh;
                     font-size: 3vh;
                 }
@@ -266,7 +267,10 @@
                     <div id="currentStep"></div>
                 </div>
                 <div class="mdl-card__actions">
-                    <button id="timerButton" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Start Timer</button>
+                    <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect card-button" onclick="sayStep();">
+                        <span class="material-icons" style="font-size:4vh; line-height:1vh;">volume_up</span>                        
+                    </button>   
+                    <button id="timerButton" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect card-button">Start Timer</button>
                 </div>
             </div>
         </div>
