@@ -82,7 +82,7 @@
         "pk": 7,
         "fields": {
             "filename": "bread1",
-            "name": "Basic Homemade Bread",
+            "name": "Homemade Dinner Rolls",
             "minutes": "45 minutes",
             "instructions": ["Preheat your oven to 350 degrees F (175 degrees C). In a bowl, add 1/2 cup of water and 1 tsp of yeast.", 
                             "Add 3/4 tsp of salt and 3 tsp of sugar.",
@@ -102,8 +102,8 @@
                             "Place all your pieces of dough into a sheet pan with parchment paper. Cover the pan with plastic wrap and let it proof until all the pieces grow to twice their size.",
                             "Prepare an egg wash and brush it onto the rolls.",
                             "Bake in the oven for 15 - 20 minutes. The bread should be a golden brown color."],
-            "ingredients": ["250g bread flour", "1/2 cup - water", "4 tbsp milk powder", "2 eggs", "1 tsp yeast", "3 tbsp sugar", "3/4 tsp", "3 tbsp butter"],            
-            "equipment": ["bowl", "Sheet pan", "parchment paper", "pastry brush"],
+            "ingredients": ["250g bread flour", "1/2 cup water", "4 tbsp milk powder", "2 eggs", "1 tsp yeast", "3 tbsp sugar", "3/4 tsp salt", "3 tbsp butter"],            
+            "equipment": ["bowl", "sheet pan", "parchment paper", "pastry brush"],
             "skills": ["knead", "proof", "egg wash"]
         }
     },
