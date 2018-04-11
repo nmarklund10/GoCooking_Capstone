@@ -69,6 +69,19 @@ function getRecipes() {
         else
             alert(response.reason);
     });
+    document.getElementById('alertDialogButton').addEventListener('click', 
+        function() {
+            goToUrl('/cooking/');
+        });
+    document.getElementById('scrollUpButton').addEventListener('click', 
+        function() {
+            $("#the_dialog_div").animate({scrollTop: '-=200vh'}, 400);
+        });
+    document.getElementById('scrollDownButton').addEventListener('click', 
+        function() {
+            $("#the_dialog_div").animate({scrollTop: '+=200vh'}, 400);
+        });
+    document.getElementById("alertCloseButton").addEventListener('click', function(){document.getElementById("topLink").click(); document.getElementById('alertDialog').close();});
 }
 
 function showCard(index) {
@@ -180,7 +193,6 @@ function createCards(levelGrid) {
             function(response) {
                 if (response.success) {
                     var dialog = document.getElementById('alertDialog');
-                    document.getElementById("alertCloseButton").addEventListener('click', function(){document.getElementById("topLink").click(); dialog.close();});
                     var recipe = response.recipe;
                     recipe.instructions = JSON.parse(recipe.instructions);
                     recipe.ingredients = JSON.parse(recipe.ingredients);
@@ -193,19 +205,7 @@ function createCards(levelGrid) {
                     createImageGridFromArray('ingredientGrid', recipe.ingredients, getIngredientImage);
                     createImageGridFromArray('equipmentGrid', recipe.equipment, getEquipmentImage);
                     createInstructionTable('instructionsTable', recipe.instructions);
-                    document.getElementById('alertDialogButton').addEventListener('click', 
-                        function() {
-                            goToUrl('/cooking/');
-                        });
                     dialog.showModal();
-                    document.getElementById('scrollUpButton').addEventListener('click', 
-                        function() {
-                            $("#the_dialog_div").animate({scrollTop: '-=1000vh'}, 400);
-                        });
-                    document.getElementById('scrollDownButton').addEventListener('click', 
-                        function() {
-                            $("#the_dialog_div").animate({scrollTop: '+=1000vh'}, 400);
-                        });
                 }
                 else {
                     alert(response.reason);
