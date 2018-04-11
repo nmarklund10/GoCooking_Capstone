@@ -247,7 +247,9 @@ function finishRecipe() {
 
 function getGif(instruction) {
     path = 'gifs/';
+    original = instruction
     instruction = instruction.toLowerCase();
+    console.log(original)
     if(instruction.includes("")) {
         return getStaticResource(path + 'cooking.gif');
     }
