@@ -23,17 +23,11 @@ function setup() {
 }
 
 function nextStep() {
-    if (window.speechSynthesis.speaking) {
-        window.speechSynthesis.cancel();
-    }
     window.stepNumber++;
     updateCurrentStep();
 }
 
 function prevStep() {
-    if (window.speechSynthesis.speaking) {
-        window.speechSynthesis.cancel();
-    }
     window.stepNumber--;
     updateCurrentStep();
 }
@@ -48,7 +42,7 @@ function updateCurrentStep() {
     }
     else if (window.stepNumber == (window.recipe.instructions.length - 1)) {
         document.getElementById('nextButton').innerHTML = '<span id="nextButtonIcon" class="material-icons" style="color: green; font-size:10vh;">check_circle</span>'
-        document.getElementById('nextButton').onclick = function() { if (window.speechSynthesis.speaking) window.speechSynthesis.cancel();document.getElementById('alertDialog').showModal(); };
+        document.getElementById('nextButton').onclick = function() { document.getElementById('alertDialog').showModal(); };
     }
     else {
         document.getElementById('nextButton').innerHTML = '<span id="nextButtonIcon" class="material-icons" style="font-size:10vh;">arrow_forward</span>'
@@ -59,9 +53,6 @@ function updateCurrentStep() {
 
 
 function exitWindow() {
-    if (window.speechSynthesis.speaking) {
-        window.speechSynthesis.cancel();
-    }
     document.getElementById('exitDialog').showModal();
 }
 
@@ -122,21 +113,11 @@ function closeTimer() {
 
 function selectImage(i) {
     var allImages = document.getElementsByClassName('assessPics');
+    for (var j = 0; j < allImages.length; j++) {
+        allImages[j].style.borderColor = "white";
+    }
+    allImages[i].style.borderColor = "#2196F3";
     window.selectedImage = allImages[i];
-}
-
-function sayStep() {
-    if (speechSynthesis.speaking) {
-        window.speechSynthesis.cancel();
-        if (window.startSpeaking !== null) {
-            clearTimeout(window.startSpeaking)
-        }
-        window.startSpeaking = setTimeout(function() { sayStep(); }, 250);
-    }
-    else {
-        var msg = new SpeechSynthesisUtterance(document.getElementById("currentStep").innerText);
-        window.speechSynthesis.speak(msg);
-    }
 }
 
 function getImageValue(src) {
@@ -250,11 +231,11 @@ function getGif(instruction) {
     original = instruction
     instruction = instruction.toLowerCase();
     console.log(original)
-    if(instruction.includes("")) {
-        return getStaticResource(path + 'cooking.gif');
+    if(window.recipe.filename == "bread1") {
+        return getStaticResource(path + 'bread1_step' + (window.stepNumber + 1) +'.gif');
     }
     else if(instruction.includes("")) {
-        return getStaticResource(path + '');
+        return getStaticResource(path + 'cooking.gif');
     }
     else {
         return "";        
