@@ -63,7 +63,7 @@
                 .mdl-card__title {
                     justify-content: center;
                     font-size: 5vh;
-                    padding: 3vh 3vw;
+                    padding: 0.75vh 3vw;
                 }
                 .mdl-card__media {
                     justify-content: center;
@@ -98,10 +98,11 @@
                     font-size: 6vh;
                     line-height: 6vh;
                 }
-                #timerButton {
+                .mdl-button.card-button {
                     display: block; 
                     margin: 0 auto;
-                    padding: 5vh 10vw;
+                    height: 8vh;
+                    width: 55vw;
                     line-height: 1vh;
                     font-size: 3vh;
                 }
@@ -148,7 +149,11 @@
                     margin:auto;
                     font-size: 3vh;
                     height: 8vh;
+<<<<<<< HEAD
                     width: 20vw;
+=======
+                    width: 45%;
+>>>>>>> bfa3b4f3742d00821063d5b7343c2c95e33a4e8c
                 }
                 #nextAssessmentButton:disabled {
                     background-color: white;
@@ -217,7 +222,7 @@
             <p style="font-size: 3vh; margin-bottom:0;" align="center">Unfortunately, you did not get a high enough score to pass this recipe.</p>
         </div>
         <div class="mdl-dialog__actions">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect dialog-button" style="display:block;margin:auto;background-color: lightgray;" onclick="goToUrl('/dashboard');">Return To Dashboard</button>
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect dialog-button" style="background-color: lightgray; width: 90%;" onclick="goToUrl('/dashboard');">Return To Dashboard</button>
         </div>
     </dialog> 
     <dialog id="assessmentDialog" class="mdl-dialog" style="height:70vh; width:95vw;">    
@@ -266,7 +271,10 @@
                     <div id="currentStep"></div>
                 </div>
                 <div class="mdl-card__actions">
-                    <button id="timerButton" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Start Timer</button>
+                    <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect card-button" onclick="sayStep();">
+                        <span class="material-icons" style="font-size:4vh; line-height:1vh;">volume_up</span>                        
+                    </button>   
+                    <button id="timerButton" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect card-button">Start Timer</button>
                 </div>
             </div>
         </div>
