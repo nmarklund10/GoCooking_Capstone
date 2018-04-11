@@ -1,89 +1,257 @@
-{% extends 'templates/base_no_footer.html' %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>MealMentor</title>
+        <meta charset="UTF-8">
+        {% load static %}        
+        <link rel="shortcut icon" type="image/png" href="{% static 'images/logo.png' %}"/>
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue-pink.min.css">
+        <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+        {% csrf_token %}
+        <script>
+            var csrf_token = document.getElementsByName("csrfmiddlewaretoken")[0].value.toString();
+        </script>
+        {% load static %}
+        <script type="text/javascript" src="{% static 'js/helper.js' %}"></script>
+        <link rel="stylesheet" href="{% static 'css/template.css' %}">
+        {% block includes %}
+            {% load static %}
+                <script type="text/javascript" src="{% static 'js/cooking.js' %}"></script>
+            <script>
+                window.onload = setup;
+                var recipe = "{{ recipe }}";
+                history.pushState(null, null, document.URL);
+                window.addEventListener('popstate', function () {
+                    history.pushState(null, null, document.URL);
+                });
+            </script>
+            <style>
+                #titlebar {
+                    padding-top: 3vh;
+                    background-color: #2196F3;
+                    height: 6vh;
+                    width: 100vw;
+                }
+                .mdl-cell.assess {
+                    padding-top: 2vh;
+                }
+                .mdl-grid.assess {
+                    padding: 4vh 0 4vh 0;
+                    width: 100%;
+                }
+                .cooking {
+                    padding: 2vh 0 0 0;
+                    height: 85vh;
+                    width: 100vw;
+                }
+                .mdl-cell {
+                    margin: 0;
+                    height: 100%;
+                }
+                .onecol {
+                    width: 20vw;
+                }
+                .mdl-cell--10-col {
+                    width: 60vw;
+                }
+                .mdl-card {
+                    height: 100%;
+                    width: 100%;
+                }
+                .mdl-card__title {
+                    justify-content: center;
+                    font-size: 5vh;
+                    padding: 3vh 3vw;
+                }
+                .mdl-card__media {
+                    justify-content: center;
+                }
+                .mdl-card__supporting-text {
+                    padding: 2vh 2vw;
+                }
+                .mdl-card__actions {
+                    padding: 1vh 1vw;
+                }
+                #currentStep {
+                    font-size: 4vh;
+                    line-height: 5vh;
+                    text-align: center;
+                }
+                .nav-button {
+                    text-align: center;
+                    height: 100%;
+                    width: 90%
+                }
+                #exitButton {
+                    color: white;
+                    width: 90%;
+                    height: 100%;
+                    font-size: 2vh;
+                    line-height: 2vh;                  
+                    padding: 0 1vw;
+                }
+                #recipeTitle {
+                    text-align: center;
+                    color: white;
+                    font-size: 6vh;
+                    line-height: 6vh;
+                }
+                #timerButton {
+                    display: block; 
+                    margin: 0 auto;
+                    padding: 5vh 10vw;
+                    line-height: 1vh;
+                    font-size: 3vh;
+                }
+                #assessmentDialog > .mdl-dialog__title {
+                    padding-top: 3vh;
+                    padding-left: 2vw;
+                    padding-right: 2vw;  
+                    font-size: 5vh;                  
+                }
+                #assessmentDialog > .mdl-dialog__content {
+                    height: 50vh;
+                    padding: 1vh 0 1vw 1vw;
+                }
+                #questionCounter {
+                    font-size: 4vh;
+                } 
+                #assessmentQuestion {
+                    margin-top: 2vh;;
+                    font-size: 4vh;
+                }
+                .mdl-radio {
+                    display: inline-block;
+                    font-size: 2vh;
+                    width: 15.5vw;
+                }
+                .assessSpacer {
+                    display: inline-block; 
+                    height: 1vh; 
+                    width: 10vw;
+                }
+                .assessPics {
+                    height:27vh; 
+                    display:block; 
+                    margin:auto;
+                    cursor: pointer;
+                    border-color: white;
+                    border-style: solid;
+                }
+                .assessPics:hover {
+                    border-color: #2196F3;
+                }
+                .dialog-button {
+                    width: 46%;
+                    height: 100%;
+                }
+                #nextAssessmentButton:disabled {
+                    background-color: white;
+                }
+                .choicePad {
+                    height:26vh;
+                }
+                .choice {
+                    height: 26vh;
+                    padding-top: 10vh;
+                    padding-bottom: 10vh;
+                    box-sizing: border-box;
+                    margin-right: 1vw;
+                    border-style: solid;                    
+                    border-color: black;
+                    background-color: #f4f7f5;   
+                    text-align: center;      
+                    font-size: 3vh;
+                }
+                .selectedChoice {
+                    border-style: solid;
+                    border-color: #2196F3;
+                    background-color: #e9f3ec;
+                }
+                .choice:hover {
+                    border-style: solid;
+                    border-color: #2196F3;
+                    background-color: #e9f3ec;
+                    cursor: pointer;
+                }
+            </style>
+        {% endblock %}
+    </head>
+</html>
 
-{% block includes %}
-    {% load static %}
-        <script type="text/javascript" src="{% static 'js/cooking.js' %}"></script>
-    <script>
-        window.onload = setup;
-        var recipe = "{{ recipe }}";
-    </script>
-    <style>
-        #titlebar {
-            padding-top: 3vh;
-            background-color:white;
-            height: 6vh;
-            width: 100vw;
-        }
-        .mdl-grid {
-            padding: 4vh 0 0 0;
-            height: 76vh;
-            width: 100vw;
-        }
-        .mdl-cell {
-            margin: 0;
-            height: 100%;
-        }
-        .mdl-cell--1-col {
-            width: 10vw;
-        }
-        .mdl-cell--10-col {
-            width: 80vw;
-        }
-        .mdl-card {
-            height: 100%;
-            width: 100%;
-        }
-        .mdl-card__title {
-            justify-content: center;
-            font-size: 5vh;
-            padding: 3vh 3vw;
-        }
-        .mdl-card__media {
-            justify-content: center;
-        }
-        .mdl-card__supporting-text {
-            padding: 3vh 3vw;
-        }
-        #currentStep {
-            font-size: 4vh;
-            line-height: 5vh;
-            text-align: center;
-        }
-        .nav-button {
-            text-align: center;
-            height: 100%;
-            width: 90%
-        }
-        #exitButton {
-            float: left;
-            width: 10vw;
-            font-size: 2vh;
-        }
-        #recipeTitle {
-            width: 90vw;
-            font-size:6vh;
-            margin:0;
-        }
-    </style>
-{% endblock %}
 
 {% block content %}
-    <dialog id="alertDialog" class="mdl-dialog">    
+    <dialog id="alertDialog" class="mdl-dialog" style="width: 30vw;">    
         <h4 class="mdl-dialog__title" align="center">Complete Recipe?</h4>
         <div class="mdl-dialog__content">
             <p id="alertDialogText" align="center">Are you sure you want to mark this recipe as completed?</p>
         </div>
         <div class="mdl-dialog__actions">
-            <button id="alertDialogButton" class="mdl-button mdl-js-button mdl-js-ripple-effect" style="background-color: lightgray;" onclick="finishRecipe();">OK</button>
-            <button id="closeDialogButton" class="mdl-button mdl-js-button mdl-js-ripple-effect">Cancel</button>
+            <button id="alertDialogButton" class="mdl-button mdl-js-button mdl-js-ripple-effect dialog-button" style="background-color: lightgray;" onclick="finishRecipe();">OK</button>
+            <button id="closeDialogButton" class="mdl-button mdl-js-button mdl-js-ripple-effect dialog-button">Cancel</button>
         </div>
     </dialog>
-    <div id="titlebar">
-        <button id="exitButton" class="mdl-button mdl-js-button mdl-js-ripple-effect" onclick="goToUrl('/dashboard');">Exit Recipe</button>
-        <p id="recipeTitle" align="center"></p>
+    <dialog id="timerDialog" class="mdl-dialog" style="width: 30vw;">    
+        <h4 class="mdl-dialog__title" align="center">Timer Done!</h4>
+        <div class="mdl-dialog__actions">
+            <button id="alertDialogButton" class="mdl-button mdl-js-button mdl-js-ripple-effect dialog-button" style="display: block; margin: 0 auto; background-color: lightgray;" onclick="closeTimer();">OK</button>
+        </div>
+    </dialog>
+    <dialog id="exitDialog" class="mdl-dialog" style="width: 30vw;">    
+        <h4 class="mdl-dialog__title" align="center">Exit Recipe?</h4>
+        <div class="mdl-dialog__content">
+            <p id="exitDialogText" align="center">Are you sure you want to exit? Your data will not be recorded.</p>
+        </div>
+        <div class="mdl-dialog__actions">
+            <button id="exitDialogButton" class="mdl-button mdl-js-button mdl-js-ripple-effect dialog-button" style="background-color: lightgray;" onclick="goToUrl('/dashboard');">Exit</button>
+            <button id="cancelDialogButton" class="mdl-button mdl-js-button mdl-js-ripple-effect dialog-button">Cancel</button>
+        </div>
+    </dialog>
+    <dialog id="failScreen" class="mdl-dialog" style="width: 30vw;">    
+        <div class="mdl-dialog__content">
+            <p style="font-size: 3vh; margin-bottom:0;" align="center">Unfortunately, you did not get a high enough score to pass this recipe.</p>
+        </div>
+        <div class="mdl-dialog__actions">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect dialog-button" style="display:block;margin:auto;background-color: lightgray;" onclick="goToUrl('/dashboard');">Return To Dashboard</button>
+        </div>
+    </dialog> 
+    <dialog id="assessmentDialog" class="mdl-dialog" style="height:70vh; width:95vw;">    
+        <h4 class="mdl-dialog__title" align="center">Post-Assessment Form</h4>
+        <div id="assessContent" class="mdl-dialog__content">
+            <div style="height:5vh;"></div>
+            <div id="questionCounter">Question 1/5:</div>
+            <div id="assessmentQuestion">Which picture looks most like your completed dish?</div>
+            <div id="assessment">
+                <div class="mdl-grid assess">
+                    <div class="mdl-cell mdl-cell--4-col">
+                        <img class="assessPics" onclick="selectImage(0);">
+                    </div>
+                    <div class="mdl-cell mdl-cell--4-col">
+                        <img class="assessPics" onclick="selectImage(1);">
+                    </div>  
+                    <div class="mdl-cell mdl-cell--4-col">
+                        <img class="assessPics" onclick="selectImage(2);">
+                    </div>                  
+                </div>
+            </div>
+        </div>
+        <div class="mdl-dialog__actions" style="height: 8vh;">
+            <button id="nextAssessmentButton" class="mdl-button mdl-js-button mdl-js-ripple-effect dialog-button" style="font-size: 2vh; width: 100%; background-color: lightgray;" onclick="nextAssessment();" disabled>Next Question</button>
+        </div>
+    </dialog>
+    <div id="titlebar" class="mdl-grid cooking" style="padding-bottom: 1vh;">
+        <div class="mdl-cell mdl-cell--1-col onecol"></div>            
+        <div class="mdl-cell--10-col">
+            <div id="recipeTitle"></div>
+        </div>
+        <div class="mdl-cell mdl-cell--1-col onecol">
+                <button id="exitButton" class="mdl-button mdl-js-button mdl-js-ripple-effect" style="border: 2px solid white" onclick="exitWindow();">Exit Recipe</button>
+        </div>
     </div>
-    <div class="mdl-grid">
-        <div class="center-text mdl-cell mdl-cell--1-col">
+    <div class="mdl-grid cooking">
+        <div class="center-text mdl-cell mdl-cell--1-col onecol">
             <button id="prevButton" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect nav-button" onclick="prevStep();">
                 <span class="material-icons" style="font-size:10vh;">arrow_back</span>
             </button>
@@ -92,14 +260,17 @@
             <div class="mdl-card mdl-shadow--4dp">
                 <div id="stepTitle" class="mdl-card__title"></div>
                 <div class="mdl-card__media mdl-color--white">
-                    <img id="currentGif" style="height:40vh; display: block; margin: auto;">
+                    <img id="currentGif" style="height:35vh; display: block; margin: auto;">
                 </div>
                 <div class="mdl-card__supporting-text">
                     <div id="currentStep"></div>
                 </div>
+                <div class="mdl-card__actions">
+                    <button id="timerButton" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Start Timer</button>
+                </div>
             </div>
         </div>
-        <div class="center-text mdl-cell mdl-cell--1-col">
+        <div class="center-text mdl-cell mdl-cell--1-col onecol">
             <button id="nextButton" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect nav-button" style="float:right;" onclick="nextStep();">
                 <span class="material-icons" style="font-size:10vh;">arrow_forward</span>
             </button>
