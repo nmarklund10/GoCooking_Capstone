@@ -180,6 +180,12 @@
                     background-color: #e9f3ec;
                     cursor: pointer;
                 }
+                #skill {
+                    background-color: #f0e4e4;
+                    cursor: pointer;
+                    color: #2196F3;
+                    text-decoration: underline;
+                }
             </style>
         {% endblock %}
     </head>
@@ -201,6 +207,15 @@
         <h4 class="mdl-dialog__title" align="center">Timer Done!</h4>
         <div class="mdl-dialog__actions">
             <button id="alertDialogButton" class="mdl-button mdl-js-button mdl-js-ripple-effect dialog-button" style="background-color: lightgray;" onclick="closeTimer();">OK</button>
+        </div>
+    </dialog>
+    <dialog id="skillDialog" class="mdl-dialog" style="width: 50vw;">    
+        <h4 id="skillName" class="mdl-dialog__title" align="center"></h4>
+        <div class="mdl-dialog__content">
+            <p id="skillDescription" style="font-size: 3vh;" align="center"></p>
+        </div>
+        <div class="mdl-dialog__actions">
+            <button id="skillClose" class="mdl-button mdl-js-button mdl-js-ripple-effect dialog-button" style="width: 90%; background-color: lightgray;" onclick="closeTimer();">Close</button>
         </div>
     </dialog>
     <dialog id="exitDialog" class="mdl-dialog" style="width: 50vw;">    
