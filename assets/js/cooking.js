@@ -39,6 +39,7 @@ function updateCurrentStep() {
     window.speechSynthesis.cancel();
     document.getElementById('currentStep').innerText = window.recipe.instructions[stepNumber];
     document.getElementById('stepTitle').innerText = "Step " + (window.stepNumber + 1) + "/" + window.recipe.instructions.length;
+    document.getElementById('currentGif').src = "";
     document.getElementById('currentGif').src = getGif(window.recipe.instructions[stepNumber]);
     setTimer(window.recipe.instructions[stepNumber]);    
     if (window.stepNumber == 0) {
@@ -252,8 +253,8 @@ function getGif(instruction) {
     path = 'gifs/';
     highlightSkill(instruction);
     instruction = instruction.toLowerCase();
-    if(window.recipe.filename == "bread1") {
-        return getStaticResource(path + 'bread1_step' + (window.stepNumber + 1) +'.gif');
+    if(window.recipe.filename == "bread1" || window.recipe.filename == "egg1") {
+        return getStaticResource(path + window.recipe.filename + '_step' + (window.stepNumber + 1) +'.gif');
     }
     else if(instruction.includes("")) {
         return getStaticResource(path + 'cooking.gif');
