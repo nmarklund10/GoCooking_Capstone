@@ -20,6 +20,9 @@ function setup() {
     window.selectedImage = null;
     window.currentQuestion = 0;
     window.score = 0;
+    document.getElementById("skillClose").addEventListener("click", function() {
+        document.getElementById("skillDialog").close();
+    });
 }
 
 function nextStep() {
@@ -36,6 +39,7 @@ function updateCurrentStep() {
     window.speechSynthesis.cancel();
     document.getElementById('currentStep').innerText = window.recipe.instructions[stepNumber];
     document.getElementById('stepTitle').innerText = "Step " + (window.stepNumber + 1) + "/" + window.recipe.instructions.length;
+    document.getElementById('currentGif').src = "";
     document.getElementById('currentGif').src = getGif(window.recipe.instructions[stepNumber]);
     setTimer(window.recipe.instructions[stepNumber]);    
     if (window.stepNumber == 0) {
@@ -226,6 +230,9 @@ function nextAssessment() {
 }
 
 function finishRecipe() {
+    if (window.interval != undefined) {
+        clearInterval(window.interval);
+    }
     var images = document.getElementsByClassName('assessPics');
     var name = window.recipe.filename;
     var sources = [name + "_" + 1, name + "_" + 3, name + "_" + 5];
@@ -244,11 +251,10 @@ function finishRecipe() {
 
 function getGif(instruction) {
     path = 'gifs/';
-    original = instruction
+    highlightSkill(instruction);
     instruction = instruction.toLowerCase();
-    console.log(original)
-    if(window.recipe.filename == "bread1") {
-        return getStaticResource(path + 'bread1_step' + (window.stepNumber + 1) +'.gif');
+    if(window.recipe.filename == "bread1" || window.recipe.filename == "egg1") {
+        return getStaticResource(path + window.recipe.filename + '_step' + (window.stepNumber + 1) +'.gif');
     }
     else if(instruction.includes("")) {
         return getStaticResource(path + 'cooking.gif');
@@ -256,4 +262,50 @@ function getGif(instruction) {
     else {
         return "";        
     }
+}
+
+function highlightSkill(instruction) {
+    var original = instruction
+    instruction = instruction.toLowerCase();
+    var i = -1;
+    var skill = "";
+    var skillDesc = ""
+    if ((i = instruction.indexOf("knead")) > -1) {
+        skill = "Knead";
+        length = getLength(instruction.substr(i));
+        original = original.slice(0, i) + '<span id="skill">' + original.substr(i, length) + '</span>' + original.slice(i+length);
+        skillDesc = "When kneading dough, the dough is placed on a floured surface, pressed and stretched with the heel of the hand and folded over repeatedly. This is done to warm and stretch the gluten strands in the bread, creating a springy and elastic dough. If the dough is not kneaded enough, it will end up heavy and dense.";        
+    }
+    else if ((i = instruction.indexOf("proof")) > -1) {
+        skill = "Proof";
+        length = getLength(instruction.substr(i));
+        original = original.slice(0, i) + '<span id="skill">' + original.substr(i, length) + '</span>' + original.slice(i+length);
+        skillDesc = "Proofing refers to the rest period before baking in which dough rises. This is done to leaven the bread.";
+    }
+    else if ((i = instruction.indexOf("egg wash")) > -1) {
+        skill = "Egg Wash";
+        length = getLength(instruction.substr(i + 4)) + 4;
+        original = original.slice(0, i) + '<span id="skill">' + original.substr(i, length) + '</span>' + original.slice(i+length);
+        skillDesc = "An egg wash is beaten eggs, sometimes mixed with another liquid such as water or milk, which is sometimes brushed onto the surface of a pastry before baking. This is done to make pastries shiny and golden or brown in color, and it also is used to help toppings or coatings stick to the surface of the pastry, or to bind pastry parts together.";
+    }
+    else {
+        return;
+    }
+    document.getElementById("currentStep").innerHTML = original;
+    document.getElementById("skill").addEventListener("click", function() {
+        document.getElementById("skillName").innerText = skill;
+        document.getElementById("skillDescription").innerText = skillDesc;
+        document.getElementById("skillDialog").showModal();        
+    });
+}
+
+function getLength(substring) {
+    var nextWord = [" ", ".", ",", ":", "!", "?"];    
+    var length;
+    for (var i = 0; i < nextWord.length; i++) {
+        if ((length = substring.indexOf(nextWord[i])) > -1) {
+            return length;
+        }
+    }
+    return -1;
 }

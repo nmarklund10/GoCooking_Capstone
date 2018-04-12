@@ -123,6 +123,9 @@ function getEquipmentImage(equipment) {
     else if(equipment.includes("toaster oven")) {
         return getStaticResource(path + 'toaster_oven.jpg');
     }
+    else if(equipment.includes("toaster")) {
+        return getStaticResource(path + 'toaster.jpg');
+    }
     else if(equipment.includes("whisk")) {
         return getStaticResource(path + 'whisk.jpg');
     }
