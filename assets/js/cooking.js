@@ -33,6 +33,7 @@ function prevStep() {
 }
 
 function updateCurrentStep() {
+    window.speechSynthesis.cancel();
     document.getElementById('currentStep').innerText = window.recipe.instructions[stepNumber];
     document.getElementById('stepTitle').innerText = "Step " + (window.stepNumber + 1) + "/" + window.recipe.instructions.length;
     document.getElementById('currentGif').src = getGif(window.recipe.instructions[stepNumber]);
@@ -42,7 +43,7 @@ function updateCurrentStep() {
     }
     else if (window.stepNumber == (window.recipe.instructions.length - 1)) {
         document.getElementById('nextButton').innerHTML = '<span id="nextButtonIcon" class="material-icons" style="color: green; font-size:10vh;">check_circle</span>'
-        document.getElementById('nextButton').onclick = function() { document.getElementById('alertDialog').showModal(); };
+        document.getElementById('nextButton').onclick = function() { window.speechSynthesis.cancel(); document.getElementById('alertDialog').showModal(); };
     }
     else {
         document.getElementById('nextButton').innerHTML = '<span id="nextButtonIcon" class="material-icons" style="font-size:10vh;">arrow_forward</span>'
@@ -53,6 +54,7 @@ function updateCurrentStep() {
 
 
 function exitWindow() {
+    window.speechSynthesis.cancel();
     document.getElementById('exitDialog').showModal();
 }
 
@@ -128,6 +130,20 @@ function getImageValue(src) {
         return 3;
     if (src == "5.jpg")
         return 5;
+}
+
+function sayStep() {
+    if (speechSynthesis.speaking) {
+        window.speechSynthesis.cancel();
+        if (window.startSpeaking !== null) {
+            clearTimeout(window.startSpeaking)
+        }
+        window.startSpeaking = setTimeout(function() { sayStep(); }, 250);
+    }
+    else {
+        var msg = new SpeechSynthesisUtterance(document.getElementById("currentStep").innerText);
+        window.speechSynthesis.speak(msg);
+    }
 }
 
 function nextAssessment() {
