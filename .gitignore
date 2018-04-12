@@ -51,3 +51,4 @@ docs/_build/
 db.sqlite3
 .vscode/*
 staticfiles/*
+*.DS_Store
