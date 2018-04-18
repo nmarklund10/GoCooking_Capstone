@@ -159,13 +159,14 @@ function nextAssessment() {
         document.getElementById("assessmentQuestion").innerText = "How satisfied are you with the dish you made?";
     }
     else if (window.currentQuestion == recipe.skills.length + 2) {
+        window.score += window.selectedValue;        
         window.score /= (window.recipe.skills.length + 2).toFixed(2);
-        console.log(window.score);
         if (window.score >= 3.5) {
             sendPostRequest("/passed/", {"recipe": window.recipe.name}, 
             function(response) {
                 if (response.success) {
-                    goToUrl("/dashboard");
+                    document.getElementById('failMessage').innerText = "Score: " + window.score + "\nCongratulations, you got a high enough score to pass this recipe.";
+                    document.getElementById('failScreen').showModal();
                 }
                 else {
                     alert(response.reason);
@@ -173,6 +174,7 @@ function nextAssessment() {
             });
         }
         else {
+            document.getElementById('failMessage').innerText = "Score: " + window.score + "\nUnfortunately, you did not get a high enough score to pass this recipe.";
             document.getElementById('failScreen').showModal();
         }
         return;
@@ -180,6 +182,7 @@ function nextAssessment() {
     else {
         document.getElementById("assessmentQuestion").innerText = "How confident are you now in " + recipe.skills[window.currentQuestion - 2] + "?";
         window.score += window.selectedValue;
+        console.log(window.selectedValue);
     }
     document.getElementById("questionCounter").innerText = "Question " + (window.currentQuestion + 1) + "/" + (recipe.skills.length + 2) + ":";
     div.innerHTML = "";
