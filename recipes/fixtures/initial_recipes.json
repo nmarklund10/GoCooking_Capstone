@@ -121,12 +121,12 @@
 		"pk": 8,
 		"fields": {
 			"filename": "bread2",            
-			"name": "Ultimate Banana Muffins",
-			"minutes": "35 minutes",
-			"instructions": ["Preheat oven to 350 degrees F (175 degrees C). Grease a muffin tin.", "Sift flour, baking powder, baking soda, cinnamon, salt, and nutmeg together in a small bowl.", "Mash bananas in a large bowl", "Mix in white sugar, melted butter, brown sugar, egg, and vanilla extract.", " Fold in flour mixture until just combined.", "Fold walnuts into the batter.", "Divide batter evenly among the muffin cups.", "Bake in the preheated oven until a toothpick inserted into the center comes out clean, about 20 minutes."],
-			"ingredients": ["1 1/2 cups all-purpose flour", "1 teaspoon baking powder", "1 teaspoon baking soda", "1 teaspoon ground cinnamon", "1/2 teaspoon salt", "1 dash ground nutmeg", "3 very ripe bananas", "1/2 cup white sugar", "1/3 cup butter, melted", "1/4 cup lightly packed brown sugar", "1 egg", "1 teaspoon vanilla extract", "1/4 cup chopped walnuts (optional)"],            
-			"equipment": ["toothpick", "muffin tin", "muffin cups", "whisk", "sifter", "small bowl", "large bowl", "measuring cup", " 2 9 x 5 loaf pans", "wire racks"],
-			"skills": ["skill21", "skill22", "skill23", "skill24"]
+			"name": "Homemade Pizza Dough",
+			"minutes": "90 minutes",
+			"instructions": ["Combine the bread flour, sugar, yeast and kosher salt in the bowl of a stand mixer and combine.", "While the mixer is running, add the water and 2 tablespoons of the oil and beat until the dough forms into a ball.", "If the dough is sticky, add additional flour, 1 tablespoon at a time, until the dough comes together in a solid ball.", " If the dough is too dry, add additional water, 1 tablespoon at a time.", "Scrape the dough onto a lightly floured surface and gently knead into a smooth, firm ball.", "Grease a large bowl with the remaining 2 teaspoons olive oil, add the dough, cover the bowl with plastic wrap and put it in a warm area to let it double in size, about 1 hour.", "Turn the dough out onto a lightly floured surface and divide it into 2 equal pieces.", "Cover each with a clean kitchen towel or plastic wrap and let them rest for 10 minutes."],
+			"ingredients": ["3 1/2 to 4 cups bread flour, plus more for rolling", "1 teaspoon sugar", "1 envelope instant dry yeast", "2 teaspoons kosher salt", "1 1/2 cups water, 110 degrees F", "2 tablespoons olive oil, plus 2 teaspoons"],            
+			"equipment": ["roller", "mixer", "cooking board", "large bowl", "measuring cup", "plastic wrap"],
+			"skills": ["skill21", "skill22", "skill23", "skill24", "skill25"]
 		}
 	},
 	{
@@ -134,12 +134,12 @@
 		"pk": 9,
 		"fields": {
 			"filename": "bread3",            
-			"name": "Homemade Pizza Dough",
-			"minutes": "90 minutes",
-			"instructions": ["Combine the bread flour, sugar, yeast and kosher salt in the bowl of a stand mixer and combine.", "While the mixer is running, add the water and 2 tablespoons of the oil and beat until the dough forms into a ball.", "If the dough is sticky, add additional flour, 1 tablespoon at a time, until the dough comes together in a solid ball.", " If the dough is too dry, add additional water, 1 tablespoon at a time.", "Scrape the dough onto a lightly floured surface and gently knead into a smooth, firm ball.", "Grease a large bowl with the remaining 2 teaspoons olive oil, add the dough, cover the bowl with plastic wrap and put it in a warm area to let it double in size, about 1 hour.", "Turn the dough out onto a lightly floured surface and divide it into 2 equal pieces.", "Cover each with a clean kitchen towel or plastic wrap and let them rest for 10 minutes."],
-			"ingredients": ["3 1/2 to 4 cups bread flour, plus more for rolling", "1 teaspoon sugar", "1 envelope instant dry yeast", "2 teaspoons kosher salt", "1 1/2 cups water, 110 degrees F", "2 tablespoons olive oil, plus 2 teaspoons"],            
-			"equipment": ["roller", "mixer", "cooking board", "large bowl", "measuring cup", "plastic wrap"],
-			"skills": ["skill21", "skill22", "skill23", "skill24", "skill25"]
+			"name": "Ultimate Banana Muffins",
+			"minutes": "35 minutes",
+			"instructions": ["Preheat oven to 350 degrees F (175 degrees C). Grease a muffin tin.", "Sift flour, baking powder, baking soda, cinnamon, salt, and nutmeg together in a small bowl.", "Mash bananas in a large bowl", "Mix in white sugar, melted butter, brown sugar, egg, and vanilla extract.", " Fold in flour mixture until just combined.", "Fold walnuts into the batter.", "Divide batter evenly among the muffin cups.", "Bake in the preheated oven until a toothpick inserted into the center comes out clean, about 20 minutes."],
+			"ingredients": ["1 1/2 cups all-purpose flour", "1 teaspoon baking powder", "1 teaspoon baking soda", "1 teaspoon ground cinnamon", "1/2 teaspoon salt", "1 dash ground nutmeg", "3 very ripe bananas", "1/2 cup white sugar", "1/3 cup butter, melted", "1/4 cup lightly packed brown sugar", "1 egg", "1 teaspoon vanilla extract", "1/4 cup chopped walnuts (optional)"],            
+			"equipment": ["toothpick", "muffin tin", "muffin cups", "whisk", "sifter", "small bowl", "large bowl", "measuring cup", " 2 9 x 5 loaf pans", "wire racks"],
+			"skills": ["skill21", "skill22", "skill23", "skill24"]
 		}
 	}
 ]
