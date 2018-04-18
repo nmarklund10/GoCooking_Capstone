@@ -116,6 +116,7 @@
 			"skills": ["knead", "proof", "egg wash"]
 		}
 	},
+	
 	{
 		"model": "recipes.Recipe",
 		"pk": 8,
