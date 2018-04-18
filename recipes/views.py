@@ -13,7 +13,7 @@ from .models import Recipe
 User = apps.get_model('login', 'User')
 
 def recipe_to_json(recipe):
-    return {'filename': recipe.filename, 'name': recipe.name, 'minutes': recipe.minutes, 'instructions': recipe.instructions.replace("'", '"') , 'ingredients': recipe.ingredients.replace("'", '"'), 'equipment': recipe.equipment.replace("'", '"'), 'skills': recipe.skills.replace("'", '"')}
+    return {'filename': recipe.filename, 'name': recipe.name, 'minutes': recipe.minutes, 'instructions': recipe.instructions.replace("'", '"') , 'ingredients': recipe.ingredients.replace("'", '"'), 'equipment': recipe.equipment.replace("'", '"'), 'skills': recipe.skills.replace("'", '"'), 'dangers': recipe.dangers.replace("'", '"')}
 
 def show_dashboard(request):
     if 'logged_in' not in request.session:
