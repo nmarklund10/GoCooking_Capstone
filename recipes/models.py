@@ -11,3 +11,4 @@ class Recipe(models.Model):
     ingredients = models.CharField(max_length=2048)
     equipment = models.CharField(max_length=1024)
     skills = models.CharField(max_length=1024)
+    dangers = models.CharField(max_length=512)

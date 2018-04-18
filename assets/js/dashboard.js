@@ -75,11 +75,11 @@ function getRecipes() {
         });
     document.getElementById('scrollUpButton').addEventListener('click', 
         function() {
-            $("#the_dialog_div").animate({scrollTop: '-=200vh'}, 400);
+            $("#the_dialog_div").animate({scrollTop: '-=300vh'}, 400);
         });
     document.getElementById('scrollDownButton').addEventListener('click', 
         function() {
-            $("#the_dialog_div").animate({scrollTop: '+=200vh'}, 400);
+            $("#the_dialog_div").animate({scrollTop: '+=300vh'}, 400);
         });
     document.getElementById("alertCloseButton").addEventListener('click', function(){document.getElementById("topLink").click(); document.getElementById('alertDialog').close();});
 }
@@ -198,10 +198,12 @@ function createCards(levelGrid) {
                     recipe.ingredients = JSON.parse(recipe.ingredients);
                     recipe.equipment = JSON.parse(recipe.equipment);
                     recipe.skills = JSON.parse(recipe.skills);
+                    recipe.dangers = JSON.parse(recipe.dangers);
                     document.getElementById('alertDialogTitle').innerText = recipe.name;
                     document.getElementById('alertDialogTime').innerText = "Ready In: " + recipe.minutes;
                     document.getElementById('alertDialogImage').src = getStaticResource('images/recipes/' + recipeId + '.jpg');
-                    createSkillsGrid('skillsGrid', recipe.skills);
+                    createChipsGrid('dangersGrid', recipe.dangers);
+                    createChipsGrid('skillsGrid', recipe.skills);
                     createImageGridFromArray('ingredientGrid', recipe.ingredients, getIngredientImage);
                     createImageGridFromArray('equipmentGrid', recipe.equipment, getEquipmentImage);
                     createInstructionTable('instructionsTable', recipe.instructions);
@@ -268,7 +270,7 @@ function setBadge(card, icon) {
     }
 }
 
-function createSkillsGrid(holderId, arr) {
+function createChipsGrid(holderId, arr) {
     var grid = document.getElementById(holderId);
     grid.innerHTML = "";
     var rowNumber = -1;
@@ -293,12 +295,18 @@ function createSkillsGrid(holderId, arr) {
         var currentCell = document.getElementsByClassName(holderId + rowNumber)[i%4]
         var skill = document.createElement('span');
         skill.className = "mdl-chip skill";
-        skill.style.backgroundColor = "red";
         var text = document.createElement('span');
         text.className = "mdl-chip__text"
         text.innerText = arr[i];
-        if (window.userSkills.indexOf(arr[i]) > -1) {
-            skill.style.backgroundColor = "green"
+        if (holderId == "skillsGrid") {
+            skill.style.backgroundColor = "#e6c21c";
+            if (window.userSkills.indexOf(arr[i]) > -1) {
+                skill.style.backgroundColor = "green"
+            }
+        }
+        else if (holderId == "dangersGrid") {
+            skill.style.backgroundColor = "red";
+            
         }
         skill.appendChild(text);
         currentCell.appendChild(skill);
