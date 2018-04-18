@@ -94,6 +94,24 @@ function getIngredientImage(ingredient) {
     else if(ingredient.includes("breakfast sausage")) {
         return getStaticResource(path + 'breakfast_sausage.jpg');
     }
+    else if(ingredient.includes("bread flour")) {
+        return getStaticResource(path + 'bread_flour.jpg');
+    }
+    else if(ingredient.includes("water")) {
+        return getStaticResource(path + 'water.jpg');
+    }
+    else if(ingredient.includes("milk powder")) {
+        return getStaticResource(path + 'milk_powder.jpg');
+    }
+    else if(ingredient.includes("yeast")) {
+        return getStaticResource(path + 'yeast.jpg');
+    }
+    else if(ingredient.includes("sugar")) {
+        return getStaticResource(path + 'sugar.jpg');
+    }
+    else if(ingredient.includes("butter")) {
+        return getStaticResource(path + 'butter.jpg');
+    }
     else {
         return "";
     }
@@ -128,6 +146,15 @@ function getEquipmentImage(equipment) {
     }
     else if(equipment.includes("whisk")) {
         return getStaticResource(path + 'whisk.jpg');
+    }
+    else if(equipment.includes("sheet pan")) {
+        return getStaticResource(path + 'sheet_pan.jpg');
+    }
+    else if(equipment.includes("parchment paper")) {
+        return getStaticResource(path + 'parchment_paper.jpg');
+    }
+    else if(equipment.includes("pastry brush")) {
+        return getStaticResource(path + 'pastry_brush.jpg');
     }
     else {
         return "";
