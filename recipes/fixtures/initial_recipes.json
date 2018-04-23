@@ -117,7 +117,7 @@
 							"Place all your pieces of dough into a sheet pan with parchment paper. Cover the pan with plastic wrap and let it proof until all the pieces grow to twice their size.",
 							"Prepare an egg wash and brush it onto the rolls.",
 							"Bake in the oven for 15 - 20 minutes. The bread should be a golden brown color. Make sure to turn off the oven!"],
-			"ingredients": ["2 cups bread flour", "1/2 cup water", "4 tbsp milk powder", "2 eggs", "1 tsp yeast", "3 tbsp sugar", "3/4 tsp salt", "3 tbsp butter"],            
+			"ingredients": ["2 cups bread flour", "1/2 cup water", "4 tbsp milk powder", "2 eggs", "1 tsp yeast", "3 tbsp sugar", "3/4 tsp salt", "3 tbsp butter"],
 			"equipment": ["bowl", "sheet pan", "parchment paper", "pastry brush"],
 			"skills": ["Knead", "Proof", "Egg Wash"],
 			"dangers": ["Baking"]
