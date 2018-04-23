@@ -97,6 +97,9 @@ function getIngredientImage(ingredient) {
     else if(ingredient.includes("bread flour")) {
         return getStaticResource(path + 'bread_flour.jpg');
     }
+    else if(ingredient.includes("flour")) {
+        return getStaticResource(path + 'flour.jpg');
+    }
     else if(ingredient.includes("water")) {
         return getStaticResource(path + 'water.jpg');
     }
@@ -114,6 +117,21 @@ function getIngredientImage(ingredient) {
     }
     else if(ingredient.includes("butter")) {
         return getStaticResource(path + 'butter.jpg');
+    }
+    else if(ingredient.includes("honey")) {
+        return getStaticResource(path + 'honey.jpg');
+    }
+    else if(ingredient.includes("cornmeal")) {
+        return getStaticResource(path + 'cornmeal.jpg');
+    }
+    else if(ingredient.includes("pizza sauce")) {
+        return getStaticResource(path + 'pizza_sauce.jpg');
+    }
+    else if(ingredient.includes("mozarella cheese")) {
+        return getStaticResource(path + 'mozarella_cheese.jpg');
+    }
+    else if(ingredient.includes("toppings")) {
+        return getStaticResource(path + 'toppings.jpg');
     }
     else {
         return "";
@@ -173,6 +191,9 @@ function getEquipmentImage(equipment) {
     }
     else if(equipment.includes("plastic wrap")) {
         return getStaticResource(path + 'plastic_wrap.jpg');
+    }
+    else if(equipment.includes("dough cutter")) {
+        return getStaticResource(path + 'dough_cutter.jpg');
     }
     else {
         return "";
