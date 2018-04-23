@@ -256,7 +256,7 @@ function getGif(instruction) {
     path = 'gifs/';
     highlightSkill(instruction);
     instruction = instruction.toLowerCase();
-    if(window.recipe.filename == "bread1" || window.recipe.filename == "egg1") {
+    if(window.recipe.filename == "bread1" || window.recipe.filename == "egg1" || window.recipe.filename == "bread2") {
         return getStaticResource(path + window.recipe.filename + '_step' + (window.stepNumber + 1) +'.gif');
     }
     else if(instruction.includes("")) {
